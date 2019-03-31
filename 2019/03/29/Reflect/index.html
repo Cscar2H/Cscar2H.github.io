@@ -88,7 +88,7 @@
 <meta property="og:description" content="反射为什么要使用反射1234567891011121314151617181920//定义一个类class Person&amp;#123;    public Object work()&amp;#123;        //假设看不到源码,无法获取真实类型        return new Date();    &amp;#125;        //调用work方法    @Test    public void">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/03/29/Reflect/reflect1.png">
-<meta property="og:updated_time" content="2019-03-30T01:25:07.774Z">
+<meta property="og:updated_time" content="2019-03-30T02:09:00.741Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Reflect反射">
 <meta name="twitter:description" content="反射为什么要使用反射1234567891011121314151617181920//定义一个类class Person&amp;#123;    public Object work()&amp;#123;        //假设看不到源码,无法获取真实类型        return new Date();    &amp;#125;        //调用work方法    @Test    public void">
@@ -393,7 +393,7 @@
       
 
       
-        <h3 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h3><h4 id="为什么要使用反射"><a href="#为什么要使用反射" class="headerlink" title="为什么要使用反射"></a>为什么要使用反射</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义一个类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">work</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//假设看不到源码,无法获取真实类型</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Date();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//调用work方法</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testWork</span><span class="params">()</span></span>&#123;</span><br><span class="line">    	Person p = <span class="keyword">new</span> Person();</span><br><span class="line">    	Object obj = p.work();</span><br><span class="line">    	</span><br><span class="line">    	<span class="comment">//返回值是一个对象,可以继续调用该对象的方法.</span></span><br><span class="line">    	Date d = (Date)obj;</span><br><span class="line">    	<span class="comment">//打印本地的时间风格,但是却不知道应该用什么来接收(不知道返回的是date)</span></span><br><span class="line">    	String str = d.toLocalString();</span><br><span class="line">    	System.out.println(str);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h3 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h3><h4 id="为什么要使用反射"><a href="#为什么要使用反射" class="headerlink" title="为什么要使用反射"></a>为什么要使用反射</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义一个类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">work</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//假设看不到源码,无法获取真实类型</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Date();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//调用work方法</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testWork</span><span class="params">()</span></span>&#123;</span><br><span class="line">    	Person p = <span class="keyword">new</span> Person();</span><br><span class="line">    	Object obj = <span class="keyword">new</span> Person();</span><br><span class="line">    	</span><br><span class="line">    	<span class="comment">//返回值是一个对象,可以继续调用该对象的方法.</span></span><br><span class="line">    	Date d = (Date)obj;</span><br><span class="line">    	<span class="comment">//打印本地的时间风格,但是却不知道应该用什么来接收(不知道返回的是date)</span></span><br><span class="line">    	String str = d.toLocalString();</span><br><span class="line">    	System.out.println(str);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Person类是别人提供好的字节码文件.看不到源码是不能直接强转的.</p>
 <p>不爽:我都已经获取到真正的对象了,居然不能知道他的真实类型.</p>
 <h4 id="什么是反射"><a href="#什么是反射" class="headerlink" title="什么是反射:"></a>什么是反射:</h4><p><strong>通过字节码(Class)对象,动态的获取该字节码中的成员(构造器,方法,字段,父类,包…)</strong></p>
@@ -575,7 +575,7 @@ Method getDeclaredMethod(String name, Class&lt;?&gt;... parameterTypes) :获取�
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -586,7 +586,7 @@ Method getDeclaredMethod(String name, Class&lt;?&gt;... parameterTypes) :获取�
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -597,7 +597,7 @@ Method getDeclaredMethod(String name, Class&lt;?&gt;... parameterTypes) :获取�
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
