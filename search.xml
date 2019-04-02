@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[初识XML]]></title>
+    <url>%2F2019%2F04%2F02%2F%E5%88%9D%E8%AF%86XML%2F</url>
+    <content type="text"><![CDATA[XMLXML概述使用XML文件,可以保存复杂的数据,数据结构清晰(树状结构) 传输数据是一种通用的数据格式 传递数据,作为配置文件存在 XML语法 版本 &lt;?xml version=&quot;1.0&quot;?&gt; 用encoding属性说明文档所使用的字符编码，默认为UTF-8。保存在磁盘上的文件编码要与声明的编码一致。 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; 用standalone属性说明文档是否独立，即是否依赖其他文档。 &lt;?xml version=&quot;1.0&quot; standalone=&quot;yes&quot;?&gt; 标签的属性,描述该标签 &lt;linkman 属性名=&quot;属性值&quot;&gt; 123456789101112131415&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;contacts&gt; &lt;person id="1"&gt; &lt;name&gt;蔡徐坤&lt;/name&gt; &lt;address&gt;荷兰&lt;/address&gt; &lt;email&gt;kk@nmsl&lt;/email&gt; &lt;age&gt;17&lt;/age&gt; &lt;/person&gt; &lt;person id="2"&gt; &lt;name&gt;孙笑川&lt;/name&gt; &lt;address&gt;日本&lt;/address&gt; &lt;email&gt;cc@nmsl&lt;/email&gt; &lt;age&gt;18&lt;/age&gt; &lt;/person&gt;&lt;/contacts&gt; DOM解析(Document Object Model)文档对象模型,可以将xml的操作当做是操作对象 特点: 在加载XML文档的时候,会一次性把所有的信息加载到内存中(DOM树) 使用document这一对象来描述,剩下的操作都是操作内存中的对象 缺点: 如果XML文档内容比较多,文件比较大,一加载到内存中会导致,内存溢出 注意: 1.使用DOM解析,导入的类都是在org.w3c.dom包中.如果发现让你强转.意识到可能导错包了. 2.在XML中,一切皆节点 ####获取Document对象 三个类 Document DocumentBuilder DocumentBuilderFactory newDocumentBuilder:单例设计模式,需要通过自身的newInstance方法,获取一个新的实例 DocumentBuilder:需要通过newDocumentBuilder的实例中的newDocumentBuilder获取对象,该类重写了parse方法和newDocument方法 Document:接口,不能创建对象.抽象的parse方法和newDocument方法]]></content>
+      <categories>
+        <category>JavaSE</category>
+      </categories>
+      <tags>
+        <tag>JavaSE</tag>
+        <tag>配置文件</tag>
+        <tag>xml</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[JavaUtility]]></title>
     <url>%2F2019%2F03%2F31%2FJavaUtility%2F</url>
     <content type="text"><![CDATA[LombokJavaBean规范代码生成工具]]></content>
