@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[pocketbook]]></title>
     <url>%2F2019%2F04%2F04%2Fpocketbook%2F</url>
-    <content type="text"><![CDATA[pocketbook基于Swing和JDBC开发的桌面程序,JavaSE基础的综合.使用git进行版本管理,合作开发 github地址:https://github.com/Cscar2H/pocketbook]]></content>
+    <content type="text"><![CDATA[pocketbook基于Swing和JDBC开发的桌面程序,JavaSE基础的综合.使用git进行版本管理,合作开发 github地址:https://github.com/Cscar2H/pocketboo]]></content>
       <categories>
         <category>JavaSE</category>
       </categories>
@@ -16,7 +16,7 @@
   <entry>
     <title><![CDATA[MySQL]]></title>
     <url>%2F2019%2F04%2F03%2FMySQL%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[SQLSQL：结构化查询语言(Structured Query Language)SQL包含6个部分 1.数据库查询语言(DQL) 2.数据操作语言(DML) 3.事务处理语言(TCL) 4.数据控制语言(DCL) 5.数据定义语言(DDL) ORM思想: 对象关系映射 –&gt; Java的对象和关系型数据库的映射]]></content>
       <tags>
         <tag>MySQL</tag>
         <tag>DataBase</tag>
