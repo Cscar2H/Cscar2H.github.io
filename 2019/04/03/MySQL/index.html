@@ -93,18 +93,18 @@
 
 
 
-<meta name="description" content="SQLSQL：结构化查询语言(Structured Query Language)SQL包含6个部分 1.数据库查询语言(DQL) 2.数据操作语言(DML) 3.事务处理语言(TCL) 4.数据控制语言(DCL) 5.数据定义语言(DDL) ORM思想: 对象关系映射 –&amp;gt; Java的对象和关系型数据库的映射">
+<meta name="description" content="SQLSQL：结构化查询语言(Structured Query Language)SQL包含6个部分 1.数据库查询语言(DQL) 2.数据操作语言(DML) 3.事务处理语言(TCL) 4.数据控制语言(DCL) 5.数据定义语言(DDL) ORM思想: 对象关系映射 –&amp;gt; Java的对象和关系型数据库的映射   表 ——-&amp;gt; 面向对象     表结构  类   表的列  属性">
 <meta name="keywords" content="MySQL,DataBase,SQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL">
 <meta property="og:url" content="http://yoursite.com/2019/04/03/MySQL/index.html">
 <meta property="og:site_name" content="Cscar&#39;s Blog">
-<meta property="og:description" content="SQLSQL：结构化查询语言(Structured Query Language)SQL包含6个部分 1.数据库查询语言(DQL) 2.数据操作语言(DML) 3.事务处理语言(TCL) 4.数据控制语言(DCL) 5.数据定义语言(DDL) ORM思想: 对象关系映射 –&amp;gt; Java的对象和关系型数据库的映射">
+<meta property="og:description" content="SQLSQL：结构化查询语言(Structured Query Language)SQL包含6个部分 1.数据库查询语言(DQL) 2.数据操作语言(DML) 3.事务处理语言(TCL) 4.数据控制语言(DCL) 5.数据定义语言(DDL) ORM思想: 对象关系映射 –&amp;gt; Java的对象和关系型数据库的映射   表 ——-&amp;gt; 面向对象     表结构  类   表的列  属性">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-05T10:58:02.523Z">
+<meta property="og:updated_time" content="2019-04-05T12:04:41.364Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL">
-<meta name="twitter:description" content="SQLSQL：结构化查询语言(Structured Query Language)SQL包含6个部分 1.数据库查询语言(DQL) 2.数据操作语言(DML) 3.事务处理语言(TCL) 4.数据控制语言(DCL) 5.数据定义语言(DDL) ORM思想: 对象关系映射 –&amp;gt; Java的对象和关系型数据库的映射">
+<meta name="twitter:description" content="SQLSQL：结构化查询语言(Structured Query Language)SQL包含6个部分 1.数据库查询语言(DQL) 2.数据操作语言(DML) 3.事务处理语言(TCL) 4.数据控制语言(DCL) 5.数据定义语言(DDL) ORM思想: 对象关系映射 –&amp;gt; Java的对象和关系型数据库的映射   表 ——-&amp;gt; 面向对象     表结构  类   表的列  属性">
 
 
 
@@ -392,7 +392,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  82
+                  172
                 </span>
               
 
@@ -435,7 +435,77 @@
 3.事务处理语言(TCL)
 4.数据控制语言(DCL)
 5.数据定义语言(DDL)
-</code></pre><h4 id="ORM思想-对象关系映射-–-gt-Java的对象和关系型数据库的映射"><a href="#ORM思想-对象关系映射-–-gt-Java的对象和关系型数据库的映射" class="headerlink" title="ORM思想: 对象关系映射 –&gt; Java的对象和关系型数据库的映射"></a>ORM思想: 对象关系映射 –&gt; Java的对象和关系型数据库的映射</h4>
+</code></pre><h4 id="ORM思想-对象关系映射-–-gt-Java的对象和关系型数据库的映射"><a href="#ORM思想-对象关系映射-–-gt-Java的对象和关系型数据库的映射" class="headerlink" title="ORM思想: 对象关系映射 –&gt; Java的对象和关系型数据库的映射"></a>ORM思想: 对象关系映射 –&gt; Java的对象和关系型数据库的映射</h4><table>
+<thead>
+<tr>
+<th>表</th>
+<th>——-&gt;</th>
+<th>面向对象</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>表结构</td>
+<td></td>
+<td>类</td>
+</tr>
+<tr>
+<td>表的列</td>
+<td></td>
+<td>属性</td>
+</tr>
+<tr>
+<td>表的行</td>
+<td></td>
+<td>对象</td>
+</tr>
+</tbody>
+</table>
+<h4 id="MySQL命令行"><a href="#MySQL命令行" class="headerlink" title="MySQL命令行"></a>MySQL命令行</h4><pre><code>1.sudo mysql.server start : 启动数据库
+2.sudo mysql.server stop : 关闭数据库
+3.mysql -u root -p : 进入数据库(我的版本信息:Server version: 8.0.12 Homebrew)
+</code></pre><h4 id="MySQL列的常见类型"><a href="#MySQL列的常见类型" class="headerlink" title="MySQL列的常见类型"></a>MySQL列的常见类型</h4><table>
+<thead>
+<tr>
+<th>Java</th>
+<th>———-&gt;</th>
+<th>MySQL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>int</td>
+<td></td>
+<td>INT</td>
+</tr>
+<tr>
+<td>long</td>
+<td></td>
+<td>BIGINT</td>
+</tr>
+<tr>
+<td>BigDecimal</td>
+<td></td>
+<td>DECIMAL</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td></td>
+<td>BIT</td>
+</tr>
+<tr>
+<td>java.util.Date</td>
+<td></td>
+<td>DATE/DATETIME</td>
+</tr>
+<tr>
+<td>String</td>
+<td></td>
+<td>VARCHAR</td>
+</tr>
+</tbody>
+</table>
+
       
     </div>
     
@@ -666,7 +736,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL"><span class="nav-number">1.</span> <span class="nav-text">SQL</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#SQL：结构化查询语言-Structured-Query-Language"><span class="nav-number">1.1.</span> <span class="nav-text">SQL：结构化查询语言(Structured Query Language)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ORM思想-对象关系映射-–-gt-Java的对象和关系型数据库的映射"><span class="nav-number">1.2.</span> <span class="nav-text">ORM思想: 对象关系映射 –&gt; Java的对象和关系型数据库的映射</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL"><span class="nav-number">1.</span> <span class="nav-text">SQL</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#SQL：结构化查询语言-Structured-Query-Language"><span class="nav-number">1.1.</span> <span class="nav-text">SQL：结构化查询语言(Structured Query Language)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ORM思想-对象关系映射-–-gt-Java的对象和关系型数据库的映射"><span class="nav-number">1.2.</span> <span class="nav-text">ORM思想: 对象关系映射 –&gt; Java的对象和关系型数据库的映射</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MySQL命令行"><span class="nav-number">1.3.</span> <span class="nav-text">MySQL命令行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MySQL列的常见类型"><span class="nav-number">1.4.</span> <span class="nav-text">MySQL列的常见类型</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -709,7 +779,7 @@
 -->
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共6.8k字</span>
+  <span class="post-count">博客全站共6.9k字</span>
 </div>
 
 
