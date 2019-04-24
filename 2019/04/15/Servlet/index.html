@@ -101,10 +101,12 @@
 <meta property="og:site_name" content="Cscar&#39;s Blog">
 <meta property="og:description" content="Servlet概述Java Servlet(服务小程序),生成动态的web内容Servlet运行于支持Java的web应用服务器中 1.导入jar包.在/Library/Tomcat/lib/servlet-api.jar 2.创建一个类,实现servlet接口 3.配置web.xml web.xml123456789101112131415161718192021&amp;lt;?xml version">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-15T14:12:37.097Z">
+<meta property="og:image" content="http://yoursite.com/2019/04/15/Servlet/servlet1.png">
+<meta property="og:updated_time" content="2019-04-17T05:16:47.745Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Servlet">
 <meta name="twitter:description" content="Servlet概述Java Servlet(服务小程序),生成动态的web内容Servlet运行于支持Java的web应用服务器中 1.导入jar包.在/Library/Tomcat/lib/servlet-api.jar 2.创建一个类,实现servlet接口 3.配置web.xml web.xml123456789101112131415161718192021&amp;lt;?xml version">
+<meta name="twitter:image" content="http://yoursite.com/2019/04/15/Servlet/servlet1.png">
 
 
 
@@ -414,7 +416,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  745
+                  2k
                 </span>
               
 
@@ -430,7 +432,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  9
                 </span>
               
             </div>
@@ -469,6 +471,94 @@
 <h4 id="Servlet接口"><a href="#Servlet接口" class="headerlink" title="Servlet接口"></a>Servlet接口</h4><p>配置web.xml初始化参数<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 初始化参数 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>encoding<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>utf-8<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>通过servlet对象获取参数<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String encoding = obj.getInitParameter(<span class="string">"encoding"</span>) <span class="comment">//utf-8</span></span><br></pre></td></tr></table></figure></p>
 <p>获取所有的初始化参数名称<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Enumeration&lt;String&gt; names = obj.getInitParameterNames(); <span class="comment">//使用迭代器遍历</span></span><br><span class="line"><span class="keyword">while</span> (names.hasMoreElements()) &#123;</span><br><span class="line">    String name = names.nextElement();</span><br><span class="line">    String value = config.getInitParameter(name);</span><br><span class="line">    System.out.println(name + <span class="string">":"</span> + value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>方法<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">String <span class="title">getServletName</span><span class="params">()</span> <span class="comment">//获取当前Servlet 的&lt;servlet-name&gt;中的内容</span></span></span><br><span class="line"><span class="function">ServletContext <span class="title">getServletContext</span><span class="params">()</span> <span class="comment">//获取上下文对象,一个应用就只有一个上下文对象</span></span></span><br><span class="line"><span class="function">String <span class="title">getInitParameter</span><span class="params">(String name)</span> <span class="comment">//获取指定名称的初始化参数值</span></span></span><br><span class="line"><span class="function">Enumeration&lt;String&gt; <span class="title">getInitParameterNames</span><span class="params">()</span> <span class="comment">//获取所有的初始化参数的名称</span></span></span><br></pre></td></tr></table></figure></p>
+<h4 id="Servlet的继承体系"><a href="#Servlet的继承体系" class="headerlink" title="Servlet的继承体系"></a>Servlet的继承体系</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> me.cscar.network.servlet;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HttpServletDemo</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> <span class="keyword">throws</span> ServletException </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"自己的初始化代码"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"执行操作"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/04/15/Servlet/servlet1.png" alt></p>
+<h4 id="HttpServletRequest常用方法"><a href="#HttpServletRequest常用方法" class="headerlink" title="HttpServletRequest常用方法"></a>HttpServletRequest常用方法</h4><table>
+<thead>
+<tr>
+<th>常用方法</th>
+<th>返回</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>req.getMethod()</td>
+<td>请求方式(post,get)</td>
+</tr>
+<tr>
+<td>req.getRequestURI</td>
+<td>返回请求行中的资源名字部分</td>
+</tr>
+<tr>
+<td>req.getRequestURL()</td>
+<td>返回客户端请求的完整url</td>
+</tr>
+<tr>
+<td>req.getContextPath()</td>
+<td>获取当前项目的上下文路径<context>path的值</context></td>
+</tr>
+<tr>
+<td>req.getRemoteAddr()</td>
+<td>发出请求的客户机ip地址</td>
+</tr>
+<tr>
+<td>req.getHeader(“User-Agent”)</td>
+<td>指定名称的头字段的值</td>
+</tr>
+</tbody>
+</table>
+<h4 id="获取表单请求参数"><a href="#获取表单请求参数" class="headerlink" title="获取表单请求参数"></a>获取表单请求参数</h4><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>返回</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>req.getParameter(“value”)</td>
+<td>获取表单请求参数</td>
+</tr>
+<tr>
+<td>getParameterValues(“hobby”)</td>
+<td>指定名字参数的多个参数值。(复选框)</td>
+</tr>
+<tr>
+<td>req.getParameterNames()</td>
+<td>获取表单的所有参数名</td>
+</tr>
+<tr>
+<td>req.getParameterMap()</td>
+<td>把所有的表单数据保存在map中</td>
+</tr>
+<tr>
+<td>getOutputStream()</td>
+<td>获取字节输出流对象. ( 文件下载)</td>
+</tr>
+<tr>
+<td>getWriter()</td>
+<td>获取字符输出流对象</td>
+</tr>
+<tr>
+<td>response.setContentType(“text/html;charset=utf-8”)</td>
+<td>设置输出的MIME类型和编码方式</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//req.getMethod():返回请求方式</span></span><br><span class="line">System.out.println(req.getMethod());</span><br><span class="line"><span class="comment">//req.getRequestURI:返回请求行中的资源名字部分</span></span><br><span class="line">System.out.println(req.getRequestURI());</span><br><span class="line"><span class="comment">//返回客户端请求的完整url</span></span><br><span class="line">System.out.println(req.getRequestURL());</span><br><span class="line"><span class="comment">//获取当前项目的上下文路径&lt;context&gt;path的值</span></span><br><span class="line">System.out.println(<span class="string">"ContextPath"</span> + req.getContextPath());</span><br><span class="line"><span class="comment">//返回发出请求的客户机ip地址</span></span><br><span class="line">System.out.println(req.getRemoteAddr());</span><br><span class="line"><span class="comment">//返回指定名称的头字段的值</span></span><br><span class="line">System.out.println(req.getHeader(<span class="string">"User-Agent"</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">//设置编码</span></span><br><span class="line">req.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"name:"</span> + req.getParameter(<span class="string">"username"</span>));</span><br><span class="line">System.out.println(<span class="string">"password:"</span> + req.getParameter(<span class="string">"psw"</span>));</span><br><span class="line"><span class="comment">//获取表单中的多个数据</span></span><br><span class="line">String[] values = req.getParameterValues(<span class="string">"hobby"</span>);</span><br><span class="line">System.out.println(Arrays.toString(values));</span><br><span class="line"><span class="comment">//获取表单的所有参数名</span></span><br><span class="line">Enumeration&lt;String&gt; names = req.getParameterNames();</span><br><span class="line"><span class="keyword">while</span> (names.hasMoreElements()) &#123;</span><br><span class="line">    String name = names.nextElement();</span><br><span class="line">    System.out.println(name);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//把所有的表单数据保存在map中</span></span><br><span class="line">Map&lt;String, String[]&gt; map = req.getParameterMap();</span><br><span class="line">Set&lt;Map.Entry&lt;String, String[]&gt;&gt; entrySet = map.entrySet();</span><br><span class="line"><span class="keyword">for</span> (Map.Entry&lt;String, String[]&gt; entry : entrySet) &#123;</span><br><span class="line">    String name = entry.getKey();</span><br><span class="line">    String[] value = entry.getValue();</span><br><span class="line">    System.out.println(name + <span class="string">":"</span> + Arrays.toString(value));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="JSP的原理"><a href="#JSP的原理" class="headerlink" title="JSP的原理"></a>JSP的原理</h3><h4 id="流程"><a href="#流程" class="headerlink" title="流程:"></a>流程:</h4><p>1.所有的jsp,jspx的访问都交给JspServlet来处理<br>2.把jsp文件转化为java文件<br>3.把所有java文件都转化为字节码文件<br>4.把转化的文件存放在tomcat/work/…文件下</p>
+<h4 id="体系"><a href="#体系" class="headerlink" title="体系:"></a>体系:</h4><p>HttpServlet &lt;- HttpJspBase &lt;- myDemo_jsp<br>jsp就是一个Servlet<br>在java文件中<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">out.write(<span class="string">""</span>);</span><br><span class="line">...</span><br><span class="line">out.print(...);</span><br></pre></td></tr></table></figure></p>
+<p>存在字符输出流对象,输出了html</p>
+<p>jsp语法:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;%!</span><br><span class="line">Java代码</span><br><span class="line">%&gt;</span><br><span class="line"></span><br><span class="line">&lt;%-- 注释,不会编译到servlet中 --%&gt;</span><br><span class="line"></span><br><span class="line">&lt;%= </span><br><span class="line">表达式(调用out.print,输出到页面上) </span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure></p>
+<p>JSP 三大指令</p>
+<ol>
+<li>page</li>
+<li>include</li>
+<li>taglib</li>
+</ol>
+<p>page指令:<br>作用：定义JSP页面的各种属性</p>
+<p>属性：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">language:指示JSP页面中使用脚本语言。默认值java，目前只支持java。</span><br><span class="line">extends：指示JSP对应的Servlet类的父类。不要修改。</span><br><span class="line">*<span class="keyword">import</span>：导入JSP中的Java脚本使用到的类或包。（如同Java中的<span class="keyword">import</span>语句）</span><br><span class="line">JSP引擎自动导入以下包中的类：					javax.servlet.*						javax.servlet.http.*						javax.servlet.jsp.*</span><br><span class="line">注意：一个<span class="keyword">import</span>属性可以导入多个包，用逗号分隔。</span><br><span class="line">*sessioin:指示JSP页面是否创建HttpSession对象。默认值是<span class="keyword">true</span>，创建</span><br><span class="line">*buffer：指示JSP用的输出流的缓存大小.默认值是<span class="number">8</span>Kb。</span><br><span class="line"></span><br><span class="line">autoFlush：自动刷新输出流的缓存。</span><br><span class="line">isThreadSafe：指示页面是否是线程安全的（过时的）。默认是<span class="keyword">true</span>。</span><br><span class="line">    <span class="keyword">true</span>：不安全的。</span><br><span class="line">    <span class="keyword">false</span>：安全的。指示JSP对应的Servlet实现SingleThreadModel接口。</span><br><span class="line">    *errorPage: 指示当前页面出错后转向（转发）的页面。</span><br><span class="line">    目标页面如果以<span class="string">"/"</span>（当前应用）就是绝对路径。</span><br><span class="line"></span><br><span class="line">配置全局错误提示页面：</span><br><span class="line"></span><br><span class="line">web.xml</span><br><span class="line">&lt;error-page&gt;</span><br><span class="line">    &lt;exception-type&gt;java.lang.Exception&lt;/exception-type&gt;</span><br><span class="line">    &lt;location&gt;/error.jsp&lt;/location&gt;</span><br><span class="line">&lt;/error-page&gt;</span><br><span class="line">&lt;error-page&gt;</span><br><span class="line">&lt;error-code&gt;404&lt;/error-code&gt;</span><br><span class="line">    &lt;location&gt;/404.jsp&lt;/location&gt;</span><br><span class="line">&lt;/error-page&gt;</span><br><span class="line"></span><br><span class="line">*isErrorPage:指示当前页面是否产生Exception对象。</span><br><span class="line">*contentType：指定当前页面的MIME类型。作用与Servlet中的response.setContentType()作用完全一致</span><br><span class="line">*pageEncoding：通知引擎读取JSP时采用的编码（因为要翻译）</span><br><span class="line">    还有contentType属性的作用。</span><br><span class="line">*isELIgnored:是否忽略EL表达式。$&#123;<span class="number">1</span>+<span class="number">1</span>&#125;。默认值是<span class="keyword">false</span>。 		</span><br><span class="line">page指令最简单的使用方式：&lt;%@ page pageEncoding=<span class="string">"UTF-8"</span>%&gt;</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>.include（静态包含,开发中能用静的不用动的）</span><br><span class="line">    作用：包含其他的组件。</span><br><span class="line">    语法：&lt;%<span class="meta">@include</span> file=<span class="string">""</span>%&gt;file指定要包含的目标组件。路径如果以<span class="string">"/"</span>（当前应用）就是绝对路径。</span><br><span class="line">    原理：把目标组件的内容加到源组件中，输出结果。</span><br><span class="line">	</span><br><span class="line">    动态包含：</span><br><span class="line">        采用动作元素：&lt;jsp:include page=<span class="string">""</span>/&gt;路径如果以<span class="string">"/"</span>（当前应用）就是绝对路径。</span><br><span class="line">			</span><br><span class="line">		</span><br><span class="line"><span class="number">3</span>.taglib</span><br><span class="line">    作用：引入外部的标签</span><br><span class="line">    语法    </span><br><span class="line">    &lt;%@ taglib uri=<span class="string">"标签名称空间"</span> prefix=<span class="string">"前缀"</span>%&gt;</span><br><span class="line">    &lt;%@ taglib uri=<span class="string">"http://java.sun.com/jsp/jstl/core"</span> prefix=<span class="string">"c"</span>%&gt;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -512,6 +602,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/17/MyBatis/" rel="prev" title="MyBatis">
+                MyBatis <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -601,7 +695,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -623,7 +717,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -696,7 +790,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Servlet概述"><span class="nav-number">1.</span> <span class="nav-text">Servlet概述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#servlet的生命周期"><span class="nav-number">1.1.</span> <span class="nav-text">servlet的生命周期</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#servlet的请求流程"><span class="nav-number">1.2.</span> <span class="nav-text">servlet的请求流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Servlet接口"><span class="nav-number">1.3.</span> <span class="nav-text">Servlet接口</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Servlet概述"><span class="nav-number">1.</span> <span class="nav-text">Servlet概述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#servlet的生命周期"><span class="nav-number">1.1.</span> <span class="nav-text">servlet的生命周期</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#servlet的请求流程"><span class="nav-number">1.2.</span> <span class="nav-text">servlet的请求流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Servlet接口"><span class="nav-number">1.3.</span> <span class="nav-text">Servlet接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Servlet的继承体系"><span class="nav-number">1.4.</span> <span class="nav-text">Servlet的继承体系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HttpServletRequest常用方法"><span class="nav-number">1.5.</span> <span class="nav-text">HttpServletRequest常用方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取表单请求参数"><span class="nav-number">1.6.</span> <span class="nav-text">获取表单请求参数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSP的原理"><span class="nav-number">2.</span> <span class="nav-text">JSP的原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#流程"><span class="nav-number">2.1.</span> <span class="nav-text">流程:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#体系"><span class="nav-number">2.2.</span> <span class="nav-text">体系:</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -739,7 +833,7 @@
 -->
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共13.9k字</span>
+  <span class="post-count">博客全站共17.3k字</span>
 </div>
 
 
