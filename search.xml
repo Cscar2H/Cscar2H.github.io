@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[MySQL增强]]></title>
+    <url>%2F2019%2F05%2F03%2FMySQL%E5%A2%9E%E5%BC%BA%2F</url>
+    <content type="text"><![CDATA[数据库数据库（DataBase）：是一个按数据结构来存储和管理数据的计算机软件系统. 简而言之:存储数据的仓库/存储数据的特殊文件. 1.数据定义语言:DDL数据库建立、修改、变更及扩充功能2.数据操纵语言:DML实现数据的插入,修改,删除,查询,统计等数据存取操作的功能称为数据操纵功能3.数据查询语言:DQL用以从表中获得数据,确定数据怎样在应用程序给出.保留字SELECT是DQL(也是所有SQL)用得最多的动词,其他DQL常用的保留字有WHERE,ORDER BY,GROUP BY和HAVING.这些DQL保留字常与其他类型的SQL语句一起使用 数据库基础关系型数据库和非关系型数据库关系型数据库：在关系模型中，数据的逻辑结构为满足一定条件的二维表，表具有固定的列数和任意的行数，在数学上称为”关系” 关系型数据库的三范式:第一范式(1NF):是对关系模式的基本要求,不满足第一范式就不是关系数据库.是指数据表的每一列都是不可分割的基本数据项,同一个列中不能有多个值. 第二范式(2NF):每个实例或行&apos;必须有主键&apos;,区分每一行数据(可以被打破) 第三范式(3NF):要求一个数据表中,不包含其它表中的非主键信息.(在设计表的时候,为了性能,有时会打破第3范式) 常见的数据库1.Oracle：大型企业数据库，支持数据量，速度较快，安全性非常好，提供完善的存储过程支持；新的版本提供了众多新功能； 2.DB2（IBM）：大型企业数据库，支持数据量，速度较快，安全性较好, 恢复性强； 3.SQL Server（MS）：大型企业数据库，支持数据量，速度较快，安全性较好； 4.MySQL（Oracle）：性能不错，使用方便，体积小，易扩展；是目前使用最广的关系型数据库； 查询多表查询-笛卡尔积没有连接条件的表关系返回结果,多表查询会产生笛卡尔积.解决方案: 在WHERE加入有效的连接条件—-&gt;等值连接隐藏内连接查询语法:1234SELECT &lt;select_list&gt;FROM 表名称 A, 表名称 BWHERE 查询条件 AND 消除笛卡尔积的连接条件[ORDER BY 排序字段 [ASC|DESC] [,排序字段 [ASC|DESC] ,…]]; 显示内连接查询语法:12SELECT &lt;select_list&gt;FROM A [INNER] JOIN B ON 消除笛卡尔积的连接条件 [JOIN ...] 内连接查询,两种查询的结果完全相同,区别在于是否能看到JOIN关键字 unionJOIN是用于把表横向连接，UNION/UNION ALL是用于把表纵向连接(一般用于做查询的临时表)UNION 操作符用于合并两个或多个 SELECT 语句的结果集.1234语法：SELECT column_name(s) FROM table_name1UNION|UNION ALLSELECT column_name(s) FROM table_name2 单行函数DAY(date):获取日期中的天数（DAYOFMONTH）HOUR(time):返回time 对应的小时数。对于日时值的返回值范围是从 0 到 23MINUTE(time):返回 time 对应的分钟数,范围是从 0 到 59MONTH(date):返回date 对应的月份，范围时从 1 到 12YEAR(date):返回date 对应的年份,范围是从1000到9999LAST_DAY(date):获取一个日期或日期时间值，返回该月最后一天对应的值DATE_FORMAT(data,format) 聚合分组函数AVG：计算平均值SUM：计算总和 COUNT ({ |[DISTINCT|ALL]expr})COUNT()返回表中所有符合条件的记录数COUNT(字段) 返回所有符合条件并且字段值非空的记录(右键设置某个字段为null,如果加了where条件后, 就以where 后面的列作为计数条件)COUNT(distinct(expr))返回不重复的，非空值的数量 MIN and MAX适用于任何数据类型MIN： 计算最小值MAX：计算最大值 分组查询分组查询的语法:SELECT [DISTINCT] *|分组字段1 [别名] [,分组字段2 [别名] ,…] | 统计函数/分组函数/聚合函数FROM 表名称 [别名], [表名称 [别名] ,…][WHERE 条件(s)][GROUP BY 分组字段1 [,分组字段2 ,…]][ORDER BY 排序字段 ASC | DESC [,排序字段 ASC | DESC]]; 使用GROUP BY子句将表分成N个小组,分组函数忽略空值,可以使用ifnull.结果集默认按升序排列,如果需要改变排序方式可以使用order by 子句 不能在 WHERE 子句中使用聚合函数. 123select -- from --- where --- group by ----having --- order by --- limit?,?sql 执行顺序~~~from -- where -- group by -- having -- select -- order by -- limit ?, ? 子查询子查询指的就是在一个查询之中嵌套了其他的若干查询.在where查询条件中的限制条件不是一个确定的值,而是来自于另一个查询结果. 子查询一般出现在FROM和WHERE子句中. 使用子查询的注意事项: 1.子查询要用括号括起来 2.将子查询放在比较运算符的右边(增强可读性) 3.对单行子查询使用单行运算符 4.对多行子查询使用多行运算符 语法:123SELECT &lt;select_list&gt;FROM 'table'WHERE 条件 操作符 (SELECT select_list FROM table); 子查询的分类: 单行单列子查询,得到的是一个值,返回的结果只包含一行数据 多行单列子查询,得到的是一个集合,返回多行或零行 多行多列子查询,得到的是一个二维表,包含多个字段的返回(一张临时的表)]]></content>
+      <categories>
+        <category>DataBase</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+        <tag>DataBase</tag>
+        <tag>SQL</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[web组件交互_el_jstl]]></title>
     <url>%2F2019%2F04%2F22%2Fweb%E7%BB%84%E4%BB%B6%E4%BA%A4%E4%BA%92-el-jstl%2F</url>
     <content type="text"><![CDATA[web组件在web应用中,servlet/jsp就是web的组件 跳转:请求转发和重定向 共享数据:作用域对象 jsp页面取数据EL表达式 优雅的显示数据JSTL 请求转发1.请求转发:forward2.重定向:redirect3.请求包含:include常用api: 在HttpServletRequest对象中 RequestDispatcher getRequestDispatcher(String path):获取请求分发器. String path: 请求转发到的目标资源 void forward(ServletRequest request, ServletResponse response) :请求转发的动作. 12//获取到请求分发器,请求转发到WEB-INF/view/product/table.jsp资源上 req.getRequestDispatcher("WEB-INF/view/product/table.jsp").forward(req, resp); url重定向在HttpServletResponse对象中. void sendRedirect(java.lang.String location) : 重定向, String location: 重新定位的资源的地址.12//url重定向resp.sendRedirect("/pro?cmd=list"); 1.地址栏会发生变化.是s2. 2.只会有目标资源s2的响应,s1的响应不生效. 3.重定向会发送两次请求.在多个组件不能共享数据. 4.重定向,不能访问WEB-INF中的资源,相当于是把目标资源放在浏览器的地址栏敲回车. 5.重定向可以访问别人(域外)的资源. 请求转发和url重定向选择请求转发: 共享数据 请求到WEB-INF中的资源url重定向: 访问域外资源都能使用的情况,使用重定向 三大作用域对象 作用域 类型 描述 request HttpServletRequest 在一次请求中,多个组件都共享数据,需要使用请求.request在service方法中,tomcat在调用这个生命周期方法的时候,就会创建. session HttpSession HttpSession session = request.getSession(); 使用请求对象获取session对象 application ServletContext ServletContext application = getServletContext(); ServletContext application = request.getServletContext(); 共享数据的基本操作 1.新增数据: void setAttribute(java.lang.String name, java.lang.Object o): 保存数据,包含唯一的名字,和可重复值.2.删除数据: void removeAttribute(java.lang.String name):根据共享属性名.来删除共享数据3.修改数据: void setAttribute(java.lang.String name, java.lang.Object o):同新增4.查询数据: java.lang.Object getAttribute(java.lang.String name):通过共享数据(属性)的唯一名字,找到对应的值. 三大作用域范围1.请求作用域对象:1req.setAttribute("MSG_IN_REQUEST","request"); 只能在一次请求中共享数据,如果不是同一个请求,是多次请求,一定不能共享.如果想要在一次请求过程中的多个组件,要共享,需要使用请求转发. 2.会话作用域对象:1req.getSession().setAttribute("MSG_IN_SESSION","session"); 想在访问站点之后,多次请求都需要共享.可以使用session对象.从访问开始到浏览器关闭为止.3.应用作用域对象:1req.getServletContext().setAttribute("MSG_IN_APPLICATION","application"); 只要服务器开启,都可以共享. 上下文对象:环境.整个应用的生命周期.从服务器启动,到服务器关闭,只有一个. 对象的获取方式: 1.当前servlet中,可以调用getServletContext来获取. 2.request对象可以调用getServletContext获取. 3.session对象可以调用getServletContext来获取. 不管用什么对象来获取到的上下文对象,都是同一个对象. 常用的API: java.lang.String getRealPath(java.lang.String path) :传递一个地址,可以得到真正的磁盘地址. 负责把路径直接拼接到webapp根的后面,不负责去校验是否合法. String getContextPath();获取上下文路径. EL表达式:语法格式:${共享数据的属性名.属性名.属性名}.从page作用域开始,一直找到application为止,如果找到,直接返回,如果没找到,返回的是空字符串. JSTL使用JSTL标签库消除JSP中的java代码 条件判断1.if单条件判断123&lt;c:if test="$&#123;用EL表达式取出来的值&#125;" //如果test返回true,执行&lt;/c:if&gt; 2.choose多条件判断12345678&lt;c:choose&gt;&lt;c:when test="$&#123;用EL表达式取出来的值&#125;"&gt; //&lt;/c:when&gt;&lt;c:otherwise&gt; //TODO...&lt;/c:otherwise&gt;&lt;/c:choose&gt; 循环标签1234567&lt;c:forEach var="stu" items="$&#123;result.listData&#125;" varStatus="vs"&gt; &lt;tr&gt; &lt;td&gt;$&#123;vs.count&#125;&lt;/td&gt; &lt;td&gt;$&#123;stu.name&#125;&lt;/td&gt; &lt;td&gt;$&#123;stu.age&#125;&lt;/td&gt; &lt;/tr&gt;&lt;/c:forEach&gt; items代表源数据,需要使用EL表达式去取var代表每一个变量,该变量将会存储到PageContext作用域中varStatus代表迭代状态.vs.index:从0开始,vs.count:从1开始 时间格式化标签1&lt;fmt:formatDate value="$&#123;date&#125;" pattern="yyyy-MM-dd"/&gt;]]></content>
@@ -21,9 +34,9 @@
         <category>DataBase</category>
       </categories>
       <tags>
-        <tag>MyBatis</tag>
         <tag>DataBase</tag>
         <tag>SQL</tag>
+        <tag>MyBatis</tag>
         <tag>ORM</tag>
       </tags>
   </entry>
@@ -35,9 +48,9 @@
         <category>DataBase</category>
       </categories>
       <tags>
-        <tag>MyBatis</tag>
         <tag>DataBase</tag>
         <tag>SQL</tag>
+        <tag>MyBatis</tag>
         <tag>ORM</tag>
       </tags>
   </entry>
@@ -78,9 +91,9 @@
       </categories>
       <tags>
         <tag>JavaSE</tag>
+        <tag>MySQL</tag>
         <tag>DataBase</tag>
         <tag>SQL</tag>
-        <tag>MySQL</tag>
         <tag>JDBC</tag>
       </tags>
   </entry>
@@ -93,9 +106,9 @@
       </categories>
       <tags>
         <tag>JavaSE</tag>
+        <tag>MySQL</tag>
         <tag>DataBase</tag>
         <tag>SQL</tag>
-        <tag>MySQL</tag>
         <tag>JDBC</tag>
       </tags>
   </entry>
@@ -108,9 +121,9 @@
       </categories>
       <tags>
         <tag>JavaSE</tag>
+        <tag>MySQL</tag>
         <tag>DataBase</tag>
         <tag>SQL</tag>
-        <tag>MySQL</tag>
         <tag>JDBC</tag>
       </tags>
   </entry>
@@ -135,9 +148,9 @@
         <category>DataBase</category>
       </categories>
       <tags>
+        <tag>MySQL</tag>
         <tag>DataBase</tag>
         <tag>SQL</tag>
-        <tag>MySQL</tag>
       </tags>
   </entry>
   <entry>
