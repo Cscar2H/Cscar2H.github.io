@@ -1,16 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[MySQL增强]]></title>
-    <url>%2F2019%2F05%2F03%2FMySQL%E5%A2%9E%E5%BC%BA%2F</url>
-    <content type="text"><![CDATA[数据库数据库（DataBase）：是一个按数据结构来存储和管理数据的计算机软件系统. 简而言之:存储数据的仓库/存储数据的特殊文件. 1.数据定义语言:DDL数据库建立、修改、变更及扩充功能2.数据操纵语言:DML实现数据的插入,修改,删除,查询,统计等数据存取操作的功能称为数据操纵功能3.数据查询语言:DQL用以从表中获得数据,确定数据怎样在应用程序给出.保留字SELECT是DQL(也是所有SQL)用得最多的动词,其他DQL常用的保留字有WHERE,ORDER BY,GROUP BY和HAVING.这些DQL保留字常与其他类型的SQL语句一起使用 数据库基础关系型数据库和非关系型数据库关系型数据库：在关系模型中，数据的逻辑结构为满足一定条件的二维表，表具有固定的列数和任意的行数，在数学上称为”关系” 关系型数据库的三范式:第一范式(1NF):是对关系模式的基本要求,不满足第一范式就不是关系数据库.是指数据表的每一列都是不可分割的基本数据项,同一个列中不能有多个值. 第二范式(2NF):每个实例或行&apos;必须有主键&apos;,区分每一行数据(可以被打破) 第三范式(3NF):要求一个数据表中,不包含其它表中的非主键信息.(在设计表的时候,为了性能,有时会打破第3范式) 常见的数据库1.Oracle：大型企业数据库，支持数据量，速度较快，安全性非常好，提供完善的存储过程支持；新的版本提供了众多新功能； 2.DB2（IBM）：大型企业数据库，支持数据量，速度较快，安全性较好, 恢复性强； 3.SQL Server（MS）：大型企业数据库，支持数据量，速度较快，安全性较好； 4.MySQL（Oracle）：性能不错，使用方便，体积小，易扩展；是目前使用最广的关系型数据库； 查询多表查询-笛卡尔积没有连接条件的表关系返回结果,多表查询会产生笛卡尔积.解决方案: 在WHERE加入有效的连接条件—-&gt;等值连接隐藏内连接查询语法:1234SELECT &lt;select_list&gt;FROM 表名称 A, 表名称 BWHERE 查询条件 AND 消除笛卡尔积的连接条件[ORDER BY 排序字段 [ASC|DESC] [,排序字段 [ASC|DESC] ,…]]; 显示内连接查询语法:12SELECT &lt;select_list&gt;FROM A [INNER] JOIN B ON 消除笛卡尔积的连接条件 [JOIN ...] 内连接查询,两种查询的结果完全相同,区别在于是否能看到JOIN关键字 unionJOIN是用于把表横向连接，UNION/UNION ALL是用于把表纵向连接(一般用于做查询的临时表)UNION 操作符用于合并两个或多个 SELECT 语句的结果集.1234语法：SELECT column_name(s) FROM table_name1UNION|UNION ALLSELECT column_name(s) FROM table_name2 单行函数DAY(date):获取日期中的天数（DAYOFMONTH）HOUR(time):返回time 对应的小时数。对于日时值的返回值范围是从 0 到 23MINUTE(time):返回 time 对应的分钟数,范围是从 0 到 59MONTH(date):返回date 对应的月份，范围时从 1 到 12YEAR(date):返回date 对应的年份,范围是从1000到9999LAST_DAY(date):获取一个日期或日期时间值，返回该月最后一天对应的值DATE_FORMAT(data,format) 聚合分组函数AVG：计算平均值SUM：计算总和 COUNT ({ |[DISTINCT|ALL]expr})COUNT()返回表中所有符合条件的记录数COUNT(字段) 返回所有符合条件并且字段值非空的记录(右键设置某个字段为null,如果加了where条件后, 就以where 后面的列作为计数条件)COUNT(distinct(expr))返回不重复的，非空值的数量 MIN and MAX适用于任何数据类型MIN： 计算最小值MAX：计算最大值 分组查询分组查询的语法:SELECT [DISTINCT] *|分组字段1 [别名] [,分组字段2 [别名] ,…] | 统计函数/分组函数/聚合函数FROM 表名称 [别名], [表名称 [别名] ,…][WHERE 条件(s)][GROUP BY 分组字段1 [,分组字段2 ,…]][ORDER BY 排序字段 ASC | DESC [,排序字段 ASC | DESC]]; 注意: 1出现在SELECT列表中的字段,如果出现的位置不是在聚合函数中,那么必须出现在 GROUP BY 子句中 2.在GROUP BY 子句中出现的字段，可以不出现在SELECT列表中 3.如果没有GROUP BY子句, SELECT列表中的任何列或表达式不能和统计/分组/聚合函数同时使用： 错误操作: select ename, sal, count(empno) from emp; 如果现在要进行分组的话，则SELECT子句之后，只能出现分组的字段和统计函数，其他的字段不能出现 使用HAVING子句对分组的结果进行限制 1.不能在 WHERE 子句中 对分组之后的结果过滤. 2.使用group by语句后,如果需要过滤, 必须使用 HAVING 子句(分组后的过滤). 3.不能在 WHERE 子句中使用聚合函数. 其他123select -- from --- where --- group by ----having --- order by --- limit?,?sql 执行顺序~~~from -- where -- group by -- having -- select -- order by -- limit ?, ? 子查询子查询指的就是在一个查询之中嵌套了其他的若干查询.在where查询条件中的限制条件不是一个确定的值,而是来自于另一个查询结果. 子查询一般出现在FROM和WHERE子句中. 使用子查询的注意事项: 1.子查询要用括号括起来 2.将子查询放在比较运算符的右边(增强可读性) 3.对单行子查询使用单行运算符 4.对多行子查询使用多行运算符 语法:123SELECT &lt;select_list&gt;FROM 'table'WHERE 条件 操作符 (SELECT select_list FROM table); 子查询的分类:单行单列子查询,得到的是一个值,返回的结果只包含一行数据 多行单列子查询,得到的是一个集合,返回多行或零行 多行多列子查询,得到的是一个二维表,包含多个字段的返回(一张临时的表) 单行单列子查询:1.返回一行记录,好比一个值.2.使用单行记录比较运算符=;&gt;;&gt;=;&lt;;&lt;=!=(针对于一个值得运算符) 多行子查询返回多行单列1.返回多行,好比多个值2.使用多行比较运算符 IN:与列表中的任意一个值相等 =ANY:此时和IN操作符相同 &gt;ANY:大于子查询中最小数据 &lt;ANY:小于子查询中最大数据 &gt;ALL:大于子查询中最大的数据 &lt;ALL:小于子查询中最小的数据 多列子查询子查询返回的结果是多行多列/一行多列,只要是多列,就可以看成是一张表.一般会把多列子查询.返回的结果当成一个临时表,接着在临时表上继续查询或者询注意:多行多列的子查询返回的结果必须要设置一个临时表的名称. DML操作1.插入操作1INSERT INTO table [(column [, column...])] VALUES (value [, value...]),(value [, value...]),... 一条SQL的长度是有限的，可以通过调整max_allowed_packet参数(可以在my.ini文件中修改) 2.更新操作123UPDATE tableSET column = value [,column = value]…[WHERE condition]; UPDATE语句也可以使用表连接，子查询等多种方式执行3.删除操作12DELETE FROM table[WHERE condition]; 事物控制]]></content>
+    <title><![CDATA[Spring框架-Ioc-DI]]></title>
+    <url>%2F2019%2F05%2F11%2FSpring%E6%A1%86%E6%9E%B6-IoC-DI%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[MyBatis增强]]></title>
+    <url>%2F2019%2F05%2F10%2FMyBatis%E5%A2%9E%E5%BC%BA%2F</url>
+    <content type="text"><![CDATA[使用mapper接口1.这个接口的全限定类名===对应的Mapper文件的namespace;2.这个接口中的方法和Mapper文件中的SQL元素一一对应: XML文件1234567891011&lt;?xml version="1.0" encoding="UTF-8" ?&gt;&lt;!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"&gt;&lt;!-- StudentMapper的全限定类名 --&gt;&lt;mapper namespace="me.cscar.many2many.mapper.StudentMapper"&gt; &lt;insert id="save" useGeneratedKeys="true" keyProperty="id" keyColumn="id"&gt; INSERT INTO student (name) VALUES (#&#123;name&#125; ) &lt;/insert&gt;&lt;/mapper&gt; 测试类文件1234SqlSession session = MybatisUtil.getSession();StudentMapper studentMapper = session.getMapper(StudentMapper.class);/* 通过传入StudentMapper.class获得全限定名,就是namespace返回StudentMapper对象,调用save方法 */ mapper接口12void save(Student stu);//方法名为id 动态SQLif set where switch在多个中选择一个 foreach trim #{}和${}的区别相同: #和$都可以从对象或者Map中获取参数值 不同:使用#设置参数时候,先将参数转为?占位符,然后再赋值:使用PreparedStatement 使用$设置参数时,直接将参数拼接到sql中,使用Statement使用$设置参数可能存在SQL注入隐患. 使用#设置参数,如果是字符串,会自动加上’’, 而$不会,它会原样输出 在一些情况下,比如排序,比如分组操作时候拼接参数时不应该拼接’’ 总结:一般设置参数使用#,如果要拼接sql比如 排序,分组等.使用 $ (因为他们是按照列名来排序和分组的) 使用@param设置多个参数MyBatis在#{}中参数流程:1.会去参数对象中,按照属性或者Map的key去查询;2.如果找不到,尝试直接把方法的实际参数作为查询参数值 如果一定要在Mapper接口上的一个方法中添加多个参数,就一定要在每个参数前使用@Param标签. 原理:Mybatis在处理这些Mapper方法的时候,会自动的把这些参数包装成一个Map对象,@Param中的value就会作为这个Map的key,对应的参数值,就会作为这个Key的value; 原理:mybatis自动把参数封装成map 对象关系1.依赖关系:如果A对象离开了B对象,A对象就不能正常编译,则A对象依赖B对象. 2.关联关系:A对象依赖B对象,并且把B对象作为A对象的一个属性,则A和B是关联关系.(特殊的依赖关系) 3.聚合关系:表示整体和部分的关系,整体和部分之间可以相互独立存在,一定是有两个模块来分别管理整体和部分. 4.组合关系:强聚合关系,但是整体和部分不能独立存在,一定是在一个模块中同时管理整体和部分,生命周期必须相同. 5.泛化关系:其实就是继承关系. 关联关系划分1.一对一:一个A对象属于一个B对象,一个B对象属于一个A对象.2.一对多:一个A对象包含多个B对象. (判断基准:谁占主导地位),通过谁找到谁3.多对一:多个A对象属于一个B对象,并且每个A对象只能属于一个B对象.4.多对多:一个A对象属于多个B对象,一个B对象属于多个A对象.(老师和学生) MyBatis一级缓存缓存的作用/原理: 缓存本质来说就是Map,缓存是存在内存中的,可以在查询的时候减少数据库的访问次数,加快查询速度. 1.当第一次查询的时候get(1L),先将这次的调用转出一个字符串的key =Employee:1L首先在缓存中查询是否有这个key对应的对象,如果没有,去数据库中查询.查询之后会把该对象放入到缓存中,在把数据返回给调用者. 2.第二次查询的时候get(1L),先将这次的调用转出一个字符串的key =Employee:1L,在缓存中查询是否有可以key对应的对象,直接从内存中的缓存获取到对应的对象,直接返回一级缓存默认是开启的.一级缓存生命周期==session的生命周期,在多个session中是无法进行数据共享. 在一次会话中,如果需要查询多次相同id的对象,此时后面几次的查询都会从的缓存中获取,加快了查询速度,减少了访问数据库的次数.一级缓存的作用有限,只提高了一点点的性能. sqlsession的缓存操作注意问题:1: 缓存在同一个sqlsession才有效 2: 一旦sqlsession执行DML/DDL操作, 会清空缓存 3: 如果不想使用缓存,想直接从数据库获取: 可以执行: session.clearCache(); 4:开发中, sqlsession缓存仅仅针对某一个session, 对于整个系统性能提升不是很高, 一般来说, 不使用. 一般会使用二级缓存.(对应SqlSessionFactory) 二级缓存1.二级缓存生命周期==sessionFactory的生命周期. 2.二级缓存可以在不同的session之间进行数据的共享. 3.二级缓存默认是关闭的,需要手动的去开启. 4.不是所有对象都适合放到二级缓存中,只有是读远远大于写的对象才适合放到二级缓存中. 5.只要对象发生DML操作,MyBatis中的二级缓存都会给清除. 6手动开启的二级缓存.在对应的mapper.xml文件中添加一行: 一添加上就报错. java.io.NotSerializableException: cn.wolfcode._1_crud.User要求缓存的对象需要实现序列化接口. 缓存有个策略,当内存中的对象已经达到设置的存储最大值.超出的对象如果需要也缓存起来.支持把缓存对象序列化到硬盘中.要获取的时候再反序列化回来.]]></content>
       <categories>
         <category>DataBase</category>
       </categories>
       <tags>
-        <tag>MySQL</tag>
+        <tag>MyBatis</tag>
         <tag>DataBase</tag>
         <tag>SQL</tag>
+        <tag>ORM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Cookie & Session]]></title>
+    <url>%2F2019%2F05%2F05%2FCookie-Session%2F</url>
+    <content type="text"><![CDATA[会话跟踪技术: Cookie SessionHTTP是无状态协议,也就是没有记忆力,每个请求之间无法共享数据. CookieCookie是客户端技术,程序把每个用户的数据以cookie的形式写给用户各自的浏览器.当用户使用浏览器再去访问服务器中的 web资源时,就会带着各自的数据去.这样,web资源处理的就是用户各自的数据了. Cookie 的使用:1.Cookie 是谁来创建,怎么创建的? 服务器端程序来创建: Cookie cookie = new Cookie(String name,String value); 参数: name: 给共享的数据起一个唯一的标志 value: 要存入的用户的数据 Cookie c = new Cookie(“currentName”,”xiaoming”); 2.如何响应 Cookie 给 浏览器. response对象.addCookie(Cookie cookie); resp.addCookie(c); 3.如何获取 Cookie 中的数据. 浏览器带过来的数据理应在请求对象中. Cookie[] cookies = request对象.getCookies(); 遍历数组拼配一个name是currentName 的数据. cookie.getName() : 获取Cookie 中的唯一标志的名称 cookie.getValue(): 当前Cookie 的数据. 4.修改Cookie 方式一: 再创建一个同 name 值的Cookie 对象来做覆盖的操作: Cookie cookie = new Cookie(“currentName”,”小明”) 方式二: 直接重新给Cookie赋值 cookie.setValue(“新的数据”) 注意: 两种方式都需要重新响应给浏览器去覆盖之前的Cookie 5.Cookie的中文问题 URLEncoder : 把中文转为非中文的字符串 URLDecoder : 把非中文的字符串转回中文 6 Cookie的分类 : 会话Cookie: 浏览器关闭 Cookie 就失效. 持久Cookie: Cookie 可以保留一定的时间. cookie.setMaxAge(int value): 使用的秒为单位: 负数: -1 : 不保存Cookie (会话Coookie); 0: 删除Cookie 正数: 设置存活的时间(秒) SessionSession是服务器端技术,利用这个技术,服务器在运行时可以为每一个用户的浏览器创建一个其独享的session对象,由于session为用户浏览器独享.所以用户在访问服务器的web资源时,可以把各自的数据放在各自的session中,当用户再去访问服务器中的其它web资源时,其它web资源再从用户各自的session中取出数据为用户服务. Session的使用Session 的使用:1 创建或获取Session 对象 HttpSession request.getSession(true) : 获取HttpSession对象,如果存在直接返回,如果不存在,创建一个新的Session对象然后返回. HttpSession request.getSession(false) : 获取HttpSession对象,如果存在直接返回,如果不存在返回null HttpSession request.getSession() : 同 1 2 设置共享数据 session.setAttribute(String name,Object value); 参数: name : 共享的数据的唯一标志 value : 要设置的共享数据 3 获取共享数据 session.getAttribute(String name); 4 移除 Session 中的数据 1:删除Session中指定属性名的值. session.removeAttribute(String name); 2:销毁Session对象 session对象.invalidate(); 5 Session的超时管理. 默认的超时时间: 30分钟 : 在Tomcat/conf/web.xml session.setMaxInactiveInterval(int seconds) 6 URL重写:Session 是一个特殊的Cookic ,存在浏览器上,用户可选择不接受Cookie方式一: 使用参数形式 jsessionid 传递给下一个请求,使用 ; 来设置参数的值方式二: 调用方法来生成带有 jsessionid 的 urlString url = resp.encodeURL(“/session/content”);开发中不要拒收Cookie]]></content>
+      <tags>
+        <tag>Cookie</tag>
+        <tag>Session</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[三层架构]]></title>
+    <url>%2F2019%2F05%2F05%2F%E4%B8%89%E5%B1%82%E6%9E%B6%E6%9E%84%2F</url>
+    <content type="text"><![CDATA[三层构架 表示层:位于最上层,最接近用户,用于显示数据和接收用户输入的数据,为用户提供一种交互式操作的界面 业务逻辑层:表示层和 DAL(DAO)层之间的桥梁,实现业务逻辑.业务逻辑具体包含:验证,计算,业务规则等等 数据访问层:与数据库打交道.主要实现对数据的增、删、改、查.将存储在数据库中的数据提交给业务层,同时将业务层处理的数据保存到数据库(Dao) 逻辑图: 业务逻辑层(service)其实是一个组件(可以重复使用),包括:接口和接口的实现类 service 组件起名规范:以下使用 Xxx 都表示一个对象比如 Employee,Department.service 接口 : IEmployeeServiceservice 实现类: EmployeeServiceImplservice 测试类: EmployeeServiceTestservice 对象的名字: Employee,Department]]></content>
+      <categories>
+        <category>DataBase</category>
+      </categories>
+      <tags>
+        <tag>MyBatis</tag>
+        <tag>DataBase</tag>
+        <tag>SQL</tag>
+        <tag>ORM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[MySQL增强]]></title>
+    <url>%2F2019%2F05%2F03%2FMySQL%E5%A2%9E%E5%BC%BA%2F</url>
+    <content type="text"><![CDATA[数据库数据库（DataBase）：是一个按数据结构来存储和管理数据的计算机软件系统. 简而言之:存储数据的仓库/存储数据的特殊文件. 1.数据定义语言:DDL数据库建立、修改、变更及扩充功能2.数据操纵语言:DML实现数据的插入,修改,删除,查询,统计等数据存取操作的功能称为数据操纵功能3.数据查询语言:DQL用以从表中获得数据,确定数据怎样在应用程序给出.保留字SELECT是DQL(也是所有SQL)用得最多的动词,其他DQL常用的保留字有WHERE,ORDER BY,GROUP BY和HAVING.这些DQL保留字常与其他类型的SQL语句一起使用 数据库基础关系型数据库和非关系型数据库关系型数据库：在关系模型中，数据的逻辑结构为满足一定条件的二维表，表具有固定的列数和任意的行数，在数学上称为”关系” 关系型数据库的三范式:第一范式(1NF):是对关系模式的基本要求,不满足第一范式就不是关系数据库.是指数据表的每一列都是不可分割的基本数据项,同一个列中不能有多个值. 第二范式(2NF):每个实例或行&apos;必须有主键&apos;,区分每一行数据(可以被打破) 第三范式(3NF):要求一个数据表中,不包含其它表中的非主键信息.(在设计表的时候,为了性能,有时会打破第3范式) 常见的数据库1.Oracle：大型企业数据库，支持数据量，速度较快，安全性非常好，提供完善的存储过程支持；新的版本提供了众多新功能； 2.DB2（IBM）：大型企业数据库，支持数据量，速度较快，安全性较好, 恢复性强； 3.SQL Server（MS）：大型企业数据库，支持数据量，速度较快，安全性较好； 4.MySQL（Oracle）：性能不错，使用方便，体积小，易扩展；是目前使用最广的关系型数据库； 查询多表查询-笛卡尔积没有连接条件的表关系返回结果,多表查询会产生笛卡尔积.解决方案: 在WHERE加入有效的连接条件—-&gt;等值连接隐藏内连接查询语法:1234SELECT &lt;select_list&gt;FROM 表名称 A, 表名称 BWHERE 查询条件 AND 消除笛卡尔积的连接条件[ORDER BY 排序字段 [ASC|DESC] [,排序字段 [ASC|DESC] ,…]]; 显示内连接查询语法:12SELECT &lt;select_list&gt;FROM A [INNER] JOIN B ON 消除笛卡尔积的连接条件 [JOIN ...] 内连接查询,两种查询的结果完全相同,区别在于是否能看到JOIN关键字 unionJOIN是用于把表横向连接，UNION/UNION ALL是用于把表纵向连接(一般用于做查询的临时表)UNION 操作符用于合并两个或多个 SELECT 语句的结果集.1234语法：SELECT column_name(s) FROM table_name1UNION|UNION ALLSELECT column_name(s) FROM table_name2 单行函数DAY(date):获取日期中的天数（DAYOFMONTH）HOUR(time):返回time 对应的小时数。对于日时值的返回值范围是从 0 到 23MINUTE(time):返回 time 对应的分钟数,范围是从 0 到 59MONTH(date):返回date 对应的月份，范围时从 1 到 12YEAR(date):返回date 对应的年份,范围是从1000到9999LAST_DAY(date):获取一个日期或日期时间值，返回该月最后一天对应的值DATE_FORMAT(data,format) 聚合分组函数AVG：计算平均值SUM：计算总和 COUNT ({ |[DISTINCT|ALL]expr})COUNT()返回表中所有符合条件的记录数COUNT(字段) 返回所有符合条件并且字段值非空的记录(右键设置某个字段为null,如果加了where条件后, 就以where 后面的列作为计数条件)COUNT(distinct(expr))返回不重复的，非空值的数量 MIN and MAX适用于任何数据类型MIN： 计算最小值MAX：计算最大值 分组查询分组查询的语法:SELECT [DISTINCT] *|分组字段1 [别名] [,分组字段2 [别名] ,…] | 统计函数/分组函数/聚合函数FROM 表名称 [别名], [表名称 [别名] ,…][WHERE 条件(s)][GROUP BY 分组字段1 [,分组字段2 ,…]][ORDER BY 排序字段 ASC | DESC [,排序字段 ASC | DESC]]; 注意: 1出现在SELECT列表中的字段,如果出现的位置不是在聚合函数中,那么必须出现在 GROUP BY 子句中 2.在GROUP BY 子句中出现的字段，可以不出现在SELECT列表中 3.如果没有GROUP BY子句, SELECT列表中的任何列或表达式不能和统计/分组/聚合函数同时使用： 错误操作: select ename, sal, count(empno) from emp; 如果现在要进行分组的话，则SELECT子句之后，只能出现分组的字段和统计函数，其他的字段不能出现 使用HAVING子句对分组的结果进行限制 1.不能在 WHERE 子句中 对分组之后的结果过滤. 2.使用group by语句后,如果需要过滤, 必须使用 HAVING 子句(分组后的过滤). 3.不能在 WHERE 子句中使用聚合函数. 其他123select -- from --- where --- group by ----having --- order by --- limit?,?sql 执行顺序~~~from -- where -- group by -- having -- select -- order by -- limit ?, ? 子查询子查询指的就是在一个查询之中嵌套了其他的若干查询.在where查询条件中的限制条件不是一个确定的值,而是来自于另一个查询结果. 子查询一般出现在FROM和WHERE子句中. 使用子查询的注意事项: 1.子查询要用括号括起来 2.将子查询放在比较运算符的右边(增强可读性) 3.对单行子查询使用单行运算符 4.对多行子查询使用多行运算符 语法:123SELECT &lt;select_list&gt;FROM 'table'WHERE 条件 操作符 (SELECT select_list FROM table); 子查询的分类:单行单列子查询,得到的是一个值,返回的结果只包含一行数据 多行单列子查询,得到的是一个集合,返回多行或零行 多行多列子查询,得到的是一个二维表,包含多个字段的返回(一张临时的表) 单行单列子查询:1.返回一行记录,好比一个值.2.使用单行记录比较运算符=;&gt;;&gt;=;&lt;;&lt;=!=(针对于一个值得运算符) 多行子查询返回多行单列1.返回多行,好比多个值2.使用多行比较运算符 IN:与列表中的任意一个值相等 =ANY:此时和IN操作符相同 &gt;ANY:大于子查询中最小数据 &lt;ANY:小于子查询中最大数据 &gt;ALL:大于子查询中最大的数据 &lt;ALL:小于子查询中最小的数据 多列子查询子查询返回的结果是多行多列/一行多列,只要是多列,就可以看成是一张表.一般会把多列子查询.返回的结果当成一个临时表,接着在临时表上继续查询或者询注意:多行多列的子查询返回的结果必须要设置一个临时表的名称. DML操作1.插入操作1INSERT INTO table [(column [, column...])] VALUES (value [, value...]),(value [, value...]),... 一条SQL的长度是有限的，可以通过调整max_allowed_packet参数(可以在my.ini文件中修改) 2.更新操作123UPDATE tableSET column = value [,column = value]…[WHERE condition]; UPDATE语句也可以使用表连接，子查询等多种方式执行3.删除操作12DELETE FROM table[WHERE condition]; 事务控制开启事务: begin提交事务: commit回滚事务: rollback 事务的ACID:原子性:Atomicity一致性:Consistency隔离性:Isolation持久性:Durability 控制事务的SQL语句(命令):commit 和 rollback可以显示的控制事务好处：1.保证数据一致性,修改过的数据在没有提交之前是不能被其他用户看到的2.在数据永久性生效前重新查看修改的数据3.将相关操作组织在一起,一个事务中相关的数据改变或者都成功,或者都失败 数据库的并发问题:MySQL使用的是repreatable read隔离级别 避免第二类丢失更新 方案1:悲观锁: 使用数据库自身的排它锁机制(写锁)(排斥其他锁).DML操作自动会加上排它锁 (排他锁指的是一个事务在一行数据加上排他锁后，其他事务不能再在其上加其他的锁). DQL操作需要我们手动加上排他锁.1SELECT * FROM 表名 FOR UPDATE. 方案2:乐观锁: 在表中额外增加一个列,用来表示修改的版本(整数类型),修改一次就把版本增加1. 1:在表中新增一个列,用来表示修改的版本号,类型使用整数类型,初始值为0. 2:每次在修改数据之前,先发送SELECT语句去查询当前被修改数据的信息(包括版本号).1SELECT id,name,version FROM person WHERE id = 10; 查询出来的版本号为0. 3:发送UPDATE语句去更新数据:版本号修改递增1/判断条件中的版本号必须是刚刚查询出来的版本.1UPDATE person set name = 'Java' ,version = version + 1 WHERE id = 10 AND version = 刚刚查询出来的版本号(0). 4:判断update语句执行之后的受影响行数(rows),若rows&gt;0则提交事务,否则回滚事务. 数据库的权限权限相关命令:GRANT:MySQL中用于赋权限的命令是GRANT，语法为：完整语法：GRANT 权限 (columns)ON 数据库对象TO 用户 IDENTIFIED BY “密码”WITH GRANT OPTION 三种具体的语法: 给一个存在用户赋予权限:语法1:GRANT 权限 (columns) ON 数据库对象 TO 用户:赋予will账户:SELECT和INSERT权限.GRANT select,insert ON . TO will@localhost; 左边是数据库 . 右边是数据表. 表示全局权限 创建用户,设置密码,赋予权限:语法2:GRANT 权限 (columns) ON 数据库对象 TO 用户 IDENTIFIED BY “密码”创建lucy用户:GRANT ALL ON . TO lucy@localhost IDENTIFIED BY ‘1234’; 创建用户,设置密码,赋予权限,并且该用户可以继续授权给其他用户:语法3:GRANT 权限 (columns) ON 数据库对象 TO 用户 IDENTIFIED BY “密码” WITH GRANT OPTION]]></content>
+      <categories>
+        <category>DataBase</category>
+      </categories>
+      <tags>
+        <tag>DataBase</tag>
+        <tag>SQL</tag>
+        <tag>MySQL</tag>
       </tags>
   </entry>
   <entry>
@@ -34,9 +76,9 @@
         <category>DataBase</category>
       </categories>
       <tags>
+        <tag>MyBatis</tag>
         <tag>DataBase</tag>
         <tag>SQL</tag>
-        <tag>MyBatis</tag>
         <tag>ORM</tag>
       </tags>
   </entry>
@@ -48,9 +90,9 @@
         <category>DataBase</category>
       </categories>
       <tags>
+        <tag>MyBatis</tag>
         <tag>DataBase</tag>
         <tag>SQL</tag>
-        <tag>MyBatis</tag>
         <tag>ORM</tag>
       </tags>
   </entry>
@@ -91,9 +133,9 @@
       </categories>
       <tags>
         <tag>JavaSE</tag>
-        <tag>MySQL</tag>
         <tag>DataBase</tag>
         <tag>SQL</tag>
+        <tag>MySQL</tag>
         <tag>JDBC</tag>
       </tags>
   </entry>
@@ -106,9 +148,9 @@
       </categories>
       <tags>
         <tag>JavaSE</tag>
-        <tag>MySQL</tag>
         <tag>DataBase</tag>
         <tag>SQL</tag>
+        <tag>MySQL</tag>
         <tag>JDBC</tag>
       </tags>
   </entry>
@@ -121,9 +163,9 @@
       </categories>
       <tags>
         <tag>JavaSE</tag>
-        <tag>MySQL</tag>
         <tag>DataBase</tag>
         <tag>SQL</tag>
+        <tag>MySQL</tag>
         <tag>JDBC</tag>
       </tags>
   </entry>
@@ -148,9 +190,9 @@
         <category>DataBase</category>
       </categories>
       <tags>
-        <tag>MySQL</tag>
         <tag>DataBase</tag>
         <tag>SQL</tag>
+        <tag>MySQL</tag>
       </tags>
   </entry>
   <entry>
