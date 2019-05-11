@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="Cscar&#39;s Blog">
 <meta property="og:description" content="数据库数据库（DataBase）：是一个按数据结构来存储和管理数据的计算机软件系统.  简而言之:存储数据的仓库/存储数据的特殊文件. 1.数据定义语言:DDL数据库建立、修改、变更及扩充功能2.数据操纵语言:DML实现数据的插入,修改,删除,查询,统计等数据存取操作的功能称为数据操纵功能3.数据查询语言:DQL用以从表中获得数据,确定数据怎样在应用程序给出.保留字SELECT是DQL(也是所有S">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-04T03:55:08.646Z">
+<meta property="og:updated_time" content="2019-05-05T08:13:06.107Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL增强">
 <meta name="twitter:description" content="数据库数据库（DataBase）：是一个按数据结构来存储和管理数据的计算机软件系统.  简而言之:存储数据的仓库/存储数据的特殊文件. 1.数据定义语言:DDL数据库建立、修改、变更及扩充功能2.数据操纵语言:DML实现数据的插入,修改,删除,查询,统计等数据存取操作的功能称为数据操纵功能3.数据查询语言:DQL用以从表中获得数据,确定数据怎样在应用程序给出.保留字SELECT是DQL(也是所有S">
@@ -414,7 +414,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.4k
+                  1.9k
                 </span>
               
 
@@ -430,7 +430,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  5
+                  7
                 </span>
               
             </div>
@@ -473,10 +473,20 @@
 <p>COUNT ({ <em>|[DISTINCT|ALL]expr})<br>COUNT(</em>)返回表中所有符合条件的记录数<br>COUNT(字段) 返回所有符合条件并且字段值非空的记录<br>(右键设置某个字段为null,如果加了where条件后, 就以where 后面的列作为计数条件)<br>COUNT(distinct(expr))返回不重复的，非空值的数量</p>
 <p>MIN and MAX适用于任何数据类型<br>MIN： 计算最小值<br>MAX：计算最大值</p>
 <h5 id="分组查询"><a href="#分组查询" class="headerlink" title="分组查询"></a>分组查询</h5><p>分组查询的语法:<br>SELECT   [DISTINCT] *|分组字段1 [别名] [,分组字段2 [别名] ,…] | 统计函数/分组函数/聚合函数<br>FROM 表名称 [别名], [表名称 [别名] ,…]<br>[WHERE 条件(s)]<br>[GROUP BY 分组字段1 [,分组字段2 ,…]]<br>[ORDER BY 排序字段 ASC | DESC [,排序字段 ASC | DESC]];</p>
-<p>使用GROUP BY子句将表分成N个小组,<br>分组函数忽略空值,可以使用ifnull.<br>结果集默认按升序排列,如果需要改变排序方式可以使用order by 子句</p>
-<p><strong>不能在 WHERE 子句中使用聚合函数.</strong></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span>  <span class="comment">-- from --- where  --- group by  ----having --- order by --- limit?,?</span></span><br><span class="line"><span class="keyword">sql</span> 执行顺序~~~</span><br><span class="line"><span class="keyword">from</span> <span class="comment">-- where -- group by -- having -- select -- order by -- limit ?, ?</span></span><br></pre></td></tr></table></figure>
-<h5 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h5><p>子查询指的就是在一个查询之中嵌套了其他的若干查询.<br>在where查询条件中的限制条件不是一个确定的值,而是来自于另一个查询结果.</p>
+<p>注意:</p>
+<pre><code>1出现在SELECT列表中的字段,如果出现的位置不是在聚合函数中,那么必须出现在 GROUP BY 子句中
+
+2.在GROUP BY 子句中出现的字段，可以不出现在SELECT列表中 
+
+3.如果没有GROUP BY子句,  SELECT列表中的任何列或表达式不能和统计/分组/聚合函数同时使用：
+错误操作: select ename, sal, count(empno) from emp;
+</code></pre><p><strong>如果现在要进行分组的话，则SELECT子句之后，只能出现分组的字段和统计函数，其他的字段不能出现</strong></p>
+<p>使用HAVING子句对分组的结果进行限制</p>
+<pre><code>1.不能在 WHERE 子句中 对分组之后的结果过滤.
+2.使用group by语句后,如果需要过滤, 必须使用 HAVING 子句(分组后的过滤).
+3.不能在 WHERE 子句中使用聚合函数.
+</code></pre><h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span>  <span class="comment">-- from --- where  --- group by  ----having --- order by --- limit?,?</span></span><br><span class="line"><span class="keyword">sql</span> 执行顺序~~~</span><br><span class="line"><span class="keyword">from</span> <span class="comment">-- where -- group by -- having -- select -- order by -- limit ?, ?</span></span><br></pre></td></tr></table></figure>
+<h4 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h4><p>子查询指的就是在一个查询之中嵌套了其他的若干查询.<br>在where查询条件中的限制条件不是一个确定的值,而是来自于另一个查询结果.</p>
 <p>子查询一般出现在FROM和WHERE子句中.</p>
 <p>使用子查询的注意事项:</p>
 <pre><code>1.子查询要用括号括起来 
@@ -484,8 +494,25 @@
 3.对单行子查询使用单行运算符 
 4.对多行子查询使用多行运算符
 </code></pre><p>语法:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> &lt;select_list&gt;</span><br><span class="line"><span class="keyword">FROM</span> <span class="string">'table'</span></span><br><span class="line"><span class="keyword">WHERE</span> 条件 操作符 (<span class="keyword">SELECT</span> select_list <span class="keyword">FROM</span> <span class="keyword">table</span>);</span><br></pre></td></tr></table></figure></p>
-<p>子查询的分类:<br>    单行单列子查询,得到的是一个值,返回的结果只包含一行数据<br>    多行单列子查询,得到的是一个集合,返回多行或零行<br>    多行多列子查询,得到的是一个二维表,包含多个字段的返回(一张临时的表)</p>
+<h5 id="子查询的分类"><a href="#子查询的分类" class="headerlink" title="子查询的分类:"></a>子查询的分类:</h5><pre><code>单行单列子查询,得到的是一个值,返回的结果只包含一行数据
+多行单列子查询,得到的是一个集合,返回多行或零行
+多行多列子查询,得到的是一个二维表,包含多个字段的返回(一张临时的表)
+</code></pre><h5 id="单行单列子查询"><a href="#单行单列子查询" class="headerlink" title="单行单列子查询:"></a>单行单列子查询:</h5><p>1.返回一行记录,好比一个值.<br>2.使用单行记录比较运算符=;&gt;;&gt;=;&lt;;&lt;=!=(针对于一个值得运算符)</p>
+<h5 id="多行子查询返回多行单列"><a href="#多行子查询返回多行单列" class="headerlink" title="多行子查询返回多行单列"></a>多行子查询返回多行单列</h5><p>1.返回多行,好比多个值<br>2.使用多行比较运算符</p>
+<pre><code>IN:与列表中的任意一个值相等
 
+=ANY:此时和IN操作符相同
+&gt;ANY:大于子查询中最小数据
+&lt;ANY:小于子查询中最大数据
+
+&gt;ALL:大于子查询中最大的数据
+&lt;ALL:小于子查询中最小的数据
+</code></pre><h5 id="多列子查询"><a href="#多列子查询" class="headerlink" title="多列子查询"></a>多列子查询</h5><p>子查询返回的结果是多行多列/一行多列,只要是多列,就可以看成是一张表.<br>一般会把多列子查询.返回的结果当成一个临时表,接着在临时表上继续查询或者询<br>注意:多行多列的子查询返回的结果必须要设置一个临时表的名称.</p>
+<h4 id="DML操作"><a href="#DML操作" class="headerlink" title="DML操作"></a>DML操作</h4><p>1.插入操作<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">table</span> [(<span class="keyword">column</span> [, column...])] <span class="keyword">VALUES</span> (<span class="keyword">value</span> [, value...]),(<span class="keyword">value</span> [, value...]),...</span><br></pre></td></tr></table></figure></p>
+<p>一条SQL的长度是有限的，可以通过调整max_allowed_packet参数(可以在my.ini文件中修改)</p>
+<p>2.更新操作<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> <span class="keyword">table</span></span><br><span class="line"><span class="keyword">SET</span> <span class="keyword">column</span> = <span class="keyword">value</span> [,<span class="keyword">column</span> = <span class="keyword">value</span>]…</span><br><span class="line">[<span class="keyword">WHERE</span> condition];</span><br></pre></td></tr></table></figure></p>
+<p>UPDATE语句也可以使用表连接，子查询等多种方式执行<br>3.删除操作<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> <span class="keyword">table</span></span><br><span class="line">[<span class="keyword">WHERE</span> condition];</span><br></pre></td></tr></table></figure></p>
+<h4 id="事物控制"><a href="#事物控制" class="headerlink" title="事物控制"></a>事物控制</h4>
       
     </div>
     
@@ -712,7 +739,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库"><span class="nav-number">1.</span> <span class="nav-text">数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库基础"><span class="nav-number">1.1.</span> <span class="nav-text">数据库基础</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#关系型数据库的三范式"><span class="nav-number">1.1.1.</span> <span class="nav-text">关系型数据库的三范式:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#常见的数据库"><span class="nav-number">1.1.2.</span> <span class="nav-text">常见的数据库</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查询"><span class="nav-number">1.2.</span> <span class="nav-text">查询</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#union"><span class="nav-number">1.2.1.</span> <span class="nav-text">union</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#单行函数"><span class="nav-number">1.2.2.</span> <span class="nav-text">单行函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#聚合分组函数"><span class="nav-number">1.2.3.</span> <span class="nav-text">聚合分组函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#分组查询"><span class="nav-number">1.2.4.</span> <span class="nav-text">分组查询</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#子查询"><span class="nav-number">1.2.5.</span> <span class="nav-text">子查询</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库"><span class="nav-number">1.</span> <span class="nav-text">数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库基础"><span class="nav-number">1.1.</span> <span class="nav-text">数据库基础</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#关系型数据库的三范式"><span class="nav-number">1.1.1.</span> <span class="nav-text">关系型数据库的三范式:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#常见的数据库"><span class="nav-number">1.1.2.</span> <span class="nav-text">常见的数据库</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查询"><span class="nav-number">1.2.</span> <span class="nav-text">查询</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#union"><span class="nav-number">1.2.1.</span> <span class="nav-text">union</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#单行函数"><span class="nav-number">1.2.2.</span> <span class="nav-text">单行函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#聚合分组函数"><span class="nav-number">1.2.3.</span> <span class="nav-text">聚合分组函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#分组查询"><span class="nav-number">1.2.4.</span> <span class="nav-text">分组查询</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他"><span class="nav-number">1.3.</span> <span class="nav-text">其他</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#子查询"><span class="nav-number">1.4.</span> <span class="nav-text">子查询</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#子查询的分类"><span class="nav-number">1.4.1.</span> <span class="nav-text">子查询的分类:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#单行单列子查询"><span class="nav-number">1.4.2.</span> <span class="nav-text">单行单列子查询:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#多行子查询返回多行单列"><span class="nav-number">1.4.3.</span> <span class="nav-text">多行子查询返回多行单列</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#多列子查询"><span class="nav-number">1.4.4.</span> <span class="nav-text">多列子查询</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DML操作"><span class="nav-number">1.5.</span> <span class="nav-text">DML操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事物控制"><span class="nav-number">1.6.</span> <span class="nav-text">事物控制</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -755,7 +782,7 @@
 -->
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共18.8k字</span>
+  <span class="post-count">博客全站共19.3k字</span>
 </div>
 
 
