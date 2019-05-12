@@ -82,7 +82,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="MyBatis,Spring,Ioc,DI,">
 
 
 
@@ -93,17 +93,23 @@
 
 
 
-<meta name="description" content="Orange &amp; Yellow">
+<meta name="description" content="Spring框架概述Spring 是一个轻量级的 DI/IoC 和 AOP 容器的开源框架,致力于构建轻量级的 JavaEE 应用. 容器容器还要管理对象的生命周期,如 Tomcat 就是 Servlet 和 JSP 的容器 架构 1.Core Container(核心容器)包含有 Beans、Core、Context 和 SpEL 模块。 2.Data Access/Integration 层包">
+<meta name="keywords" content="MyBatis,Spring,Ioc,DI">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring框架-Ioc-DI">
+<meta property="og:title" content="Spring框架-IoC-DI">
 <meta property="og:url" content="http://yoursite.com/2019/05/11/Spring框架-IoC-DI/index.html">
 <meta property="og:site_name" content="Cscar&#39;s Blog">
-<meta property="og:description" content="Orange &amp; Yellow">
+<meta property="og:description" content="Spring框架概述Spring 是一个轻量级的 DI/IoC 和 AOP 容器的开源框架,致力于构建轻量级的 JavaEE 应用. 容器容器还要管理对象的生命周期,如 Tomcat 就是 Servlet 和 JSP 的容器 架构 1.Core Container(核心容器)包含有 Beans、Core、Context 和 SpEL 模块。 2.Data Access/Integration 层包">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-11T10:26:16.291Z">
+<meta property="og:image" content="http://yoursite.com/2019/05/11/Spring框架-IoC-DI/Spring框架-Ioc-DI/spring概述.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/11/Spring框架-IoC-DI/Spring框架-Ioc-DI/spring架构.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/11/Spring框架-IoC-DI/Spring框架-Ioc-DI/案例流程.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/11/Spring框架-IoC-DI/Spring框架-Ioc-DI/application初始化.png">
+<meta property="og:updated_time" content="2019-05-11T12:05:53.265Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring框架-Ioc-DI">
-<meta name="twitter:description" content="Orange &amp; Yellow">
+<meta name="twitter:title" content="Spring框架-IoC-DI">
+<meta name="twitter:description" content="Spring框架概述Spring 是一个轻量级的 DI/IoC 和 AOP 容器的开源框架,致力于构建轻量级的 JavaEE 应用. 容器容器还要管理对象的生命周期,如 Tomcat 就是 Servlet 和 JSP 的容器 架构 1.Core Container(核心容器)包含有 Beans、Core、Context 和 SpEL 模块。 2.Data Access/Integration 层包">
+<meta name="twitter:image" content="http://yoursite.com/2019/05/11/Spring框架-IoC-DI/Spring框架-Ioc-DI/spring概述.png">
 
 
 
@@ -149,7 +155,7 @@
   </script>
 
 
-  <title>Spring框架-Ioc-DI | Cscar's Blog</title>
+  <title>Spring框架-IoC-DI | Cscar's Blog</title>
   
 
 
@@ -347,7 +353,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Spring框架-Ioc-DI</h1>
+          <h1 class="post-title" itemprop="name headline">Spring框架-IoC-DI</h1>
         
 
         <div class="post-meta">
@@ -370,6 +376,39 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spring/" itemprop="url" rel="index">
+                    <span itemprop="name">Spring</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spring/MyBatis/" itemprop="url" rel="index">
+                    <span itemprop="name">MyBatis</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -391,7 +430,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  1.6k
                 </span>
               
 
@@ -407,7 +446,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  7
                 </span>
               
             </div>
@@ -428,7 +467,46 @@
       
 
       
-        
+        <h4 id="Spring框架概述"><a href="#Spring框架概述" class="headerlink" title="Spring框架概述"></a>Spring框架概述</h4><p>Spring 是一个轻量级的 DI/IoC 和 AOP 容器的开源框架,致力于构建轻量级的 JavaEE 应用.<br><img src="/2019/05/11/Spring框架-IoC-DI/Spring框架-Ioc-DI/spring概述.png" alt="spring概述"></p>
+<h5 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h5><p>容器还要管理对象的生命周期,如 Tomcat 就是 Servlet 和 JSP 的容器</p>
+<h5 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h5><p><img src="/2019/05/11/Spring框架-IoC-DI/Spring框架-Ioc-DI/spring架构.png" alt="架构"></p>
+<pre><code>1.Core Container(核心容器)包含有 Beans、Core、Context 和 SpEL 模块。
+2.Data Access/Integration 层包含有 JDBC、ORM、OXM、
+3.JMS 和 Transactions 模块。
+4.Web 层包含了 Web、Servlet、WebSocket、Porlet 模块。 
+5.AOP 模块提供了遵循 AOP 联盟标准的面向切面编程的实现。 
+6.Test 模块支持使用 JUnit 和 TestNG 对 Spring 组件进行测试。
+</code></pre><h4 id="IoC和DI思想"><a href="#IoC和DI思想" class="headerlink" title="IoC和DI思想"></a>IoC和DI思想</h4><p>IoC:Inversion of Control(反转控制)<br>将原本在程序中手动创建对象的控制权,交由 Spring 框架的 IoC 容器来管理.调用者只管负责从 Spring 容器中获取需要使用的对象,不关心对象的创建过程,也不关心该对象依赖对象的创建以及依赖关系的组装,也就是把创建对象的控制权反转给了 Spring 框架.</p>
+<h4 id="IoC-Demo"><a href="#IoC-Demo" class="headerlink" title="IoC_Demo"></a>IoC_Demo</h4><p>domain:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> String name;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">   <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">   <span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayHello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">System.out.println(name + <span class="string">"你好,年龄"</span> + age); &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>XML 配置:<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag"><span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans</span></span></span><br><span class="line"><span class="tag"><span class="string">  http://www.springframework.org/schema/beans/spring-beans.xsd"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"helloWorld"</span> <span class="attr">class</span>=<span class="string">"...HelloWorld"</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"will"</span>/&gt;</span> 对应HelloWorld中的setName方法 </span><br><span class="line"><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"age"</span> <span class="attr">value</span>=<span class="string">"17"</span> /&gt;</span> 对应 HelloWorld 中的 setAge 方法</span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>测试类:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">HelloWorld world = <span class="keyword">null</span>;</span><br><span class="line"><span class="comment">//加载 Spring 配置文件 applicationContext.xml</span></span><br><span class="line">Resource resource = <span class="keyword">new</span> ClassPathResource(<span class="string">"applicationContext.xml"</span>); </span><br><span class="line"><span class="comment">//创建 Spring 容器对象</span></span><br><span class="line">BeanFactory factory = <span class="keyword">new</span> XmlBeanFactory(resource);</span><br><span class="line"><span class="comment">//从 Spring 容器中获取制定名为 helloWorld 的 bean</span></span><br><span class="line">world = (HelloWorld) factory.getBean(<span class="string">"helloWorld"</span>); </span><br><span class="line">world.sayHello();</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2019/05/11/Spring框架-IoC-DI/Spring框架-Ioc-DI/案例流程.png" alt></p>
+<h5 id="BeanFactory"><a href="#BeanFactory" class="headerlink" title="BeanFactory"></a>BeanFactory</h5><p>Spring IoC 容器——生产 bean 对象的工厂,负责配置,创建和管理 bean.<br><strong>被 Spring IoC 容器管理的对象称之为 bean</strong></p>
+<p>Spring IoC 管理 bean 的原理:</p>
+<p>1.通过 Resource 对象加载配置文件<br>2.解析配置文件,得到指定名称的 bean<br>3.解析 bean 元素,id 作为 bean 的名字,class 用于反射得到 bean 的实例:注意:此时，bean 类必须存在一个无参数构造器(反射创建:和访问权限无关);<br>4.调用 getBean 方法的时候,从容器中返回对象实例;</p>
+<p><strong>就是把代码从 JAVA 文件中转移到了 XML 中</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">HelloWorld wolrd = <span class="keyword">null</span>;</span><br><span class="line">String className=<span class="string">"...HelloWorld"</span>;</span><br><span class="line"><span class="comment">//-----------------------------------------------------</span></span><br><span class="line">Class clz = Class.forName(className);</span><br><span class="line">Constructor con = clz.getDeclaredConstructor();</span><br><span class="line">con.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">wolrd = (HelloWorld)con.newInstance();</span><br><span class="line">BeanInfo beanInfo = Introspector.getBeanInfo(wolrd.getClass());</span><br><span class="line">PropertyDescriptor[] pds = beanInfo.getPropertyDescriptors();</span><br><span class="line">  <span class="keyword">for</span> (PropertyDescriptor pd : pds) &#123;</span><br><span class="line">   String propertyName = pd.getName();</span><br><span class="line">   Method setterMethod =pd.getWriteMethod();</span><br><span class="line">   <span class="keyword">if</span>(<span class="string">"name"</span>.equals(propertyName))&#123;</span><br><span class="line">      setterMethod.invoke(wolrd, <span class="string">"Will"</span>);</span><br><span class="line">   &#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="string">"age"</span>.equals(propertyName)) &#123;</span><br><span class="line">      setterMethod.invoke(wolrd, <span class="number">17</span>);</span><br><span class="line">&#125; &#125;</span><br><span class="line"><span class="comment">//-----------------------------------------------------</span></span><br><span class="line">wolrd.sayHello();</span><br></pre></td></tr></table></figure></p>
+<h5 id="getBean-方法签名"><a href="#getBean-方法签名" class="headerlink" title="getBean 方法签名"></a>getBean 方法签名</h5><p>方式一:按照 bean 的名字拿 bean，按照名字拿 bean 不太安全<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">world = (HelloWorld) factory.getBean(<span class="string">"helloWorld"</span>);</span><br></pre></td></tr></table></figure></p>
+<p>方式二:按照类型拿 bean，要求在 Spring 中只配置一个这种类型的实例<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">world = factory.getBea (HelloWorld.class);</span><br></pre></td></tr></table></figure></p>
+<p>方式三:按照名字+类型(推荐)<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">world = factory.getBean(<span class="string">"helloWorld"</span>,HelloWorld.class);</span><br></pre></td></tr></table></figure></p>
+<h5 id="bean元素id-name和import"><a href="#bean元素id-name和import" class="headerlink" title="bean元素id,name和import"></a>bean元素id,name和import</h5><p>id:可以使用字母、数字、连字符、下划线、句话、冒号,不能以“/”开头(spring3.1之前)<br>name:使用 name 属性为 bean 元素起多个别名,多个别名之间使用逗号或空格隔开.</p>
+<p>import resource:将一个<br>applicationContext.xml 文件分解成多个配置文件,然后在 applicationContext.xml 文件中包含其他配置文件<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">import</span> <span class="attr">resource</span>=<span class="string">"classpath:路径1/路径2/hello.xml"</span>/&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="Spring-测试框架"><a href="#Spring-测试框架" class="headerlink" title="Spring 测试框架"></a>Spring 测试框架</h4><p>基于 JUnit4 的测试:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith</span>(SpringJUnit4ClassRunner.class)</span><br><span class="line"><span class="meta">@ContextConfiguration</span>(<span class="string">"classpath:springTest.xml"</span>) </span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SpringTestTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Autowired</span></span><br><span class="line">        <span class="keyword">private</span> HelloWorld world;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Test</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line"></span><br><span class="line">        world.sayHello();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>@ContextConfiguration<br>默认去找的当前测试类名-context.xml 配置文件,如:SpringTestTest-context.xml</p>
+<h4 id="IoC-容器"><a href="#IoC-容器" class="headerlink" title="IoC 容器"></a>IoC 容器</h4><p>BeanFactory:<br>Spring 最底层的接口,只提供了的 IoC 功能，负责创建、组装、管理 bean,在应用中一般不使用 BeanFactory<br><strong>ApplicationContext</strong>:<br>ApplicationContext 接口继承了BeanFactory,除此之外还提供 AOP 集成、国际化处理、事件传播、统 一资源价值等功能.<br><img src="/2019/05/11/Spring框架-IoC-DI/Spring框架-Ioc-DI/application初始化.png" alt></p>
+<h4 id="bean实例化方式"><a href="#bean实例化方式" class="headerlink" title="bean实例化方式"></a>bean实例化方式</h4><p>2.静态工厂方法实例化:解决系统遗留问题<br>3.实例工厂方法实例化:解决系统遗留问题</p>
+<p><strong>必须保证 SomeBean1 必须有无参数构造器,和访问权限无关</strong><br>1.构造器实例化(无参数构造器),最标准,使用最多.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SomeBean1</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SomeBean1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"SomeBean1 构造器"</span>); &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;bean id=<span class="string">"someBean1"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"...SomeBean1"</span>/&gt;</span><br></pre></td></tr></table></figure></p>
+<p>4.实现 FactoryBean 接口实例化:实例工厂变种<br>用于其他框架和 Spring 集成,如集成 MyBatis 使用:org.mybatis.spring.SqlSessionFactoryBean<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SomeBean4</span> </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SomeBean4FactoryBean</span> <span class="keyword">implements</span> <span class="title">FactoryBean</span>&lt;<span class="title">SomeBean4</span>&gt;</span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> SomeBean4 <span class="title">getObject</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">   <span class="comment">//TODO</span></span><br><span class="line">   <span class="keyword">return</span> <span class="keyword">new</span> SomeBean4();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">public</span> Class&lt;?&gt; getObjectType() &#123;</span><br><span class="line">   <span class="keyword">return</span> SomeBean4.class;</span><br><span class="line">&#125; &#125;</span><br><span class="line">&lt;bean id=<span class="string">"someBean4"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"...SomeBean4FactoryBean"</span>/&gt;</span><br></pre></td></tr></table></figure></p>
+<h5 id="Bean-作用域"><a href="#Bean-作用域" class="headerlink" title="Bean 作用域"></a>Bean 作用域</h5><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">""</span> <span class="attr">class</span>=<span class="string">""</span> <span class="attr">scope</span>=<span class="string">"作用域"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>singleton: 单例<br>prototype: 多例,每次从容器中调用 Bean 时,都返回一个新的实例</p>
+<h5 id="Bean-初始化和销毁"><a href="#Bean-初始化和销毁" class="headerlink" title="Bean 初始化和销毁"></a>Bean 初始化和销毁</h5><p>1.init-method:bean 生命周期初始化方法,bean 对象创建后就进行调用.<br>2.destroy-method:容器被正常销毁的时候,如果 bean 被容器管理,会调用该方法.</p>
+<h4 id="DI-核心"><a href="#DI-核心" class="headerlink" title="DI 核心"></a>DI 核心</h4><p>1.所谓注入,可以简单理解为 IoC 容器创建对象的时候,设置相关的属性值.<br>2.给对象设置数据:<br>要么是在创建对象的时候通过构造器传入.<br>要么就是先创建对象,再通过setter 方法再设置<br>所以，注入方式主要有两种:</p>
+<p>1.setter 方法注入</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">//注入常量</span><br><span class="line"><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"蛤蛤"</span>/&gt;</span></span><br><span class="line">//注入对象</span><br><span class="line"><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"instance"</span> <span class="attr">ref</span>=<span class="string">"instance"</span>/&gt;</span></span><br><span class="line">//注入集合</span><br><span class="line"><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"prop"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">props</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">prop</span> <span class="attr">key</span>=<span class="string">"pKey1"</span>&gt;</span>pVal1<span class="tag">&lt;/<span class="name">prop</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">prop</span> <span class="attr">key</span>=<span class="string">"pKey2"</span>&gt;</span>pVal2<span class="tag">&lt;/<span class="name">prop</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">props</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">//简写</span><br><span class="line"><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"prop"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span></span><br><span class="line">       pKey1=pValue1</span><br><span class="line">       pKey2=pValue2</span><br><span class="line">    <span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>2.构造器注入:</p>
+<p>构造器方式注入使用:<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">constructor-arg</span>/&gt;</span>元素</span><br><span class="line"></span><br><span class="line">//安装构造器的参数名字设置值</span><br><span class="line"><span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"will"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"age"</span> <span class="attr">value</span>=<span class="string">"17"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"other"</span> <span class="attr">ref</span>=<span class="string">"otherBean"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"prop"</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="配置连接池"><a href="#配置连接池" class="headerlink" title="配置连接池"></a>配置连接池</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"dataSource"</span> <span class="attr">class</span>=<span class="string">"com.alibaba.druid.pool.DruidDataSource"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">init-method</span>=<span class="string">"init"</span> <span class="attr">destroy-method</span>=<span class="string">"close"</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"driverClassName"</span> <span class="attr">value</span>=<span class="string">"com.mysql.jdbc.Driver"</span>/&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"url"</span> <span class="attr">value</span>=<span class="string">"jdbc:mysql://localhost:3306/springdemo"</span>/&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">value</span>=<span class="string">"root"</span>/&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">value</span>=<span class="string">"admin"</span>/&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"initialSize"</span> <span class="attr">value</span>=<span class="string">"5"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>抽取 db.properties 文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">jdbc.driverClassName=com.mysql.jdbc.Driver</span><br><span class="line">jdbc.url=jdbc:mysql:///springdemo</span><br><span class="line">jdbc.username=root</span><br><span class="line">jdbc.password=admin</span><br><span class="line">jdbc.initialSize=5</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     
@@ -442,6 +520,18 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MyBatis/" rel="tag"><i class="fa fa-tag"></i> MyBatis</a>
+          
+            <a href="/tags/Spring/" rel="tag"><i class="fa fa-tag"></i> Spring</a>
+          
+            <a href="/tags/Ioc/" rel="tag"><i class="fa fa-tag"></i> Ioc</a>
+          
+            <a href="/tags/DI/" rel="tag"><i class="fa fa-tag"></i> DI</a>
+          
+        </div>
       
 
       
@@ -461,6 +551,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/11/SSM整合/" rel="prev" title="SSM整合">
+                SSM整合 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -523,8 +617,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -541,7 +644,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -552,7 +655,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -563,7 +666,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -627,6 +730,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Spring框架概述"><span class="nav-number">1.</span> <span class="nav-text">Spring框架概述</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#容器"><span class="nav-number">1.1.</span> <span class="nav-text">容器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#架构"><span class="nav-number">1.2.</span> <span class="nav-text">架构</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IoC和DI思想"><span class="nav-number">2.</span> <span class="nav-text">IoC和DI思想</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IoC-Demo"><span class="nav-number">3.</span> <span class="nav-text">IoC_Demo</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#BeanFactory"><span class="nav-number">3.1.</span> <span class="nav-text">BeanFactory</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#getBean-方法签名"><span class="nav-number">3.2.</span> <span class="nav-text">getBean 方法签名</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#bean元素id-name和import"><span class="nav-number">3.3.</span> <span class="nav-text">bean元素id,name和import</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Spring-测试框架"><span class="nav-number">4.</span> <span class="nav-text">Spring 测试框架</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IoC-容器"><span class="nav-number">5.</span> <span class="nav-text">IoC 容器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bean实例化方式"><span class="nav-number">6.</span> <span class="nav-text">bean实例化方式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Bean-作用域"><span class="nav-number">6.1.</span> <span class="nav-text">Bean 作用域</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Bean-初始化和销毁"><span class="nav-number">6.2.</span> <span class="nav-text">Bean 初始化和销毁</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DI-核心"><span class="nav-number">7.</span> <span class="nav-text">DI 核心</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置连接池"><span class="nav-number">8.</span> <span class="nav-text">配置连接池</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -663,7 +782,7 @@
 -->
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共22.5k字</span>
+  <span class="post-count">博客全站共24.6k字</span>
 </div>
 
 
