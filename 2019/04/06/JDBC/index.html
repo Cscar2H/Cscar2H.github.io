@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="Cscar&#39;s Blog">
 <meta property="og:description" content="JDBC概述可以为多种关系数据库提供统一访问,为开发者屏蔽了一些细节问题 获取数据库链接对象Connection -&amp;gt; 数据库连接对象 导入驱动包 获取数据库连接对象 1.加载注册驱动:     Driver驱动类:应该加载驱动包中实现Driver接口类的对象     public static void registerDriver(Driver driver):注册驱动     API中">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-08T07:57:33.567Z">
+<meta property="og:updated_time" content="2019-05-16T13:06:23.209Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JDBC">
 <meta name="twitter:description" content="JDBC概述可以为多种关系数据库提供统一访问,为开发者屏蔽了一些细节问题 获取数据库链接对象Connection -&amp;gt; 数据库连接对象 导入驱动包 获取数据库连接对象 1.加载注册驱动:     Driver驱动类:应该加载驱动包中实现Driver接口类的对象     public static void registerDriver(Driver driver):注册驱动     API中">
@@ -534,6 +534,7 @@ boolean next(): 是否有下一行, 如果返回是true,表示已经移动到下
 <h2 id="DBMS"><a href="#DBMS" class="headerlink" title="DBMS"></a>DBMS</h2><p>1.安全检查<br>2.语义分析<br>检查语句在缓存中是否存在<br>3.编译SQL<br>4.执行SQL</p>
 <p>有缓存区会存储编译好的sql模板,?</p>
 <p><strong>使用预编译语句对象可以防止SQL注入</strong></p>
+<h4 id="其他问题"><a href="#其他问题" class="headerlink" title="其他问题"></a>其他问题</h4><p>jdbc驱动8.0以上版本时区,少一天<br>连接数据库的url加上<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">serverTimezone=Asia/Shanghai</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -674,7 +675,7 @@ boolean next(): 是否有下一行, 如果返回是true,表示已经移动到下
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -769,7 +770,7 @@ boolean next(): 是否有下一行, 如果返回是true,表示已经移动到下
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#JDBC"><span class="nav-number">1.</span> <span class="nav-text">JDBC</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#概述"><span class="nav-number">1.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取数据库链接对象"><span class="nav-number">1.2.</span> <span class="nav-text">获取数据库链接对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JDBC操作模板"><span class="nav-number">1.3.</span> <span class="nav-text">JDBC操作模板</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#相关操作"><span class="nav-number">1.4.</span> <span class="nav-text">相关操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DML操作"><span class="nav-number">1.5.</span> <span class="nav-text">DML操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#预编译语句对象"><span class="nav-number">1.6.</span> <span class="nav-text">预编译语句对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DQL操作"><span class="nav-number">1.7.</span> <span class="nav-text">DQL操作</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DAO规范"><span class="nav-number">2.</span> <span class="nav-text">DAO规范</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DAO的设计"><span class="nav-number">2.1.</span> <span class="nav-text">DAO的设计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DAO的规范"><span class="nav-number">2.2.</span> <span class="nav-text">DAO的规范</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#开发流程"><span class="nav-number">2.3.</span> <span class="nav-text">开发流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#抽取和完善JDBCutil"><span class="nav-number">2.4.</span> <span class="nav-text">抽取和完善JDBCutil</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#预编译语句对象原理"><span class="nav-number">2.5.</span> <span class="nav-text">预编译语句对象原理</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#DBMS"><span class="nav-number"></span> <span class="nav-text">DBMS</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#JDBC"><span class="nav-number">1.</span> <span class="nav-text">JDBC</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#概述"><span class="nav-number">1.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取数据库链接对象"><span class="nav-number">1.2.</span> <span class="nav-text">获取数据库链接对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JDBC操作模板"><span class="nav-number">1.3.</span> <span class="nav-text">JDBC操作模板</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#相关操作"><span class="nav-number">1.4.</span> <span class="nav-text">相关操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DML操作"><span class="nav-number">1.5.</span> <span class="nav-text">DML操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#预编译语句对象"><span class="nav-number">1.6.</span> <span class="nav-text">预编译语句对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DQL操作"><span class="nav-number">1.7.</span> <span class="nav-text">DQL操作</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DAO规范"><span class="nav-number">2.</span> <span class="nav-text">DAO规范</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DAO的设计"><span class="nav-number">2.1.</span> <span class="nav-text">DAO的设计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DAO的规范"><span class="nav-number">2.2.</span> <span class="nav-text">DAO的规范</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#开发流程"><span class="nav-number">2.3.</span> <span class="nav-text">开发流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#抽取和完善JDBCutil"><span class="nav-number">2.4.</span> <span class="nav-text">抽取和完善JDBCutil</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#预编译语句对象原理"><span class="nav-number">2.5.</span> <span class="nav-text">预编译语句对象原理</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#DBMS"><span class="nav-number"></span> <span class="nav-text">DBMS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#其他问题"><span class="nav-number">0.1.</span> <span class="nav-text">其他问题</span></a></li></ol></li></div>
             
 
           </div>
@@ -812,7 +813,7 @@ boolean next(): 是否有下一行, 如果返回是true,表示已经移动到下
 -->
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共24.6k字</span>
+  <span class="post-count">博客全站共29.7k字</span>
 </div>
 
 
