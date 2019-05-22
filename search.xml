@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[SSM整合总结]]></title>
+    <url>%2F2019%2F05%2F21%2FSSM%E6%95%B4%E5%90%88%E6%80%BB%E7%BB%93%2F</url>
+    <content type="text"><![CDATA[Spring作用:通过使用Spring提供的IoC容器,可以将对象之间的依赖关系交给Spring进行控制.方便解耦,简化开发. IoCIoC容器:BeanFactory 是 Spring 最底层的接口.只提供了的 IoC 功能,负责创建、组装、管理 bean.在应用中,一般不使用 BeanFactory,而推荐使用 ApplicationContextBeanFactory:需要等到获取某一个bean的时候才会创建该beanApplicationContext:在启动Spring容器的时候就会创建所有的bean,ApplicationContext接口继承了 BeanFactory.除此之外还提供 AOP 集成、国际化处理、事件传播、统 一资源价值等功能. IoC:控制反转.把创建对象的控制权交给Spring来管理,只需要描述对象如何被创建(在配置文件描述),之后一个容器(IoC容器)负责把他们组装起来 Bean的作用域指其创建的 Bean 对象相对于其他 Bean 对象的请求可见范围.Singleton - 单例,缺省值.在 Spring IoC 容器中仅存在一个 Bean 实例,在开发中主要使用scope=”singleton”.Prototype - 多例,每次从容器中调用 Bean 时,都返回一个新的实例. Request - 每一次 HTTP 请求都会产生一个新的实例,并且该 bean 仅在当前 HTTP 请求内有效.Session - 每一次 HTTP 请求都会产生一个新的 bean,同时该 bean 仅在当前 HTTP session 内有效.Global-session - 类似于标准的 HTTP Session 作用域,不过它仅仅在基于 portlet 的 web 应用中才有意义.Portlet 规范定义了全局 Session 的概念,它被所有构成某个 portlet web 应用的各种不同的 portlet 所共享.在 global session 作用域中定义的 bean 被限定于全局 portlet Session 的生命周期范围内.如果你在 web 中使用 global session 作用域来标识 bean,那么 web 会自动当成 session 类型来使用. Bean的初始化和销毁init-method和destroy-method,一般用于连接池的初始化和销毁(关闭资源). DIDI注入:为IoC容器创建对象的时候,设置相关的属性值.IoC是开发目的,DI是实现的手段.注入方式有两种:setter方法注入构造器注入注入值的类型:常量值(简单类型) : value元素对象(复合类型) : ref 元素集合 : 对应集合类型元素 AOP代理模式的定义:为其他对象提供一种代理以控制对这个对象的访问.代理模式的特点:代理对象完全包含真实对象,客户端使用的都是代理对象的方法,和真实对象没有关系.代理模式的职责:把不是真实对象该做的事情从真实对象上撇开,职责清晰. 实现动态代理:针对有接口:使用JDK动态代理.针对无接口:使用CGLIB或Javassist组件 动态代理原理:调用代理对象方法,在代理对象中插入增强代码.通过invoke方法,去调用真实对象中的真实方法,实现业务功能. AOP思想:AOP 把多个业务方法需要调用的代码封装到不同的模块中去(责任分离思想),使用动态代理机制来动态的增强业务功能,从而达到了代码的复用,也提高了维护性.]]></content>
+      <categories>
+        <category>Spring MVC</category>
+        <category>Spring</category>
+        <category>MyBatis</category>
+      </categories>
+      <tags>
+        <tag>Spring</tag>
+        <tag>Ioc</tag>
+        <tag>DI</tag>
+        <tag>MyBatis</tag>
+        <tag>MVC</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[JavaScript语法]]></title>
+    <url>%2F2019%2F05%2F20%2FJavaScript%E8%AF%AD%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[JavaScriptjs是一种直译式脚本语言,动态类型,弱类型,基于原型的语言.解释器被称为JavaScript引擎,为浏览器的一部分. 组成ECMAScript(核心):JavaScript 语言基础DOM(文档对象模型):规定了访问 HTML 和 XML 的接口BOM:(浏览器对象模型) 变量声明变量:使用关键字 var.如果变量没有初始化,默认是 undefined不事先声明变量而直接使用会报错 打印变量:方式一:alert(变量名);方式二:console.log(变量名): (info,log,debug,warm,error) 基本类型和常量1.整数常量(10进制8进制16进制)十六进制以 0x 或 0X 开头，例:0x8a八进制必须以 0 开头 例如:0123十进制的第一位不能是 0 (数字0除外) 2.实数常量12.32、193.98、 5E7、4e5等.特殊数值:NaN、Infinity (除数为零),所对应的判断函数 isNaN()、isFinite() 3.typeof 运算符 typeof 判断变量的数据类型var msg=’hello’;console.log(typeof msg );msg=18;console.log(typeof msg ); 运算符比较运算符:= 和 == 以及 === 之间的区别：= 赋值运算符：用于把一个常量/变量的值赋值给另外一个变量== 比较运算符：用于比较两个数据的值是否相等，不会去判断类型 console.log(“18” == 18 );=== 比较运算符：先判断数据类型是否相等，然后在去判断值是否相等 console.log(“18” === 18); 逻辑运算符在逻辑运算中 0、””、false、NaN、undefined、null 表示为 false,其他类型数据都表示 trueNaN:not a number a &amp;&amp; b 将 a, b 先转换为 Boolean 类型,在执行逻辑与,若 a 为 false,则返回 a,否则就返回 b; a || b 将 a, b 先转换为 Boolean 类型,再执行逻辑或,若 a 为 true,则返回 a,否则就返回 b; 函数作用:写在函数里面的js代码,只需要定义一次,就可以多次调用定义普通函数:1234function 函数名([参数名称1, 参数名称2, ..., 参数名称N]) &#123; //程序代码 [return 值;]&#125; 无参数无返回,有参数无返回,有参数有返回.如果函数没有返回值,就默认返回 undefined 定义匿名函数:123var add = function(x, y)&#123; return x+y;&#125; 给函数一个固定的名称,我们称之为函数名,把匿名函数当成一个普通的值来理解 全局变量和局部变量全局变量:function外部定义的变量就是全局变量.局部变量:function内部定义使用var声明的变量就是局部变量.访问变量的原则:就近原则.变量声明会提前 全局函数encodeURI 及 encodeURIComponent 方法:返回对一个 URI 字符串编码后的结果.decodeURI 及 decodeURIComponent() 方法:将一个已编码的 URI 字符串解码成最初始的字符串并返回。. parseInt 方法 : 将一个字符串转换成对应的整数(尽可能多地转换) parseFloat 方法 : 将一个字符串转换成对应的小数(尽可能多地转换) eval 方法 : 将参数字符串作为一个 JavaScript 表达式执行. 面向对象对象的属性和方法统一的被称为成员对象的构造函数(函数首字母大写,以区分普通函数)语法格式:1var objInstance=new ObjName([实际参数列表]); 可以动态给对象添加属性 this关键字:在构造函数中,this指新创建的对象:在普通的函数/方法中,谁调用this所在的函数/方法,this就指向谁. 参数传值基本类型:传递的是值的拷贝引用类型:传递的是内存地址的拷贝. 内置对象1.Object创建对象,并设置属性和方法12345678910var obj = new Object();obj.name = "xxx";obj.age = 18;obj.sayHello = function()&#123;&#125;;//对象的构造函数alert(obj.constructor);//是否有指定的属性```jsconsole.log(obj.hasOwnProperty("name1")); 2.Date打印当前系统时间12var d = new Date();var time = d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate() + " " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds(); 3.Math123var num = Math.random();//随机[0.0,1.0)//随机生成[0,25)//随机生成[65,91] 数组定义方式一:创建数组对象1var arr = new Array(); 方式二:类似数组中的静态初始化12var arr2 = new Array("西施","王昭君","貂蝉","杨贵妃");var arr2 = new Array(1, 2, 3, 4) --&gt; arr2=new Array(2); 方式三:类似数组的动态初始化1var arr3 = new Array(4); 方式四:1var arr4 = ["西施","王昭君","貂蝉","杨贵妃"]; 注意:对于js中的数组不会出现数组越界的异常,也不是定长的. 数组的属性和方法1.属性length属性,获取数组长度 2.方法连接两个或更多的数组,并返回结果1concat(array1, array2, ......, arrayX); 把数组的所有元素放入一个字符串.元素通过指定的分隔符进行分隔1join(separator); 颠倒数组中元素的顺序（该方法会改变原来的数组,而不会创建新的数组)1reverse(); 从某个已有的数组返回选定的元素(返回的是一个新数组)1slice(start[, end]); 删除并返回数组的最后一个元素1pop(); 删除并返回数组的第一个元素1shift(); 向数组的末尾添加一个或更多元素，并返回新的长度1push(newelement1, newelement2, ...., newelementX); 向数组的开头添加一个或更多元素,并返回新的长度1unshift(newelement1, newelement2, ...., newelementX); 用于插入、删除或替换数组的元素1splice(index, howmany, element1, ....., elementX); 数组遍历1.普通遍历123for (var i = 0; i &lt; arr.length; i++)&#123; console.log(arr[i]);&#125; 2.forEach123arr.forEach(function (value) &#123; console.log(value);&#125;) 3.for-in123456789for(var i in arr) &#123; console.log(arr[i]);&#125;var obj = &#123;name:"小强",age:'18'&#125;;for(var p in obj)&#123; console.log(obj.p); console.log(obj[p]);&#125; 4.map123arr.map(function(ele,index,arr)&#123; return ele+10;&#125;) BOMBOM:浏览器对象模型 定时器第一种:只会执行一次,指定时间后,执行某一个操作.第二种:周期性执行,间隔多少时间后,周期性执行某一个操作.setTimeout(fn, time)函数,返回 timer,用于指定一段时间后执行某函数setInterval(fn, time)函数,返回 timer,用于周期性执行某函数. 参数 fn可以是字符串组成的 Javascript 代码,也可以是一个函数名称. 参数 time 表示时间,毫秒为单位. clearTimeout(timer) 函数清,除由 setTimeout 创建的定时器.clearInterval(timer) 函数,清除由 setInterval 指定的定时器.]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[SSM综合]]></title>
+    <url>%2F2019%2F05%2F17%2FSSM%E7%BB%BC%E5%90%88%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
     <title><![CDATA[spring请求和响应]]></title>
     <url>%2F2019%2F05%2F16%2Fspring%E8%AF%B7%E6%B1%82%E5%92%8C%E5%93%8D%E5%BA%94%2F</url>
     <content type="text"></content>
