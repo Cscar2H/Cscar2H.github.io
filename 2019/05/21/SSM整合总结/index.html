@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="Cscar&#39;s Blog">
 <meta property="og:description" content="Spring作用:通过使用Spring提供的IoC容器,可以将对象之间的依赖关系交给Spring进行控制.方便解耦,简化开发. IoCIoC容器:BeanFactory 是 Spring 最底层的接口.只提供了的 IoC 功能,负责创建、组装、管理 bean.在应用中,一般不使用 BeanFactory,而推荐使用 ApplicationContextBeanFactory:需要等到获取某一个be">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-22T07:09:45.772Z">
+<meta property="og:updated_time" content="2019-05-23T14:32:16.895Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SSM整合总结">
 <meta name="twitter:description" content="Spring作用:通过使用Spring提供的IoC容器,可以将对象之间的依赖关系交给Spring进行控制.方便解耦,简化开发. IoCIoC容器:BeanFactory 是 Spring 最底层的接口.只提供了的 IoC 功能,负责创建、组装、管理 bean.在应用中,一般不使用 BeanFactory,而推荐使用 ApplicationContextBeanFactory:需要等到获取某一个be">
@@ -436,7 +436,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  842
+                  1.4k
                 </span>
               
 
@@ -452,7 +452,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  4
                 </span>
               
             </div>
@@ -484,7 +484,12 @@
 <p>实现动态代理:<br>针对有接口:使用JDK动态代理.<br>针对无接口:使用CGLIB或Javassist组件</p>
 <p>动态代理原理:<br>调用代理对象方法,在代理对象中插入增强代码.通过invoke方法,去调用真实对象中的真实方法,实现业务功能.</p>
 <p>AOP思想:<br>AOP 把多个业务方法需要调用的代码封装到不同的模块中去(责任分离思想),使用动态代理机制来动态的增强业务功能,从而达到了代码的复用,也提高了维护性.</p>
-
+<p>Joinpoint:通过在连接点插入代码,从而增强功能.<br>Pointcut(切点) : 指定哪些类的哪些方法上织入横切逻辑<br>Advice(增强) : 描述横切逻辑和方法的具体织入点<br>Advisor(切面) : 将Pointcut和Advice两者组装起来,有了Advisor信息,Spring就可以利用JDK/CGLIB动态代理技术采用统一的方式为目标Bean创建织入切面的代理对象.</p>
+<p>增强时机:<br>aop:before(前置增强):<br>    在方法执行之前增强<br>aop:after-returning(后置增强):<br>    在方法正常执行完成之后执行增强<br>aop:throwing(异常增强):<br>    在方法抛出异常退出时执行增强<br>aop:after(最终增强):<br>    在方法执行之后执行,相当于在finally里执行<br>aop:around(环绕增强):<br>    可以在方法调用前/后完成自定义增强</p>
+<h4 id="事务管理"><a href="#事务管理" class="headerlink" title="事务管理"></a>事务管理</h4><p>并发会导致以下问题:<br>第一类丢失更新:两个事务更新相同的数据,如果一个事务提交,另一个事务回滚,第一个事务也会回滚<br>脏读:第二个事务查询到第一个事务未提交的数据,第一个事务根据该数据进行操作,但是第一个事务却回滚了…<br>虚读:一个事务查询到另一个事务已经提交的数据,导致多次查询数据不一致.<br>不可重复读:一个事务查询到另一个事务已经修改的数据,导致多次查询不一致<br>第二类丢失更新:多个事务同时读取相同的数据,并且完成各种对该数据的操作提交,会导致最后一次的提交覆盖前面所有对数据的修改.</p>
+<p>READ UNCOMMITED &lt; READ COMMITED &lt; REPEATABLE READ &lt; SERIALIZABLE<br>Oracle 支持 READ COMMITED(缺省)和 SERIALIZABLE<br>MySQL 支持 四种隔离级别,缺省为 REPEATABLE READ(可重复读)</p>
+<p>事务类型:<br>本地事务,分布式事务,JDBC 事务,JTA 事务<br>编程式事务:通过编写代码来管理事务<br>声明式事务:通过 注解 或 XML 配置来管理事务</p>
+<h3 id="Spring-MVC"><a href="#Spring-MVC" class="headerlink" title="Spring MVC"></a>Spring MVC</h3>
       
     </div>
     
@@ -531,6 +536,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/23/AJAX和jQuery/" rel="prev" title="AJAX和jQuery">
+                AJAX和jQuery <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -620,7 +629,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -631,7 +640,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -642,7 +651,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-count">45</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -715,7 +724,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring"><span class="nav-number">1.</span> <span class="nav-text">Spring</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#IoC"><span class="nav-number">1.1.</span> <span class="nav-text">IoC</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bean的作用域"><span class="nav-number">1.2.</span> <span class="nav-text">Bean的作用域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bean的初始化和销毁"><span class="nav-number">1.3.</span> <span class="nav-text">Bean的初始化和销毁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DI"><span class="nav-number">1.4.</span> <span class="nav-text">DI</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AOP"><span class="nav-number">1.5.</span> <span class="nav-text">AOP</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring"><span class="nav-number">1.</span> <span class="nav-text">Spring</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#IoC"><span class="nav-number">1.1.</span> <span class="nav-text">IoC</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bean的作用域"><span class="nav-number">1.2.</span> <span class="nav-text">Bean的作用域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bean的初始化和销毁"><span class="nav-number">1.3.</span> <span class="nav-text">Bean的初始化和销毁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DI"><span class="nav-number">1.4.</span> <span class="nav-text">DI</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AOP"><span class="nav-number">1.5.</span> <span class="nav-text">AOP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事务管理"><span class="nav-number">1.6.</span> <span class="nav-text">事务管理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-MVC"><span class="nav-number">2.</span> <span class="nav-text">Spring MVC</span></a></li></ol></div>
             
 
           </div>
@@ -758,7 +767,7 @@
 -->
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共32.1k字</span>
+  <span class="post-count">博客全站共35k字</span>
 </div>
 
 
