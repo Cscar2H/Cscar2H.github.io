@@ -93,20 +93,18 @@
 
 
 
-<meta name="description" content="1.事先为用户分配角色,为角色分配权限.2.用户访问资源,检查当前用户是否有权限访问对应的资源.3.公共资源不需要权限.使用注解来描述是否要权限,要什么权限才能访问.注解称为元数据,用来描述数据的数据,可以对类,方法,字段,做描述.部门模块,员工模块,角色模块,权限模块.">
+<meta name="description" content="需求分析完成一个简单的RBAC权限管理系统,系统中包括部门管理,员工管理,权限管理,角色管理四个模块.  基本的crud操作 员工和角色的关系管理 角色和权限的关系管理 权限加载 登录用户信息的检查 权限检查和拦截  通用配置maven   jar包 作用     Junit 回归测试框架   spring-test 对Junit等测试框架的简单封装   spring-webmvc 包含Sprin">
 <meta name="keywords" content="综合,权限,crud">
 <meta property="og:type" content="article">
 <meta property="og:title" content="权限管理系统-rbac">
 <meta property="og:url" content="http://yoursite.com/2019/05/29/rbac/index.html">
 <meta property="og:site_name" content="Cscar&#39;s Blog">
-<meta property="og:description" content="1.事先为用户分配角色,为角色分配权限.2.用户访问资源,检查当前用户是否有权限访问对应的资源.3.公共资源不需要权限.使用注解来描述是否要权限,要什么权限才能访问.注解称为元数据,用来描述数据的数据,可以对类,方法,字段,做描述.部门模块,员工模块,角色模块,权限模块.">
+<meta property="og:description" content="需求分析完成一个简单的RBAC权限管理系统,系统中包括部门管理,员工管理,权限管理,角色管理四个模块.  基本的crud操作 员工和角色的关系管理 角色和权限的关系管理 权限加载 登录用户信息的检查 权限检查和拦截  通用配置maven   jar包 作用     Junit 回归测试框架   spring-test 对Junit等测试框架的简单封装   spring-webmvc 包含Sprin">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2019/05/29/rbac/权限管理.png">
-<meta property="og:updated_time" content="2019-05-30T11:11:15.385Z">
+<meta property="og:updated_time" content="2019-05-31T16:41:25.108Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="权限管理系统-rbac">
-<meta name="twitter:description" content="1.事先为用户分配角色,为角色分配权限.2.用户访问资源,检查当前用户是否有权限访问对应的资源.3.公共资源不需要权限.使用注解来描述是否要权限,要什么权限才能访问.注解称为元数据,用来描述数据的数据,可以对类,方法,字段,做描述.部门模块,员工模块,角色模块,权限模块.">
-<meta name="twitter:image" content="http://yoursite.com/2019/05/29/rbac/权限管理.png">
+<meta name="twitter:description" content="需求分析完成一个简单的RBAC权限管理系统,系统中包括部门管理,员工管理,权限管理,角色管理四个模块.  基本的crud操作 员工和角色的关系管理 角色和权限的关系管理 权限加载 登录用户信息的检查 权限检查和拦截  通用配置maven   jar包 作用     Junit 回归测试框架   spring-test 对Junit等测试框架的简单封装   spring-webmvc 包含Sprin">
 
 
 
@@ -416,7 +414,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  116
+                  4.3k
                 </span>
               
 
@@ -432,7 +430,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  16
                 </span>
               
             </div>
@@ -453,7 +451,738 @@
       
 
       
-        <p><img src="/2019/05/29/rbac/权限管理.png" alt><br>1.事先为用户分配角色,为角色分配权限.<br>2.用户访问资源,检查当前用户是否有权限访问对应的资源.<br>3.公共资源不需要权限.<br><strong>使用注解来描述是否要权限,要什么权限才能访问.</strong><br>注解称为元数据,用来描述数据的数据,可以对类,方法,字段,做描述.<br>部门模块,员工模块,角色模块,权限模块.</p>
+        <h2 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h2><p>完成一个简单的RBAC权限管理系统,系统中包括部门管理,员工管理,权限管理,角色管理四个模块.</p>
+<ul>
+<li>基本的crud操作</li>
+<li>员工和角色的关系管理</li>
+<li>角色和权限的关系管理</li>
+<li>权限加载</li>
+<li>登录用户信息的检查</li>
+<li>权限检查和拦截</li>
+</ul>
+<h2 id="通用配置"><a href="#通用配置" class="headerlink" title="通用配置"></a>通用配置</h2><h3 id="maven"><a href="#maven" class="headerlink" title="maven"></a>maven</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">jar包</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Junit</td>
+<td style="text-align:left">回归测试框架</td>
+</tr>
+<tr>
+<td style="text-align:center">spring-test</td>
+<td style="text-align:left">对Junit等测试框架的简单封装</td>
+</tr>
+<tr>
+<td style="text-align:center">spring-webmvc</td>
+<td style="text-align:left">包含SpringMVC框架相关的所有类</td>
+</tr>
+<tr>
+<td style="text-align:center">spring-jdbc</td>
+<td style="text-align:left">对JDBC 的简单封装</td>
+</tr>
+<tr>
+<td style="text-align:center">spring-tx</td>
+<td style="text-align:left">为JDBC,Hibernate,JDO,JPA等提供的一致的声明式和编程式事务管理</td>
+</tr>
+<tr>
+<td style="text-align:center">mybatis</td>
+<td style="text-align:left">mybatis核心包</td>
+</tr>
+<tr>
+<td style="text-align:center">mysql-connector-java</td>
+<td style="text-align:left">mysql驱动包</td>
+</tr>
+<tr>
+<td style="text-align:center">mybatis-spring</td>
+<td style="text-align:left">mybatis和spring之间的连接桥梁</td>
+</tr>
+<tr>
+<td style="text-align:center">servlet-api</td>
+<td style="text-align:left">封装了HttpServletRequest和Response等对象</td>
+</tr>
+<tr>
+<td style="text-align:center">aspectj</td>
+<td style="text-align:left">AOP切面</td>
+</tr>
+<tr>
+<td style="text-align:center">druid</td>
+<td style="text-align:left">连接池</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h3><ul>
+<li>配置IoC注解(IoC注解解析器)<ul>
+<li>扫描指定文件中IoC相关的注解,将贴了对应注解的类交给Spring容器管理</li>
+<li>Spring:@Service @Resource @Autowired…</li>
+<li>Spring MVC:@Controller @RequestMapping…</li>
+</ul>
+</li>
+<li>配置数据源(连接数据库4要素)<ul>
+<li>间接通过连接池来获取对数据库的连接</li>
+</ul>
+</li>
+<li>配置SqlSessionFactory(创建SqlSession对象)<ul>
+<li>获取数据库连接池</li>
+<li>MyBatis主配置文件</li>
+<li>mybatis映射文件</li>
+<li>对象别名</li>
+</ul>
+</li>
+<li>Mapper接口代理对象<ul>
+<li>加载指定的mapper接口文件,为其生成代理类并交给spring容器管理.</li>
+</ul>
+</li>
+<li>配置事务管理<ul>
+<li>通常是service层的方法需要使用事务管理</li>
+<li>事务的增强<ul>
+<li>配置相关属性(只读,事务隔离级别,事务传播规则)</li>
+</ul>
+</li>
+<li>AOP<ul>
+<li>what 做什么增强</li>
+<li>where 在包下-&gt;类中-&gt;方法做增强</li>
+<li>when 增强的时机</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Mybatis"><a href="#Mybatis" class="headerlink" title="Mybatis"></a>Mybatis</h3><ul>
+<li><p>lazyLoadingEnabled:开启延迟加载</p>
+<ul>
+<li>如果没有开启延迟加载,在查询主对象的时候,也会立即查询和该对象关联的其他对象</li>
+</ul>
+</li>
+<li><p>aggressiveLazyLoading:积极加载</p>
+<ul>
+<li>开启积极加载.即使没有访问主对象关联的其他对象,也会执行响应的查询操作.浪费性能</li>
+</ul>
+</li>
+<li><p>lazyLoadTriggerMethods:触发延迟加载的方法</p>
+<ul>
+<li><p>默认情况下,访问主对象中的equals,clone,hashCode,toString方法时,会触发延迟加载立即查询关 </p>
+<p>联对象,没有必要</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Spring-MVC"><a href="#Spring-MVC" class="headerlink" title="Spring MVC"></a>Spring MVC</h3><ul>
+<li><p>引入其他配置文件</p>
+<ul>
+<li>在web服务器启动的时候,通过mvc配置文件来启动Spring容器.所以交给spring容器管理的所有资源,必须全部加载完毕</li>
+</ul>
+</li>
+<li><p>MVC注解驱动</p>
+<ul>
+<li><p>解析Spring MVC的相关注解.例如:@RequestMapping、@ExceptionHandler、 </p>
+<p>@RequestBody等</p>
+</li>
+</ul>
+</li>
+<li><p>视图解析器</p>
+<ul>
+<li>对Controller中方法返回的逻辑视图名称进行解析(视图解析).</li>
+<li>返回View给前端控制器</li>
+</ul>
+</li>
+</ul>
+<h2 id="部门"><a href="#部门" class="headerlink" title="部门"></a>部门</h2><h3 id="Spring-MVC-1"><a href="#Spring-MVC-1" class="headerlink" title="Spring MVC"></a>Spring MVC</h3><h4 id="web-xml"><a href="#web-xml" class="headerlink" title="web.xml"></a>web.xml</h4><p>配置servlet</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">servlet&gt;</span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>servlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>org.springframework.web.servlet.DispatcherServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:mvc.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!--&lt;load-on-startup&gt;1&lt;/load-on-startup&gt;--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>servlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>*.do<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><servlet-class>DispatcherServlet本质上也是一个servlet,继承了HttpServletBean</servlet-class></p>
+<p><param-name>contextConfigLocation参数定义了要装入的Spring配置文件,classpath路径的mvc.xml文件</param-name></p>
+<p><url-pattern>表示哪些请求需要交给Spring MVC处理.使用:/定义默认servlet映射.使用例如*.do表示拦截处理所有以.do为后缀名的请求</url-pattern></p>
+<p><load-on-startup>元素标记容器是否在启动的时候就加载这个servlet</load-on-startup></p>
+<ul>
+<li>当值为0或大于0时,表示容器在web应用启动的时候就加载并且初始化这个servlet.(值越小,优先级越高)</li>
+<li>小于0或者没有指定的时候,表示该容器在servlet被选择才会加载(第一个用户很慢)</li>
+</ul>
+<h4 id="Controller"><a href="#Controller" class="headerlink" title="Controller"></a>Controller</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">注解</th>
+<th style="text-align:left">用法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">@Controller</td>
+<td style="text-align:left">让IoC注解扫描器扫描到,交给spring容器管理</td>
+</tr>
+<tr>
+<td style="text-align:center">@RequestMapping</td>
+<td style="text-align:left">标注到类上,访问该控制器下的任意方法都需要带上这个命名空间.标注到方法上,表示该方法的url访问地址.<br>参数:value,method,params,headers</td>
+</tr>
+<tr>
+<td style="text-align:center">@RequiredPermission</td>
+<td style="text-align:left">自定义注解</td>
+</tr>
+<tr>
+<td style="text-align:center">@ModelAttribute</td>
+<td style="text-align:left">重新设置共享的参数对象属性名</td>
+</tr>
+<tr>
+<td style="text-align:center">@RequiredPermission</td>
+<td style="text-align:left">自定义权限注解</td>
+</tr>
+</tbody>
+</table>
+<p>@RequestMapping具体使用:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/register"</span>, method = RequestMethod.GET)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">register1</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"get请求"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/register"</span>, method = RequestMethod.POST)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">register2</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"post请求"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Spring MVC 根据请求的 method 类型可以区分相同URL的方法.action使用get请求调用register1,使用post请求调用register2.</p>
+<p>使用@Autowired注入DepartmentService</p>
+<p>controller方法响应处理</p>
+<ul>
+<li>返回String类型和共享数据,和model参数组合使用.<ul>
+<li>返回值为String</li>
+<li>redirect前缀方式,表示重定向:重定向后浏览器的地址变为重定向后的地址,不共享之前请求的数据.</li>
+<li>forward前缀方式,表示请求转发:转发后浏览器地址栏不变,共享之前请求中的数据.Spring MVC默认就是forward,可以省略</li>
+</ul>
+</li>
+<li>返回ModelAndView类型和共享数据<ul>
+<li>在对象中设置model(addObject)数据并指定view(setViewName)</li>
+<li>返回值为mv对象</li>
+</ul>
+</li>
+</ul>
+<h4 id="list"><a href="#list" class="headerlink" title="list"></a>list</h4><p>传入参数model,QueryObject</p>
+<p>请求转发-&gt;department/list</p>
+<h4 id="delete"><a href="#delete" class="headerlink" title="delete"></a>delete</h4><p>传入参数id</p>
+<p>重定向-&gt;redirect:list.do</p>
+<h4 id="input"><a href="#input" class="headerlink" title="input"></a>input</h4><p>传入参数model,id</p>
+<p>判断id是否为空</p>
+<p>请求转发-&gt;department/input</p>
+<h4 id="saveOrUpdate"><a href="#saveOrUpdate" class="headerlink" title="saveOrUpdate"></a>saveOrUpdate</h4><p>传入参数Department对象</p>
+<p>重定向-&gt;redirect:list.do</p>
+<h3 id="Spring-1"><a href="#Spring-1" class="headerlink" title="Spring"></a>Spring</h3><h4 id="service接口"><a href="#service接口" class="headerlink" title="service接口"></a>service接口</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">service接口</th>
+<th style="text-align:center">mapper接口</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">get</td>
+<td style="text-align:center">selectByPrimaryKey</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>insertOrUpdate</strong></td>
+<td style="text-align:center">insert和updateByPrimaryKey</td>
+</tr>
+<tr>
+<td style="text-align:center">listAll</td>
+<td style="text-align:center">listAll</td>
+</tr>
+<tr>
+<td style="text-align:center">deleteByPrimaryKey</td>
+<td style="text-align:center">deleteByPrimaryKey</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>query</strong></td>
+<td style="text-align:center">queryForCount和queryForList</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Spring的AOP和事物管理的实现基于动态代理(Spring默认使用JDK动态代理),动态代理的实现依赖于接口.否则必须使用cglib动态代理</li>
+<li>使用接口的方式把service实现的具体方式(实现类)隐藏起来,java多态.</li>
+<li>面向接口编程,解耦.</li>
+</ul>
+<h4 id="DepartmentServiceImpl"><a href="#DepartmentServiceImpl" class="headerlink" title="DepartmentServiceImpl"></a>DepartmentServiceImpl</h4><p>使用@Service注解,将被IoC注解析器扫描,自动注册到Spring容器.不需要在application.xml定义bean了.类似注解:@Component、@Repository、@Controller</p>
+<p>使用<strong>@Resource</strong>和<strong>@Autowired</strong>的区别</p>
+<p>相同:</p>
+<ul>
+<li>都可以用来装配bean. 都可以写在字段上,或写在setter方法上.</li>
+</ul>
+<p>不同:</p>
+<ul>
+<li>@Autowired默认<strong>按类型装配</strong>.默认情况下必须要求依赖对象必须存在,如果要允许null值,可以设置它的required属性为false.<ul>
+<li>由spring提供</li>
+</ul>
+</li>
+<li>@Resource<strong>默认按照名称进行装配</strong>.名称可以通过name属性进行指定,如果没有指定name属性,.当注解写在字段上时,默认取字段名,按照名称查找.如果注解写在setter方法上默认取属性名进行装配.<ul>
+<li>通过此注解完成从spring配置文件中查找名称为departmentMapper的bean来装配字段departmentMapper.</li>
+<li>spring配置文件中不存在 departmentMapper名称的bean则转向按照bean类型进行查找</li>
+<li>由JDK1.6提供</li>
+</ul>
+</li>
+</ul>
+<p>具体方法:</p>
+<p>insert和update-&gt;获取传入的对象id,判断是否存在.</p>
+<p>query-&gt;返回封装好的PageResult.先调用count方法获取总条数,判断是否有数据.</p>
+<p>​    没有数据:调用2个参数的构造器.</p>
+<p>​    有数据:调用4个参数的构造器.</p>
+<h4 id="封装PageResult"><a href="#封装PageResult" class="headerlink" title="封装PageResult"></a>封装PageResult</h4><p>用户传入的两个字段:</p>
+<ul>
+<li>currentPage(当前页)</li>
+<li>pageSize(每页条数)</li>
+</ul>
+<p>数据库查询出来的两个字段:</p>
+<ul>
+<li>totalCount(总条数)</li>
+<li>listData(每页的具体数据)</li>
+</ul>
+<p>需要计算的三个值:</p>
+<ul>
+<li>totalPage(总页数)</li>
+<li>prevPage(上一页)</li>
+<li>nextPage(下一页)</li>
+</ul>
+<p>两个构造器:</p>
+<p>少参数调用多参数.</p>
+<h3 id="mybatis"><a href="#mybatis" class="headerlink" title="mybatis"></a>mybatis</h3><h4 id="创建domain实体类"><a href="#创建domain实体类" class="headerlink" title="创建domain实体类"></a>创建domain实体类</h4><ul>
+<li>类中的属性和表中的字段一一对应.(ORM对象关系映射)</li>
+</ul>
+<h4 id="DepartmentMapper接口"><a href="#DepartmentMapper接口" class="headerlink" title="DepartmentMapper接口"></a>DepartmentMapper接口</h4><ul>
+<li>crud四个方法对应四条SQL</li>
+<li>listAll查询全部部门信息</li>
+<li><p>分页查询两条sql</p>
+<ul>
+<li><p>传入QueryObject(qo)对象,因为没有关键字或者其他查询,需要额外封装qo.</p>
+</li>
+<li><p>返回count和list&lt;Department&gt;</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="DepartmentMapper-xml"><a href="#DepartmentMapper-xml" class="headerlink" title="DepartmentMapper.xml"></a>DepartmentMapper.xml</h4><ul>
+<li>mapper.xml中的标签的id对应mapper接口中的方法名</li>
+<li>标签类型<ul>
+<li>parameterType-&gt;传入参数的类型(包装类型/对象)</li>
+<li>useGeneratedKeys-&gt;默认为false.是否获取insert插入数据时主键自增的值.</li>
+<li>keyProperty-&gt;把useGeneratedKeys的值赋给对象的指定(id)属性,使用setter获取.</li>
+<li>keyColumn-&gt;当主键列不是表中第一列的时候,需要指定.</li>
+</ul>
+</li>
+<li>resultType<ul>
+<li>返回的结果类型<ul>
+<li>对象/数据类型/集合</li>
+<li>对象的属性必须和数据库的列名一一对应.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>resultMap<ul>
+<li>自定义返回的结果类型<ul>
+<li>column 数据表中的列名</li>
+<li>property 对象中的属性(自定义和column对应的映射关系)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="员工"><a href="#员工" class="headerlink" title="员工"></a>员工</h2><h3 id="Spring-MVC-2"><a href="#Spring-MVC-2" class="headerlink" title="Spring MVC"></a>Spring MVC</h3><h4 id="Controller-1"><a href="#Controller-1" class="headerlink" title="Controller"></a>Controller</h4><p>@Autowired 注入 service和作用范围</p>
+<p><strong>employeeService</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">方法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">list</td>
+<td>查询员工信息,返回result</td>
+</tr>
+<tr>
+<td style="text-align:center">delete</td>
+<td>根据id删除员工</td>
+</tr>
+<tr>
+<td style="text-align:center">input</td>
+<td>判断id是否为空(编辑或删除),进行页面回显</td>
+</tr>
+<tr>
+<td style="text-align:center">saveOrUpdate</td>
+<td>传入参数:Employee对象,Long类型数组roleIds(角色id)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>departmentService</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">方法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">list</td>
+<td>查询部门信息,返回depts</td>
+</tr>
+<tr>
+<td style="text-align:center">input</td>
+<td>查询所有部门信息,下拉菜单选择回显</td>
+</tr>
+</tbody>
+</table>
+<p><strong>roleService</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">方法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">input</td>
+<td>查询所有角色信息,分配角色多选框回显</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Spring-2"><a href="#Spring-2" class="headerlink" title="Spring"></a>Spring</h3><h4 id="service接口-1"><a href="#service接口-1" class="headerlink" title="service接口"></a>service接口</h4><p>insertOrUpdate方法</p>
+<ul>
+<li>传入参数:<ul>
+<li>员工对象</li>
+<li>Long类型的数组:角色的id数组</li>
+</ul>
+</li>
+</ul>
+<h4 id="EmployeeServiceImpl"><a href="#EmployeeServiceImpl" class="headerlink" title="EmployeeServiceImpl"></a>EmployeeServiceImpl</h4><p>特殊:</p>
+<ul>
+<li>删除方法<ul>
+<li>删除员工信息的同时<strong>删除员工和角色</strong>的关系(employee_role中间表)</li>
+</ul>
+</li>
+<li>添加和更新方法<ul>
+<li>更新员工信息的同时<strong>删除员工和角色</strong>的关系</li>
+</ul>
+</li>
+<li><strong>添加员工和角色的关系</strong><ul>
+<li>判断传过来的Long类型数据是否为空</li>
+<li>遍历数据获取每个角色的id</li>
+<li>调用添加员工和角色信息的方法(employee_role),传入员工的id和遍历出来的角色id</li>
+</ul>
+</li>
+</ul>
+<h3 id="mybatis-1"><a href="#mybatis-1" class="headerlink" title="mybatis"></a>mybatis</h3><h4 id="创建domain实体类-1"><a href="#创建domain实体类-1" class="headerlink" title="创建domain实体类"></a>创建domain实体类</h4><p>相同:</p>
+<p>类中的属性和数据表对应</p>
+<p>特殊:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">Employee表</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">admin:使用boolean类型,设置默认值false</td>
+<td style="text-align:center">admin:管理员权限</td>
+</tr>
+<tr>
+<td style="text-align:center">dept:Department部门对象,封装部门信息</td>
+<td style="text-align:center">dept_id:关联部门id</td>
+</tr>
+<tr>
+<td style="text-align:center">roles:List<role>角色信息的集合</role></td>
+<td style="text-align:center">employee_role(中间表)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="EmployeeMapper接口"><a href="#EmployeeMapper接口" class="headerlink" title="EmployeeMapper接口"></a>EmployeeMapper接口</h4><p>特殊:</p>
+<ul>
+<li>维护员工和角色关系的两条SQL<ul>
+<li>添加关系<ul>
+<li>参数:empId和roleId</li>
+<li>目标:employee_role 员工和角色的中间表</li>
+</ul>
+</li>
+<li>删除关系<ul>
+<li>参数:empId</li>
+<li>目标:从employee_role 中间表根据员工id删除对应的信息</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="EmployeeMapper-xml"><a href="#EmployeeMapper-xml" class="headerlink" title="EmployeeMapper.xml"></a>EmployeeMapper.xml</h4><p>在基础的&lt;resultMap&gt;标签中添加&lt;association&gt;标签,为Employee里的dept对象封装信息</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">标签</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">property</td>
+<td style="text-align:left">封装到该类里的属性名</td>
+</tr>
+<tr>
+<td style="text-align:center">javaType</td>
+<td style="text-align:left">指定对象的类型(全限定名),封装的是对象</td>
+</tr>
+<tr>
+<td style="text-align:center">columnPrefix</td>
+<td style="text-align:left">列名前缀,queryForList多表查询后,为字段定义的别名</td>
+</tr>
+<tr>
+<td style="text-align:center">column</td>
+<td style="text-align:left">列名</td>
+</tr>
+<tr>
+<td style="text-align:center">property</td>
+<td style="text-align:left">需要封装的属性名</td>
+</tr>
+</tbody>
+</table>
+<p>在基础的&lt;resultMap&gt;标签中,添加&lt;collection&gt;标签,为RoleMapper接口封装信息</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">标签</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">property</td>
+<td style="text-align:left">封装到该类里的属性名</td>
+</tr>
+<tr>
+<td style="text-align:center">ofType</td>
+<td style="text-align:left">指定对象的类型(全限定名),封装的是集合(list),反向查询select从另一个Mapper文件中取出数据时必须用ofType(从RoleMapper文件查询出来的数据给EmployeeMapper使用)</td>
+</tr>
+<tr>
+<td style="text-align:center">select</td>
+<td style="text-align:left">去找其他Mapper里的select语句(全限定名)</td>
+</tr>
+<tr>
+<td style="text-align:center">column</td>
+<td style="text-align:left">列名</td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键字查询/部门查询</strong>:</p>
+<p>使用定义EmpQueryObject类继承自QueryObject,封装查询需要的额外信息,把deptId的默认值设置为 -1,表示前端页面不选择部门默认不分部门查询.</p>
+<p>使用标签在sql添加判断:&lt;where&gt;&lt;if test=”…”&gt;.&lt;if test=”…”&gt;标签里写and,当test条件不满足时,会自动忽略and.</p>
+<p>使用concat(‘%’,#{key},’%’)拼接模糊查询关键字,同时查询多个关键字用or来连接</p>
+<h2 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h2><h3 id="Spring-MVC-3"><a href="#Spring-MVC-3" class="headerlink" title="Spring MVC"></a>Spring MVC</h3><p>@Autowired注入</p>
+<p><strong>roleService</strong></p>
+<p><strong>permissionService</strong> -&gt; 角色编辑回显权限</p>
+<h3 id="Spring-3"><a href="#Spring-3" class="headerlink" title="Spring"></a>Spring</h3><ul>
+<li>删除方法<ul>
+<li>删除角色的同时删除<strong>角色和权限</strong>的关系</li>
+</ul>
+</li>
+<li>添加和更新方法<ul>
+<li>更新角色信息的同时<strong>删除角色和权限</strong>的关系</li>
+</ul>
+</li>
+<li>添加角色和权限的关系<ul>
+<li>判断传过来的Long类型数据是否为空</li>
+<li>遍历数据获取每个权限表达式的id</li>
+<li>调用添加角色和权限的方法(role_permission),传入角色的id和遍历出来的perId</li>
+</ul>
+</li>
+</ul>
+<h3 id="mybatis-2"><a href="#mybatis-2" class="headerlink" title="mybatis"></a>mybatis</h3><h4 id="创建domain实体类-2"><a href="#创建domain实体类-2" class="headerlink" title="创建domain实体类"></a>创建domain实体类</h4><p>特殊:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th style="text-align:center">Role表</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">permissions:List权限信息集合</td>
+<td style="text-align:center">role_permission(中间表)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="RoleMapper接口"><a href="#RoleMapper接口" class="headerlink" title="RoleMapper接口"></a>RoleMapper接口</h4><p>特殊:</p>
+<ul>
+<li>维护角色和权限关系的两条SQL<ul>
+<li>添加关系<ul>
+<li>参数:roleId和perId</li>
+<li>目标:role_permission 角色和权限的中间表</li>
+</ul>
+</li>
+<li>删除关系<ul>
+<li>参数:roleId</li>
+<li>目标:从role_permission 中间表根据角色id删除对应的信息</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>根据员工id,经过中间表employee_role查询角色的信息list&lt;Role&gt;<ul>
+<li>在EmployeeMapper.xml的&lt;collection&gt;标签中使用RoleMapper.xml中的selectByEmpid</li>
+</ul>
+</li>
+</ul>
+<h4 id="RoleMapper-xml"><a href="#RoleMapper-xml" class="headerlink" title="RoleMapper.xml"></a>RoleMapper.xml</h4><p>在&lt;result标签&gt;标签中的使用&lt;collection&gt;标签为PermissionMapper的selectByPerid做封装.</p>
+<h2 id="权限"><a href="#权限" class="headerlink" title="权限"></a>权限</h2><h3 id="Spring-MVC-4"><a href="#Spring-MVC-4" class="headerlink" title="Spring MVC"></a>Spring MVC</h3><p>权限列表</p>
+<p>权限删除方法</p>
+<h4 id="SecurityInterceptor权限拦截器"><a href="#SecurityInterceptor权限拦截器" class="headerlink" title="SecurityInterceptor权限拦截器"></a>SecurityInterceptor权限拦截器</h4><ul>
+<li>获取当前用户(带session信息)<ul>
+<li>方法抽取到UserContext类</li>
+</ul>
+</li>
+<li>如果判断Employee对象的admin是否是true<ul>
+<li>得到管理员权限,放行</li>
+</ul>
+</li>
+<li>获取当前用户访问的方法对象<ul>
+<li>handler.getMethod();</li>
+</ul>
+</li>
+<li>获取当前请求方法的权限表达式<ul>
+<li>method.getAnnotation(自定义注解的字节码对象)</li>
+<li>获取数组中的权限表达式</li>
+</ul>
+</li>
+<li>获取登录用户的权限表达式<ul>
+<li>UserContext中的getExpressions</li>
+<li>判断获取当前用户的权限表达式是否包含数据库中Employee对象中的权限表达式</li>
+</ul>
+</li>
+<li>RequestDispatcher对象从客户端获取请求request,传递给服务器上报错页面nopermission.jsp(相对路径)<ul>
+<li>调用该对象的forward方法-&gt;forward(request, response)</li>
+</ul>
+</li>
+</ul>
+<h4 id="配置mvc-xml权限拦截器"><a href="#配置mvc-xml权限拦截器" class="headerlink" title="配置mvc.xml权限拦截器"></a>配置mvc.xml权限拦截器</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mvc:interceptor</span>&gt;</span></span><br><span class="line">  	<span class="comment">&lt;!--哪些需要拦截--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mvc:mapping</span> <span class="attr">path</span>=<span class="string">"/**"</span>/&gt;</span></span><br><span class="line">  	<span class="comment">&lt;!--哪些不需要拦截--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mvc:exclude-mapping</span> <span class="attr">path</span>=<span class="string">"/login.do"</span>/&gt;</span></span><br><span class="line">  	<span class="comment">&lt;!--把权限拦截器交给Spring管理--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"me.cscar.rbac.web.interceptor.SecurityInterceptor"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mvc:interceptor</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>reload方法</strong></p>
+<ul>
+<li>使用注解@Autowired注入属性,获取Spring容器<ul>
+<li>得到ApplicationContext</li>
+</ul>
+</li>
+<li>调用service接口查询所有的权限表达式</li>
+<li>从ApplicationContext容器中获取所有贴注解的控制器对象<ul>
+<li>使用反射得到controller的字节码对象,返回Map集合</li>
+<li>使用Map集合对象.values()获取collections的集合</li>
+</ul>
+</li>
+<li>从每个控制器获取方法<ul>
+<li>循环遍历出每个控制器,得到字节码对象,获取方法的数组</li>
+</ul>
+</li>
+<li>获取方法上的注解<ul>
+<li>使用反射获取RequiredPermission的字节码对象</li>
+<li>获取注解中传递的参数</li>
+</ul>
+</li>
+<li>判断从数据库查询出来的权限表达式集合,是否包含从注解里得到的表达式<ul>
+<li>没有包含,则将参数保存到数据库中.</li>
+</ul>
+</li>
+</ul>
+<h3 id="创建自定义注解接口"><a href="#创建自定义注解接口" class="headerlink" title="创建自定义注解接口"></a>创建自定义注解接口</h3><p>RequiredPermission</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">注解</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">@Target</td>
+<td>指定能贴的位置:{ElementType.METHOD}方法上</td>
+</tr>
+<tr>
+<td style="text-align:center">@Retention</td>
+<td>指定保存的时期:RetentionPolicy.RUNTIME运行时期</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>使用String数组-&gt;String[] value();<ul>
+<li>封装@RequiredPermission注解的参数值:-&gt;权限名称和权限表达式</li>
+</ul>
+</li>
+</ul>
+<h3 id="Spring-4"><a href="#Spring-4" class="headerlink" title="Spring"></a>Spring</h3><h4 id="PermissionMapper接口"><a href="#PermissionMapper接口" class="headerlink" title="PermissionMapper接口"></a>PermissionMapper接口</h4><p>查询所有的权限表达式,使用List封装泛型是String</p>
+<h3 id="mybatis-3"><a href="#mybatis-3" class="headerlink" title="mybatis"></a>mybatis</h3><h4 id="创建domain实体类-3"><a href="#创建domain实体类-3" class="headerlink" title="创建domain实体类"></a>创建domain实体类</h4><h4 id="PermissionMapper接口-1"><a href="#PermissionMapper接口-1" class="headerlink" title="PermissionMapper接口"></a>PermissionMapper接口</h4><ul>
+<li>查询所有表达式信息<ul>
+<li>返回所有List&lt;String&gt;的权限表达式</li>
+</ul>
+</li>
+<li>根据角色id,经过中间表role_permission查询权限的信息list&lt;Permission&gt;<ul>
+<li>在RoleMapper.xml中的&lt;collection&gt;标签中使用PermissionMapper.xml中的selectByPerid</li>
+</ul>
+</li>
+<li>根据员工id查询权限表达式<ul>
+<li>返回List&lt;String&gt;的权限表达式</li>
+<li>使用员工id关联employee_role表中的roleId(角色id)</li>
+<li>然后使用角色id关联role_permission表中的权限表达式的id,最终获取权限表达式</li>
+</ul>
+</li>
+</ul>
+<h2 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h2><h3 id="Spring-MVC-5"><a href="#Spring-MVC-5" class="headerlink" title="Spring MVC"></a>Spring MVC</h3><h4 id="登录-1"><a href="#登录-1" class="headerlink" title="登录"></a>登录</h4><p>调用service的login方法的时候try住抛上来的自定义异常</p>
+<p>打印异常信息,转发errorMsg到前端页面</p>
+<h4 id="注销"><a href="#注销" class="headerlink" title="注销"></a>注销</h4><p>logout方法</p>
+<p>传入HttpSession参数,调用invalidate销毁session.</p>
+<h4 id="配置mvc-xm登录拦截器"><a href="#配置mvc-xm登录拦截器" class="headerlink" title="配置mvc.xm登录拦截器"></a>配置mvc.xm登录拦截器</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--哪些需要拦截--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mvc:mapping</span> <span class="attr">path</span>=<span class="string">"/**"</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!--哪些不需要拦截--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mvc:exclude-mapping</span> <span class="attr">path</span>=<span class="string">"/login.do"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"me.cscar.rbac.web.interceptor.CheckLoginInterceptor"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>CheckLoginInterceptor登录拦截器</strong><ul>
+<li>继承HandlerInterceptorAdapter</li>
+<li>重写preHandle方法</li>
+<li>获取(get)当前用户对象,UserContext.setEmployeeInSession设置过来的session信息</li>
+<li>判断,空则拦截(false),不为空放行(true)</li>
+</ul>
+</li>
+</ul>
+<h3 id="Spring-5"><a href="#Spring-5" class="headerlink" title="Spring"></a>Spring</h3><ul>
+<li>在EmployeeService接口中,添加一个登录的方法<ul>
+<li>传入两个参数:用户名和密码</li>
+</ul>
+</li>
+<li>EmployeeServiceImpl实现类中<ul>
+<li>调用Mapper的查询方法</li>
+<li>判断返回的Employee对象是否为空,如果为空抛出自定义异常</li>
+<li>共享当前用户(方法抽取到UserContext中),传入当前用户对象.</li>
+<li>调用permissionMapper接口中的方法查询当前用户所有的权限表达式</li>
+<li>共享当前用户的权限表达式(方法抽取到UserContext中)</li>
+</ul>
+</li>
+</ul>
+<p><strong>自定义异常类</strong></p>
+<ul>
+<li>继承RuntimeException</li>
+<li>重写三个方法</li>
+<li>分别调用RuntimeException<ul>
+<li>无参数构造器</li>
+<li>message参数构造器</li>
+<li>String message, Throwable cause参数构造器</li>
+</ul>
+</li>
+</ul>
+<h3 id="mybatis-4"><a href="#mybatis-4" class="headerlink" title="mybatis"></a>mybatis</h3><p>在EmployeeMapper增加一个查询员工用户名和密码的方法.</p>
+<p><strong>EmployeeMapper.xml</strong></p>
+<p>从employee里查询用户名和密码</p>
+<h2 id="工具类"><a href="#工具类" class="headerlink" title="工具类"></a>工具类</h2><h3 id="UserContext"><a href="#UserContext" class="headerlink" title="UserContext"></a>UserContext</h3><p><strong>用户上下文对象</strong></p>
+<ul>
+<li>getSession()方法<ul>
+<li>把session信息名称定义成常量</li>
+<li>获取session<ul>
+<li>RequestContextHolder(持有上下文的Request容器)的使用</li>
+<li>获取请求属性</li>
+</ul>
+</li>
+<li>得到对象,先拿请求信息,再拿session</li>
+</ul>
+</li>
+<li>两个共享方法<ul>
+<li>调用前面的getSession()方法,set设置session信息名称和参数(对象或权限表达式集合)</li>
+</ul>
+</li>
+<li>两个获取方法<ul>
+<li>调用前面的getSession()方法.get获取session信息名称</li>
+<li>返回对象或权限表达式集合</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
@@ -559,8 +1288,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -663,6 +1401,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#需求分析"><span class="nav-number">1.</span> <span class="nav-text">需求分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通用配置"><span class="nav-number">2.</span> <span class="nav-text">通用配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#maven"><span class="nav-number">2.1.</span> <span class="nav-text">maven</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring"><span class="nav-number">2.2.</span> <span class="nav-text">Spring</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mybatis"><span class="nav-number">2.3.</span> <span class="nav-text">Mybatis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-MVC"><span class="nav-number">2.4.</span> <span class="nav-text">Spring MVC</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部门"><span class="nav-number">3.</span> <span class="nav-text">部门</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-MVC-1"><span class="nav-number">3.1.</span> <span class="nav-text">Spring MVC</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#web-xml"><span class="nav-number">3.1.1.</span> <span class="nav-text">web.xml</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Controller"><span class="nav-number">3.1.2.</span> <span class="nav-text">Controller</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#list"><span class="nav-number">3.1.3.</span> <span class="nav-text">list</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#delete"><span class="nav-number">3.1.4.</span> <span class="nav-text">delete</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#input"><span class="nav-number">3.1.5.</span> <span class="nav-text">input</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#saveOrUpdate"><span class="nav-number">3.1.6.</span> <span class="nav-text">saveOrUpdate</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-1"><span class="nav-number">3.2.</span> <span class="nav-text">Spring</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#service接口"><span class="nav-number">3.2.1.</span> <span class="nav-text">service接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DepartmentServiceImpl"><span class="nav-number">3.2.2.</span> <span class="nav-text">DepartmentServiceImpl</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#封装PageResult"><span class="nav-number">3.2.3.</span> <span class="nav-text">封装PageResult</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mybatis"><span class="nav-number">3.3.</span> <span class="nav-text">mybatis</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建domain实体类"><span class="nav-number">3.3.1.</span> <span class="nav-text">创建domain实体类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DepartmentMapper接口"><span class="nav-number">3.3.2.</span> <span class="nav-text">DepartmentMapper接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DepartmentMapper-xml"><span class="nav-number">3.3.3.</span> <span class="nav-text">DepartmentMapper.xml</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#员工"><span class="nav-number">4.</span> <span class="nav-text">员工</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-MVC-2"><span class="nav-number">4.1.</span> <span class="nav-text">Spring MVC</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Controller-1"><span class="nav-number">4.1.1.</span> <span class="nav-text">Controller</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-2"><span class="nav-number">4.2.</span> <span class="nav-text">Spring</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#service接口-1"><span class="nav-number">4.2.1.</span> <span class="nav-text">service接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#EmployeeServiceImpl"><span class="nav-number">4.2.2.</span> <span class="nav-text">EmployeeServiceImpl</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mybatis-1"><span class="nav-number">4.3.</span> <span class="nav-text">mybatis</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建domain实体类-1"><span class="nav-number">4.3.1.</span> <span class="nav-text">创建domain实体类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#EmployeeMapper接口"><span class="nav-number">4.3.2.</span> <span class="nav-text">EmployeeMapper接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#EmployeeMapper-xml"><span class="nav-number">4.3.3.</span> <span class="nav-text">EmployeeMapper.xml</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#角色"><span class="nav-number">5.</span> <span class="nav-text">角色</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-MVC-3"><span class="nav-number">5.1.</span> <span class="nav-text">Spring MVC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-3"><span class="nav-number">5.2.</span> <span class="nav-text">Spring</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mybatis-2"><span class="nav-number">5.3.</span> <span class="nav-text">mybatis</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建domain实体类-2"><span class="nav-number">5.3.1.</span> <span class="nav-text">创建domain实体类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RoleMapper接口"><span class="nav-number">5.3.2.</span> <span class="nav-text">RoleMapper接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RoleMapper-xml"><span class="nav-number">5.3.3.</span> <span class="nav-text">RoleMapper.xml</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#权限"><span class="nav-number">6.</span> <span class="nav-text">权限</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-MVC-4"><span class="nav-number">6.1.</span> <span class="nav-text">Spring MVC</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#SecurityInterceptor权限拦截器"><span class="nav-number">6.1.1.</span> <span class="nav-text">SecurityInterceptor权限拦截器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置mvc-xml权限拦截器"><span class="nav-number">6.1.2.</span> <span class="nav-text">配置mvc.xml权限拦截器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建自定义注解接口"><span class="nav-number">6.2.</span> <span class="nav-text">创建自定义注解接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-4"><span class="nav-number">6.3.</span> <span class="nav-text">Spring</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#PermissionMapper接口"><span class="nav-number">6.3.1.</span> <span class="nav-text">PermissionMapper接口</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mybatis-3"><span class="nav-number">6.4.</span> <span class="nav-text">mybatis</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建domain实体类-3"><span class="nav-number">6.4.1.</span> <span class="nav-text">创建domain实体类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PermissionMapper接口-1"><span class="nav-number">6.4.2.</span> <span class="nav-text">PermissionMapper接口</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#登录"><span class="nav-number">7.</span> <span class="nav-text">登录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-MVC-5"><span class="nav-number">7.1.</span> <span class="nav-text">Spring MVC</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#登录-1"><span class="nav-number">7.1.1.</span> <span class="nav-text">登录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注销"><span class="nav-number">7.1.2.</span> <span class="nav-text">注销</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置mvc-xm登录拦截器"><span class="nav-number">7.1.3.</span> <span class="nav-text">配置mvc.xm登录拦截器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-5"><span class="nav-number">7.2.</span> <span class="nav-text">Spring</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mybatis-4"><span class="nav-number">7.3.</span> <span class="nav-text">mybatis</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工具类"><span class="nav-number">8.</span> <span class="nav-text">工具类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#UserContext"><span class="nav-number">8.1.</span> <span class="nav-text">UserContext</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -699,7 +1453,7 @@
 -->
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共35k字</span>
+  <span class="post-count">博客全站共39.1k字</span>
 </div>
 
 
