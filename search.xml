@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title></title>
-    <url>%2F2019%2F08%2F02%2FSpirngCloud%2F</url>
-    <content type="text"><![CDATA[]]></content>
+    <title><![CDATA[SpringCloud]]></title>
+    <url>%2F2019%2F11%2F29%2FSpirngCloud%2F</url>
+    <content type="text"><![CDATA[1//TODO...]]></content>
+      <categories>
+        <category>Spring</category>
+      </categories>
+      <tags>
+        <tag>Spring</tag>
+        <tag>SpringCloud</tag>
+        <tag>框架</tag>
+        <tag>微服务</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[MongoDB]]></title>
@@ -78,8 +87,8 @@
         <category>Shiro</category>
       </categories>
       <tags>
-        <tag>Shiro</tag>
         <tag>框架</tag>
+        <tag>Shiro</tag>
         <tag>认证</tag>
         <tag>权限</tag>
       </tags>
