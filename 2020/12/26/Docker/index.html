@@ -115,7 +115,8 @@
 <meta property="og:image" content="http://yoursite.com/2020/12/26/Docker/image-20210111011355450.png">
 <meta property="og:image" content="http://yoursite.com/2020/12/26/Docker/image-20210111011550711.png">
 <meta property="og:image" content="http://yoursite.com/2020/12/26/Docker/image-20210111012113297.png">
-<meta property="og:updated_time" content="2021-01-10T17:43:30.805Z">
+<meta property="og:image" content="http://yoursite.com/2020/12/26/Docker/image-20210126170148931.png">
+<meta property="og:updated_time" content="2021-01-26T09:10:36.240Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker">
 <meta name="twitter:description" content="Dockerdocker概述发布一个项目.(jar + (redis + MySQL + jdk + …) ),带上环境一起打包. 在服务器配置一个应用环境,配置麻烦,不能够跨平台.Windows -&amp;gt; Linux 开发打包部署上线,一套流程做完. docker解决以上问题. JRE — 多个应用(端口冲突) —原来都是交叉 隔离机制:    Docker核心思想.  容器化技术不是模拟一个">
@@ -429,7 +430,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3.6k
+                  3.7k
                 </span>
               
 
@@ -445,7 +446,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  15
+                  16
                 </span>
               
             </div>
@@ -605,6 +606,12 @@
 <p>docker镜像都是只读.当容器启动时,一个新的可写层被加载到镜像顶部.</p>
 <p>这一层就是通常说的容器层,容器之下都叫镜像层.</p>
 <p><img src="/2020/12/26/Docker/image-20210111012113297.png" alt="image-20210111012113297"></p>
+<h3 id="commit镜像"><a href="#commit镜像" class="headerlink" title="commit镜像"></a>commit镜像</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker commit 提交容器成为一个新的副本</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 命令和git原理类似</span><br><span class="line">docker commit -m="提交描述信息" -a="作者" 容器id 目标镜像名: [TAG]</span><br></pre></td></tr></table></figure>
+<h2 id="容器数据卷"><a href="#容器数据卷" class="headerlink" title="容器数据卷"></a>容器数据卷</h2><h4 id="数据持久化"><a href="#数据持久化" class="headerlink" title="数据持久化"></a>数据持久化</h4><p>容器之间数据共享.</p>
+<p>Docker容器中产生的数据,同步到本地.目录挂载,将容器的目录,挂载到Linux上.</p>
+<p><img src="/2020/12/26/Docker/image-20210126170148931.png" alt="image-20210126170148931" style="zoom:50%;"></p>
+<p>容器的持久化和同步操作,容器之间可以数据共享.</p>
+<h3 id="使用容器数据卷"><a href="#使用容器数据卷" class="headerlink" title="使用容器数据卷"></a>使用容器数据卷</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -v 主机目录:容器内目录</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -828,7 +835,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker"><span class="nav-number">1.</span> <span class="nav-text">Docker</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#docker概述"><span class="nav-number">1.1.</span> <span class="nav-text">docker概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DveOps-开发、运维"><span class="nav-number">1.1.1.</span> <span class="nav-text">DveOps(开发、运维)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#docker的基本组成"><span class="nav-number">1.2.</span> <span class="nav-text">docker的基本组成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#docker安装"><span class="nav-number">1.3.</span> <span class="nav-text">docker安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#环境查看"><span class="nav-number">1.3.1.</span> <span class="nav-text">环境查看</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">1.3.2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hello-world"><span class="nav-number">1.3.3.</span> <span class="nav-text">Hello world</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看镜像"><span class="nav-number">1.3.4.</span> <span class="nav-text">查看镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#卸载docker"><span class="nav-number">1.3.5.</span> <span class="nav-text">卸载docker</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#腾讯云镜像加速"><span class="nav-number">1.3.6.</span> <span class="nav-text">腾讯云镜像加速</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#底层原理"><span class="nav-number">1.4.</span> <span class="nav-text">底层原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#docker镜像流程运行分析"><span class="nav-number">1.4.1.</span> <span class="nav-text">docker镜像流程运行分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#底层原理-1"><span class="nav-number">1.4.2.</span> <span class="nav-text">底层原理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#docker常用命令"><span class="nav-number">1.5.</span> <span class="nav-text">docker常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#帮助命令"><span class="nav-number">1.5.1.</span> <span class="nav-text">帮助命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#镜像命令"><span class="nav-number">1.5.2.</span> <span class="nav-text">镜像命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#容器命令"><span class="nav-number">1.5.3.</span> <span class="nav-text">容器命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用的其他命令"><span class="nav-number">1.5.4.</span> <span class="nav-text">常用的其他命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可视化"><span class="nav-number">1.5.5.</span> <span class="nav-text">可视化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#docker镜像理解"><span class="nav-number">1.6.</span> <span class="nav-text">docker镜像理解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#镜像是什么"><span class="nav-number">1.6.1.</span> <span class="nav-text">镜像是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#docker镜像加载原理"><span class="nav-number">1.6.2.</span> <span class="nav-text">docker镜像加载原理</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker"><span class="nav-number">1.</span> <span class="nav-text">Docker</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#docker概述"><span class="nav-number">1.1.</span> <span class="nav-text">docker概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DveOps-开发、运维"><span class="nav-number">1.1.1.</span> <span class="nav-text">DveOps(开发、运维)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#docker的基本组成"><span class="nav-number">1.2.</span> <span class="nav-text">docker的基本组成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#docker安装"><span class="nav-number">1.3.</span> <span class="nav-text">docker安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#环境查看"><span class="nav-number">1.3.1.</span> <span class="nav-text">环境查看</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">1.3.2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hello-world"><span class="nav-number">1.3.3.</span> <span class="nav-text">Hello world</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看镜像"><span class="nav-number">1.3.4.</span> <span class="nav-text">查看镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#卸载docker"><span class="nav-number">1.3.5.</span> <span class="nav-text">卸载docker</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#腾讯云镜像加速"><span class="nav-number">1.3.6.</span> <span class="nav-text">腾讯云镜像加速</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#底层原理"><span class="nav-number">1.4.</span> <span class="nav-text">底层原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#docker镜像流程运行分析"><span class="nav-number">1.4.1.</span> <span class="nav-text">docker镜像流程运行分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#底层原理-1"><span class="nav-number">1.4.2.</span> <span class="nav-text">底层原理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#docker常用命令"><span class="nav-number">1.5.</span> <span class="nav-text">docker常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#帮助命令"><span class="nav-number">1.5.1.</span> <span class="nav-text">帮助命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#镜像命令"><span class="nav-number">1.5.2.</span> <span class="nav-text">镜像命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#容器命令"><span class="nav-number">1.5.3.</span> <span class="nav-text">容器命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用的其他命令"><span class="nav-number">1.5.4.</span> <span class="nav-text">常用的其他命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可视化"><span class="nav-number">1.5.5.</span> <span class="nav-text">可视化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#docker镜像理解"><span class="nav-number">1.6.</span> <span class="nav-text">docker镜像理解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#镜像是什么"><span class="nav-number">1.6.1.</span> <span class="nav-text">镜像是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#docker镜像加载原理"><span class="nav-number">1.6.2.</span> <span class="nav-text">docker镜像加载原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#commit镜像"><span class="nav-number">1.6.3.</span> <span class="nav-text">commit镜像</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#容器数据卷"><span class="nav-number">1.7.</span> <span class="nav-text">容器数据卷</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据持久化"><span class="nav-number">1.7.0.1.</span> <span class="nav-text">数据持久化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用容器数据卷"><span class="nav-number">1.7.1.</span> <span class="nav-text">使用容器数据卷</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -871,7 +878,7 @@
 -->
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共57.8k字</span>
+  <span class="post-count">博客全站共57.9k字</span>
 </div>
 
 
