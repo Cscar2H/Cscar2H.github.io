@@ -118,7 +118,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/12/26/Docker/image-20210126170148931.png">
 <meta property="og:image" content="http://yoursite.com/2020/12/26/Docker/image-20210126175000282.png">
 <meta property="og:image" content="http://yoursite.com/2020/12/26/Docker/image-20210127215642631.png">
-<meta property="og:updated_time" content="2021-01-27T14:26:58.741Z">
+<meta property="og:updated_time" content="2021-01-28T01:25:47.230Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker">
 <meta name="twitter:description" content="Dockerdocker概述发布一个项目.(jar + (redis + MySQL + jdk + …) ),带上环境一起打包. 在服务器配置一个应用环境,配置麻烦,不能够跨平台.Windows -&amp;gt; Linux 开发打包部署上线,一套流程做完. docker解决以上问题. JRE — 多个应用(端口冲突) —原来都是交叉 隔离机制:    Docker核心思想.  容器化技术不是模拟一个">
@@ -432,7 +432,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  4.1k
+                  4.2k
                 </span>
               
 
@@ -629,7 +629,7 @@
 <p>docker容器:容器就是镜像运行起来提供的服务器</p>
 <h2 id="DockerFile命令"><a href="#DockerFile命令" class="headerlink" title="DockerFile命令"></a>DockerFile命令</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">FROM				# 基础镜像,一切从这里开始构建</span><br><span class="line">MAINTAINER			# 镜像是谁写的,姓名+邮箱</span><br><span class="line">RUN					# 镜像构建的时候需要运行的命令</span><br><span class="line">ADD					# 步骤: tomcat镜像,这个tomcat压缩包!添加内容</span><br><span class="line">WORKDIR				# 镜像的工作目录</span><br><span class="line">VOLUME				# 挂载目录</span><br><span class="line">EXPOSE				# 保留端口配置</span><br><span class="line">CMD					# 指定容器启动的命令,只有最后一个会生效,可被替代</span><br><span class="line">ENTRYPOINT			# 指定容器启动要运行的命令,可以追加命令</span><br><span class="line">ONBUILD				# 当构建一个被继承的 dockerfile 的时候,运行ONBUILD的指令</span><br><span class="line">COPY				# 类似ADD,将文件拷贝到镜像中</span><br><span class="line">ENV					# 构建的时候设置环境变量</span><br></pre></td></tr></table></figure>
 <p>构建自己的centos</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[root@VM-0-17-centos dockerfile]# cat mydockerfile</span><br><span class="line">FROM centos</span><br><span class="line">MAINTAINER cscar&lt;c@cscar.me&gt;</span><br><span class="line"></span><br><span class="line">ENV MYPATH /usr/local</span><br><span class="line">WORKDIR $MYPATH</span><br><span class="line"></span><br><span class="line">RUN yum -y install vim</span><br><span class="line">RUN yum -y install net-tools</span><br><span class="line"></span><br><span class="line">EXPOSE 80</span><br><span class="line"></span><br><span class="line">CMD echo $MYPATH</span><br><span class="line">CMD echo "---end---"</span><br><span class="line">CMD /bin/bash</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">[root@VM-0-17-centos dockerfile]# cat mydockerfile</span><br><span class="line">FROM centos</span><br><span class="line">MAINTAINER cscar&lt;c@cscar.me&gt;</span><br><span class="line"></span><br><span class="line">ENV MYPATH /usr/local</span><br><span class="line">WORKDIR $MYPATH</span><br><span class="line"></span><br><span class="line">RUN yum -y install vim</span><br><span class="line">RUN yum -y install net-tools</span><br><span class="line"></span><br><span class="line">EXPOSE 80</span><br><span class="line"></span><br><span class="line">CMD echo $MYPATH</span><br><span class="line">CMD echo "---end---"</span><br><span class="line">CMD /bin/bash</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 2.通过这个文件构建镜像</span><br><span class="line"><span class="meta">#</span> 命令 docker build -f dockerfile文件路径 -t 镜像名:[tag] .</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 3.测试运行</span><br><span class="line">[root@VM-0-17-centos ~]# docker run -it mycentos:1.0</span><br><span class="line">[root@3b283116bf5a local]# pwd</span><br><span class="line">/usr/local</span><br><span class="line">[root@3b283116bf5a local]#</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -896,7 +896,7 @@
 -->
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共58.3k字</span>
+  <span class="post-count">博客全站共58.4k字</span>
 </div>
 
 
