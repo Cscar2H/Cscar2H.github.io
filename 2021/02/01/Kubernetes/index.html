@@ -93,12 +93,12 @@
 
 
 
-<meta name="description" content="KubernetesK8S概述和特性K8S基本介绍K8S用于管理云平台容器化,使用K8S进行容器化部署. K8S有利于应用扩展. K8S的目标实施让部署容器化应用更加简洁和高效. K8S功能自动装箱基于容器对应用运行环境的资源配置要求,自动部署应用容器. 自我修复当容器失败时,会对容器进行重新部署和重新调度. 当容器未通过检查的时候,会关闭此容器,直到容器正常运行的时候才会对外开放服务.  如果某">
+<meta name="description" content="Kubernetes(一)K8S概述和特性K8S基本介绍K8S用于管理云平台容器化,使用K8S进行容器化部署. K8S有利于应用扩展. K8S的目标实施让部署容器化应用更加简洁和高效. K8S功能自动装箱基于容器对应用运行环境的资源配置要求,自动部署应用容器. 自我修复当容器失败时,会对容器进行重新部署和重新调度. 当容器未通过检查的时候,会关闭此容器,直到容器正常运行的时候才会对外开放服务.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kubernetes">
 <meta property="og:url" content="http://yoursite.com/2021/02/01/Kubernetes/index.html">
 <meta property="og:site_name" content="Cscar&#39;s Blog">
-<meta property="og:description" content="KubernetesK8S概述和特性K8S基本介绍K8S用于管理云平台容器化,使用K8S进行容器化部署. K8S有利于应用扩展. K8S的目标实施让部署容器化应用更加简洁和高效. K8S功能自动装箱基于容器对应用运行环境的资源配置要求,自动部署应用容器. 自我修复当容器失败时,会对容器进行重新部署和重新调度. 当容器未通过检查的时候,会关闭此容器,直到容器正常运行的时候才会对外开放服务.  如果某">
+<meta property="og:description" content="Kubernetes(一)K8S概述和特性K8S基本介绍K8S用于管理云平台容器化,使用K8S进行容器化部署. K8S有利于应用扩展. K8S的目标实施让部署容器化应用更加简洁和高效. K8S功能自动装箱基于容器对应用运行环境的资源配置要求,自动部署应用容器. 自我修复当容器失败时,会对容器进行重新部署和重新调度. 当容器未通过检查的时候,会关闭此容器,直到容器正常运行的时候才会对外开放服务.">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2021/02/01/Kubernetes/image-20210201115940923.png">
 <meta property="og:image" content="http://yoursite.com/2021/02/01/Kubernetes/image-20210201120108167.png">
@@ -110,10 +110,27 @@
 <meta property="og:image" content="http://yoursite.com/2021/02/01/Kubernetes/image-20210201164414281.png">
 <meta property="og:image" content="http://yoursite.com/2021/02/01/Kubernetes/image-20210201165328828.png">
 <meta property="og:image" content="http://yoursite.com/2021/02/01/Kubernetes/image-20210201174246734.png">
-<meta property="og:updated_time" content="2021-02-01T09:45:45.267Z">
+<meta property="og:image" content="http://yoursite.com/2021/02/01/Kubernetes/image-20210202092956877.png">
+<meta property="og:image" content="http://yoursite.com/2021/02/01/Kubernetes/image-20210202093232805.png">
+<meta property="og:image" content="http://yoursite.com/2021/02/01/Kubernetes/image-20210203135533106.png">
+<meta property="og:image" content="http://yoursite.com/2021/02/01/Kubernetes/image-20210203140616037.png">
+<meta property="og:image" content="http://yoursite.com/2021/02/01/Kubernetes/image-20210203145139188.png">
+<meta property="og:image" content="http://yoursite.com/2021/02/01/Kubernetes/image-20210203145802698.png">
+<meta property="og:image" content="http://yoursite.com/2021/02/01/Kubernetes/image-20210203145949565.png">
+<meta property="og:image" content="http://yoursite.com/2021/02/01/Kubernetes/image-20210203150752502.png">
+<meta property="og:image" content="http://yoursite.com/2021/02/01/Kubernetes/image-20210203152102752.png">
+<meta property="og:image" content="http://yoursite.com/2021/02/01/Kubernetes/image-20210203152302077.png">
+<meta property="og:image" content="http://yoursite.com/2021/02/01/Kubernetes/image-20210203152626955.png">
+<meta property="og:image" content="http://yoursite.com/2021/02/01/Kubernetes/image-20210203154150646.png">
+<meta property="og:image" content="http://yoursite.com/2021/02/01/Kubernetes/image-20210203160432370.png">
+<meta property="og:image" content="http://yoursite.com/2021/02/01/Kubernetes/image-20210203160748355.png">
+<meta property="og:image" content="http://yoursite.com/2021/02/01/Kubernetes/image-20210203161512460.png">
+<meta property="og:image" content="http://yoursite.com/2021/02/01/Kubernetes/image-20210203161749628.png">
+<meta property="og:image" content="http://yoursite.com/2021/02/01/Kubernetes/image-20210203172213630.png">
+<meta property="og:updated_time" content="2021-02-04T06:41:24.923Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kubernetes">
-<meta name="twitter:description" content="KubernetesK8S概述和特性K8S基本介绍K8S用于管理云平台容器化,使用K8S进行容器化部署. K8S有利于应用扩展. K8S的目标实施让部署容器化应用更加简洁和高效. K8S功能自动装箱基于容器对应用运行环境的资源配置要求,自动部署应用容器. 自我修复当容器失败时,会对容器进行重新部署和重新调度. 当容器未通过检查的时候,会关闭此容器,直到容器正常运行的时候才会对外开放服务.  如果某">
+<meta name="twitter:description" content="Kubernetes(一)K8S概述和特性K8S基本介绍K8S用于管理云平台容器化,使用K8S进行容器化部署. K8S有利于应用扩展. K8S的目标实施让部署容器化应用更加简洁和高效. K8S功能自动装箱基于容器对应用运行环境的资源配置要求,自动部署应用容器. 自我修复当容器失败时,会对容器进行重新部署和重新调度. 当容器未通过检查的时候,会关闭此容器,直到容器正常运行的时候才会对外开放服务.">
 <meta name="twitter:image" content="http://yoursite.com/2021/02/01/Kubernetes/image-20210201115940923.png">
 
 
@@ -402,7 +419,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.3k
+                  3.6k
                 </span>
               
 
@@ -418,7 +435,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  12
                 </span>
               
             </div>
@@ -439,7 +456,7 @@
       
 
       
-        <h1 id="Kubernetes"><a href="#Kubernetes" class="headerlink" title="Kubernetes"></a>Kubernetes</h1><h2 id="K8S概述和特性"><a href="#K8S概述和特性" class="headerlink" title="K8S概述和特性"></a>K8S概述和特性</h2><h3 id="K8S基本介绍"><a href="#K8S基本介绍" class="headerlink" title="K8S基本介绍"></a>K8S基本介绍</h3><p>K8S用于管理云平台容器化,使用K8S进行容器化部署.</p>
+        <h1 id="Kubernetes-一"><a href="#Kubernetes-一" class="headerlink" title="Kubernetes(一)"></a>Kubernetes(一)</h1><h2 id="K8S概述和特性"><a href="#K8S概述和特性" class="headerlink" title="K8S概述和特性"></a>K8S概述和特性</h2><h3 id="K8S基本介绍"><a href="#K8S基本介绍" class="headerlink" title="K8S基本介绍"></a>K8S基本介绍</h3><p>K8S用于管理云平台容器化,使用K8S进行容器化部署.</p>
 <p>K8S有利于应用扩展.</p>
 <p>K8S的目标实施让部署容器化应用更加简洁和高效.</p>
 <h3 id="K8S功能"><a href="#K8S功能" class="headerlink" title="K8S功能"></a>K8S功能</h3><h4 id="自动装箱"><a href="#自动装箱" class="headerlink" title="自动装箱"></a>自动装箱</h4><p>基于容器对应用运行环境的资源配置要求,自动部署应用容器.</p>
@@ -548,7 +565,152 @@
 <li>同一个namespace所有资源不能重复</li>
 <li>不同的namespace可以资源名重复</li>
 </ul>
-<h3 id="API"><a href="#API" class="headerlink" title="API"></a>API</h3>
+<h3 id="API"><a href="#API" class="headerlink" title="API"></a>API</h3><p>我们通过K8S的API来操作整个集群</p>
+<p>同时我们可以通过kubectl、ui、curl最终发送http + json/yaml 方式的请求给API Server,然后控制整个K8S集群,K8S中所有的资源对象都可以采用 yaml 或 json 格式的文件定义或描述.</p>
+<p>例: 使用yaml部署一个nginx的pod</p>
+<p><img src="/2021/02/01/Kubernetes/image-20210202092956877.png" alt="image-20210202092956877"></p>
+<h2 id="完整流程"><a href="#完整流程" class="headerlink" title="完整流程"></a>完整流程</h2><p><img src="/2021/02/01/Kubernetes/image-20210202093232805.png" alt="image-20210202093232805"></p>
+<p>通过kubectl提交一个创建RC(Replication Controller) 的请求,该请求通过APIserver写入etcd</p>
+<p>此时controller manager 通过API Server的监听资源变化的接口监听到此RC事件</p>
+<p>分析之后,发现当前集群中还没有它所对应的pod实例</p>
+<p>于是根据RC里的Pod模板定义一个生产Pod对象,通过APIServer写入etcd</p>
+<p>此事件被scheduler发现,它立即执行一个复杂的调度流程,为这个新的Pod选定一个落户的Node,然后通过API Server将这一结果写入到etcd中.</p>
+<p>目标Node上运行的kubelet进程通过API Server监测到这个“新的Pod”,并按照它的定义,启动该pod并负责到底,直到这个Pod的生命周期结束.</p>
+<p>随后,我们通过kubectl提交一个新的映射到该Pod的Service的创建请求</p>
+<p>ControllerManager通过Label标签查询到关联的Pod实例,然后生成service的endpoints信息,并通过APIServer写入到etcd中.</p>
+<p>接下来,所有node上运行的proxy进程通过APIserver查询并监听service对象与其对应的endpoints信息,建立一个软件方式的负载均衡器来实现service访问到后端Pod的流量转发功能.</p>
+<h2 id="核心技术Pod"><a href="#核心技术Pod" class="headerlink" title="核心技术Pod"></a>核心技术Pod</h2><h3 id="Pod概述"><a href="#Pod概述" class="headerlink" title="Pod概述"></a>Pod概述</h3><p>pod是K8S可以创建和管理的最小单元,是资源对象模型中由用户创建或部署的最小资源对象模型,也是在K8S上运行容器化应用的资源对象,其他的资源对象都是用来支撑或者扩展Pod对象功能的.</p>
+<p>比如: </p>
+<p>控制器对象 是用来管理Pod对象的.</p>
+<p>Service或者ingress资源对象 是用来暴露Pod引用对象的.</p>
+<p>PersistentVolume资源对象 是用来为Pod 提供存储的</p>
+<p>K8S不会直接处理容器,而是通过Pod.Pod 是由一个或者多个容器组成的.</p>
+<p>Pod是K8S最重要的概念,每个Pod都有一个特殊的被称为“根容器”的pause容器.</p>
+<p>pause容器对应的镜像属于K8S平台的一部分,除了pause容器,每个pod还包含一个或者多个紧密相关的用户业务容器.</p>
+<p><img src="/2021/02/01/Kubernetes/image-20210203135533106.png" alt="image-20210203135533106" style="zoom:50%;"></p>
+<h3 id="Pod的基本概念"><a href="#Pod的基本概念" class="headerlink" title="Pod的基本概念"></a>Pod的基本概念</h3><ul>
+<li>最小的部署单元</li>
+<li>Pod里面由一个或者多个容器组成[一组容器的集合]</li>
+<li>一个Pod中的容器 是共享网络 命名空间</li>
+<li>Pod是 短暂的</li>
+<li>每个Pod包含一个或多个紧密相关的用户业务容器</li>
+</ul>
+<h3 id="Pod存在的意义"><a href="#Pod存在的意义" class="headerlink" title="Pod存在的意义"></a>Pod存在的意义</h3><ul>
+<li>创建容器使用的是docker,一个docker对应一个容器,一个容器运行一个应用进程.</li>
+<li>Pod是多进程设计,运用多个应用程序,也就是一个Pod里面有多个容器,而一个容器里面运行一个应用程序.</li>
+</ul>
+<p><img src="/2021/02/01/Kubernetes/image-20210203140616037.png" alt="image-20210203140616037" style="zoom:50%;"></p>
+<ul>
+<li>Pod的存在就是为了亲密性应用.<ul>
+<li>两个应用进行交互</li>
+<li>两个网络之间调用 [通过127.0.0.1 或者 socket]</li>
+<li>两个应用之间需要频繁调用</li>
+</ul>
+</li>
+</ul>
+<p>Pod是在K8S集群中运行部署应用或服务的最小单元,它是可以支持多容器的.Pod的设计理念是支持多个容器在Pod中共享 网络 和文件系统,可以通过 进程通信 和 文件共享这种简单高效的方式组合完成服务.同时Pod对多容器的支持是K8S中最基础的设计理念.</p>
+<p>在生产环境中,通常各自开发构建自己的 容器镜像,在部署的时候组合成一个微服务对外提供服务.</p>
+<p>Pod是K8S集群中所有业务类型的基础,可以把pod看作是运行在K8S上集群的小机器人,不同类型的业务就需要不同类型的小机器人去执行.</p>
+<p>目前K8S的业务可以分为以下几种</p>
+<ul>
+<li>长期伺服型: long-running</li>
+<li>批处理型: batch</li>
+<li>节点后台支撑型: node-daemon</li>
+<li>有状态应用型: stateful application</li>
+</ul>
+<p>上述几种类型,分别对应小机器人控制器为: deployment、job、daemonSet和statefulSet</p>
+<h3 id="Pod的实现机制"><a href="#Pod的实现机制" class="headerlink" title="Pod的实现机制"></a>Pod的实现机制</h3><p>主要有两大机制</p>
+<p>网络共享</p>
+<p>文件存储</p>
+<h4 id="共享网络"><a href="#共享网络" class="headerlink" title="共享网络"></a>共享网络</h4><p>容器之间是互相隔离的,一般是通过 <strong>namespace</strong> 和 <strong>group </strong>进行隔离,Pod里面的容器如何实现通信?</p>
+<p>​    首先需要满足在同一个 <strong>namespace</strong> 之间</p>
+<p>关于Pod的实现原理,首先会在Pod中创建一个根容器:pause容器.</p>
+<p>然后在我们创建业务容器 [nginx和redis] 的时候,会把它添加到 info 容器中.</p>
+<p>而在 info容器中 会独立 ip地址、mac地址、prot信息.然后实现网络共享.</p>
+<p><img src="/2021/02/01/Kubernetes/image-20210203145139188.png" alt="image-20210203145139188" style="zoom:70%;"></p>
+<p>同pause容器,把其他业务容器加入到 info 容器中,让所有业务容器在同一个命名空间中,实现网络共享.</p>
+<h4 id="共享存储"><a href="#共享存储" class="headerlink" title="共享存储"></a>共享存储</h4><p>Pod持久化数据,专门存储到某个地方中.</p>
+<p><img src="/2021/02/01/Kubernetes/image-20210203145802698.png" alt="image-20210203145802698" style="zoom:70%;"></p>
+<p>使用 volume 容器数据卷进行共享储存</p>
+<p><img src="/2021/02/01/Kubernetes/image-20210203145949565.png" alt="image-20210203145949565" style="zoom:80%;"></p>
+<h4 id="Pod镜像拉取策略"><a href="#Pod镜像拉取策略" class="headerlink" title="Pod镜像拉取策略"></a>Pod镜像拉取策略</h4><p>拉取策略就是 <code>imagePullPolicy</code></p>
+<p><img src="/2021/02/01/Kubernetes/image-20210203150752502.png" alt="image-20210203150752502" style="zoom:50%;"></p>
+<p>拉取策略主要分为几种:</p>
+<ul>
+<li><code>IfNotPresent</code>: 默认值,镜像在宿主机上 不存在,才拉取.</li>
+<li><code>Always</code>: 每次创建Pod都会重新拉取一次镜像.</li>
+<li><code>Never</code>: Pod永远不会主动拉取这个镜像.</li>
+</ul>
+<h4 id="Pod资源限制"><a href="#Pod资源限制" class="headerlink" title="Pod资源限制"></a>Pod资源限制</h4><p>也就是我们Pod在进行调度的时候,可以对调度的资源进行限制.例如我们限制Pod调度的资源是2c4g,那么在调度对应的node节点时,只会占用对应的资源.对于不满足资源的节点,将不会进行调度.</p>
+<p><img src="/2021/02/01/Kubernetes/image-20210203152102752.png" alt="image-20210203152102752" style="zoom:50%;"></p>
+<p>资源限制:</p>
+<p><img src="/2021/02/01/Kubernetes/image-20210203152302077.png" alt="image-20210203152302077" style="zoom:70%;"></p>
+<p>这里分了两个部分.</p>
+<ul>
+<li>request: 表示调度所需要的资源</li>
+<li>limits: 表示最大所占用的资源</li>
+</ul>
+<h4 id="Pod重启机制"><a href="#Pod重启机制" class="headerlink" title="Pod重启机制"></a>Pod重启机制</h4><p>因为Pod包含了很多个容器,假设某个容器出现问题了,那么会触发Pod重启机制.</p>
+<p><img src="/2021/02/01/Kubernetes/image-20210203152626955.png" alt="image-20210203152626955" style="zoom:70%;"></p>
+<p>重启策略主要分为3种:</p>
+<ul>
+<li><code>Always</code>: 当容器重启退出后,总是重启容器,默认策略.[nginx等,需要不断提供服务]</li>
+<li><code>OnFailure</code>: 当容器异常退出(退出状态码 !0)时,才重启容器.</li>
+<li><code>Never</code>: 当容器终止退出时,从不重启容器.[批量任务]</li>
+</ul>
+<h4 id="Pod健康检查"><a href="#Pod健康检查" class="headerlink" title="Pod健康检查"></a>Pod健康检查</h4><p>通过容器检查,原来我们使用下面的命令来检查</p>
+<p><code>kubectl get pod</code></p>
+<p>但是有的时候,程序可能出现了java堆栈内存溢出,程序还在运行,但是不能对外提供服务了.这个时候不能通过容器检查来判断服务是否可用.</p>
+<p>使用应用层面的检查</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 存活检查,如果检查失败,将杀死容器.根据pod的restartPolicy[重启策略]来操作</span><br><span class="line">livenessProbe</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 就绪检查,如果检查失败,k8s会把Pod从service endpoints中剔除</span><br><span class="line">readinessProbe</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/02/01/Kubernetes/image-20210203154150646.png" alt="image-20210203154150646" style="zoom:70%;"></p>
+<p>Probe支持以下三种检查方式</p>
+<ul>
+<li>http Get: 发送http请求,返回200 - 400范围的状态码为成功.</li>
+<li>exec: 执行shell命令状态码返回是0为成功.</li>
+<li>tcpSocket:发起TCP Socket建立成功</li>
+</ul>
+<h4 id="Pod调度策略"><a href="#Pod调度策略" class="headerlink" title="Pod调度策略"></a>Pod调度策略</h4><h5 id="创建Pod流程"><a href="#创建Pod流程" class="headerlink" title="创建Pod流程"></a>创建Pod流程</h5><ul>
+<li>首先创建一个Pod,然后创建一个API Server 和 Etcd[把创建出来的信息储存在Etcd中]</li>
+<li>然后创建 Scheduler,监控API Server是否有新的Pod.如果有的话,会通过调度算法,把Pod调度到某个node上.</li>
+<li>在node节点,会通过 <code>kubelet --apiserver</code>读取etcd 拿到分配在当前node节点上的pod,然后通过docker创建容器.</li>
+</ul>
+<p><img src="/2021/02/01/Kubernetes/image-20210203160432370.png" alt="image-20210203160432370" style="zoom:80%;"></p>
+<h4 id="影响Pod调度的属性"><a href="#影响Pod调度的属性" class="headerlink" title="影响Pod调度的属性"></a>影响Pod调度的属性</h4><p>Pod资源限制会对Pod的调度有影响.</p>
+<p><strong>根据request找到足够的node节点进行调度</strong></p>
+<p><img src="/2021/02/01/Kubernetes/image-20210203160748355.png" alt="image-20210203160748355" style="zoom:80%;"></p>
+<p><strong>节点选择器标签影响pod调度</strong></p>
+<p><img src="/2021/02/01/Kubernetes/image-20210203161512460.png" alt="image-20210203161512460" style="zoom:80%;"></p>
+<p>关于节点选择器,其实就是有两个环境,然后环境之间所用的配置资源不同.</p>
+<p><img src="/2021/02/01/Kubernetes/image-20210203161749628.png" alt="image-20210203161749628" style="zoom:50%;"></p>
+<p>我们可以通过以下命令,给节点新增标签,然后节点选择器就会根据标签进行调度</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl label node node1 env_role=prod</span><br></pre></td></tr></table></figure>
+<h4 id="节点亲和性"><a href="#节点亲和性" class="headerlink" title="节点亲和性"></a>节点亲和性</h4><p>节点亲和性 <code>nodeAffinity</code>和 之前的<code>nodeSelector</code>基本一样,根据节点上的标签约束来决定Pod调度到哪个节点上.</p>
+<ul>
+<li>硬亲和性: 约束条件必须满足</li>
+<li>软亲和性: 尝试满足,不保证</li>
+</ul>
+<p><img src="/2021/02/01/Kubernetes/image-20210203172213630.png" alt="image-20210203172213630" style="zoom:67%;"></p>
+<p>支持常用操作符: in、NotIn、Gt、Lt、DoesNotExists</p>
+<p>反亲和性:就是和亲和性刚刚相反.如 NotIn、DoesNotExists等</p>
+<h2 id="污点和污点容忍"><a href="#污点和污点容忍" class="headerlink" title="污点和污点容忍"></a>污点和污点容忍</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>nodeSelector 和 NodeAffinity,都是prod调度到某个节点上的,属于pod属性,是在调度的时候实现的.</p>
+<p>Taint污点:节点不做普通分配调度,是节点属性.</p>
+<h3 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h3><p>专用节点[限制ip]</p>
+<p>配置特定硬件的节点[固态硬盘]</p>
+<p>基于Taint驱逐[在node1不放,在node2放]</p>
+<h3 id="查看污点情况"><a href="#查看污点情况" class="headerlink" title="查看污点情况"></a>查看污点情况</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl describe node k8smaster | grep Taint</span><br></pre></td></tr></table></figure>
+<p>污点值有三个</p>
+<ul>
+<li>NoSchedule: 一定不被调度.</li>
+<li>PreferNoSchedule: 尽量不被调度.</li>
+<li>NoExecute: 不会调度,并且还会驱逐node已有的Pod</li>
+</ul>
+<h3 id="末节点添加污点"><a href="#末节点添加污点" class="headerlink" title="末节点添加污点"></a>末节点添加污点</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl taint node [node] key=value:污点的三个值</span><br></pre></td></tr></table></figure>
+<p>例如:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl taint node k8snode1 env_role=yes:NoSchedule</span><br></pre></td></tr></table></figure>
+<h3 id="删除污点"><a href="#删除污点" class="headerlink" title="删除污点"></a>删除污点</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl taint node k8snode1 env_role:NoSchedule-</span><br></pre></td></tr></table></figure>
+<h3 id="污点容忍"><a href="#污点容忍" class="headerlink" title="污点容忍"></a>污点容忍</h3><p>污点容忍就是某个node可能被调度也可能不被调度.</p>
+
       
     </div>
     
@@ -765,7 +927,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Kubernetes"><span class="nav-number">1.</span> <span class="nav-text">Kubernetes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#K8S概述和特性"><span class="nav-number">1.1.</span> <span class="nav-text">K8S概述和特性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#K8S基本介绍"><span class="nav-number">1.1.1.</span> <span class="nav-text">K8S基本介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#K8S功能"><span class="nav-number">1.1.2.</span> <span class="nav-text">K8S功能</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#自动装箱"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">自动装箱</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自我修复"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">自我修复</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#水平扩展"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">水平扩展</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#服务发现"><span class="nav-number">1.1.2.4.</span> <span class="nav-text">服务发现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#滚动更新"><span class="nav-number">1.1.2.5.</span> <span class="nav-text">滚动更新</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#版本回退"><span class="nav-number">1.1.2.6.</span> <span class="nav-text">版本回退</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#密钥和配置管理"><span class="nav-number">1.1.2.7.</span> <span class="nav-text">密钥和配置管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#存储编排"><span class="nav-number">1.1.2.8.</span> <span class="nav-text">存储编排</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#批量处理"><span class="nav-number">1.1.2.9.</span> <span class="nav-text">批量处理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#K8S架构组件"><span class="nav-number">1.2.</span> <span class="nav-text">K8S架构组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#完整架构图"><span class="nav-number">1.2.1.</span> <span class="nav-text">完整架构图</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#架构细节"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">架构细节</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#K8S核心概念"><span class="nav-number">1.3.</span> <span class="nav-text">K8S核心概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Pod"><span class="nav-number">1.3.1.</span> <span class="nav-text">Pod</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Volume"><span class="nav-number">1.3.2.</span> <span class="nav-text">Volume</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Controller"><span class="nav-number">1.3.3.</span> <span class="nav-text">Controller</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deployment"><span class="nav-number">1.3.4.</span> <span class="nav-text">Deployment</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Service"><span class="nav-number">1.3.5.</span> <span class="nav-text">Service</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#label"><span class="nav-number">1.3.6.</span> <span class="nav-text">label</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Namespace"><span class="nav-number">1.3.7.</span> <span class="nav-text">Namespace</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#API"><span class="nav-number">1.3.8.</span> <span class="nav-text">API</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Kubernetes-一"><span class="nav-number">1.</span> <span class="nav-text">Kubernetes(一)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#K8S概述和特性"><span class="nav-number">1.1.</span> <span class="nav-text">K8S概述和特性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#K8S基本介绍"><span class="nav-number">1.1.1.</span> <span class="nav-text">K8S基本介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#K8S功能"><span class="nav-number">1.1.2.</span> <span class="nav-text">K8S功能</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#自动装箱"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">自动装箱</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自我修复"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">自我修复</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#水平扩展"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">水平扩展</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#服务发现"><span class="nav-number">1.1.2.4.</span> <span class="nav-text">服务发现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#滚动更新"><span class="nav-number">1.1.2.5.</span> <span class="nav-text">滚动更新</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#版本回退"><span class="nav-number">1.1.2.6.</span> <span class="nav-text">版本回退</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#密钥和配置管理"><span class="nav-number">1.1.2.7.</span> <span class="nav-text">密钥和配置管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#存储编排"><span class="nav-number">1.1.2.8.</span> <span class="nav-text">存储编排</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#批量处理"><span class="nav-number">1.1.2.9.</span> <span class="nav-text">批量处理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#K8S架构组件"><span class="nav-number">1.2.</span> <span class="nav-text">K8S架构组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#完整架构图"><span class="nav-number">1.2.1.</span> <span class="nav-text">完整架构图</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#架构细节"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">架构细节</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#K8S核心概念"><span class="nav-number">1.3.</span> <span class="nav-text">K8S核心概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Pod"><span class="nav-number">1.3.1.</span> <span class="nav-text">Pod</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Volume"><span class="nav-number">1.3.2.</span> <span class="nav-text">Volume</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Controller"><span class="nav-number">1.3.3.</span> <span class="nav-text">Controller</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deployment"><span class="nav-number">1.3.4.</span> <span class="nav-text">Deployment</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Service"><span class="nav-number">1.3.5.</span> <span class="nav-text">Service</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#label"><span class="nav-number">1.3.6.</span> <span class="nav-text">label</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Namespace"><span class="nav-number">1.3.7.</span> <span class="nav-text">Namespace</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#API"><span class="nav-number">1.3.8.</span> <span class="nav-text">API</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#完整流程"><span class="nav-number">1.4.</span> <span class="nav-text">完整流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#核心技术Pod"><span class="nav-number">1.5.</span> <span class="nav-text">核心技术Pod</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Pod概述"><span class="nav-number">1.5.1.</span> <span class="nav-text">Pod概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pod的基本概念"><span class="nav-number">1.5.2.</span> <span class="nav-text">Pod的基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pod存在的意义"><span class="nav-number">1.5.3.</span> <span class="nav-text">Pod存在的意义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pod的实现机制"><span class="nav-number">1.5.4.</span> <span class="nav-text">Pod的实现机制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#共享网络"><span class="nav-number">1.5.4.1.</span> <span class="nav-text">共享网络</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#共享存储"><span class="nav-number">1.5.4.2.</span> <span class="nav-text">共享存储</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Pod镜像拉取策略"><span class="nav-number">1.5.4.3.</span> <span class="nav-text">Pod镜像拉取策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Pod资源限制"><span class="nav-number">1.5.4.4.</span> <span class="nav-text">Pod资源限制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Pod重启机制"><span class="nav-number">1.5.4.5.</span> <span class="nav-text">Pod重启机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Pod健康检查"><span class="nav-number">1.5.4.6.</span> <span class="nav-text">Pod健康检查</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Pod调度策略"><span class="nav-number">1.5.4.7.</span> <span class="nav-text">Pod调度策略</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#创建Pod流程"><span class="nav-number">1.5.4.7.1.</span> <span class="nav-text">创建Pod流程</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#影响Pod调度的属性"><span class="nav-number">1.5.4.8.</span> <span class="nav-text">影响Pod调度的属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#节点亲和性"><span class="nav-number">1.5.4.9.</span> <span class="nav-text">节点亲和性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#污点和污点容忍"><span class="nav-number">1.6.</span> <span class="nav-text">污点和污点容忍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-number">1.6.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#场景"><span class="nav-number">1.6.2.</span> <span class="nav-text">场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看污点情况"><span class="nav-number">1.6.3.</span> <span class="nav-text">查看污点情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#末节点添加污点"><span class="nav-number">1.6.4.</span> <span class="nav-text">末节点添加污点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除污点"><span class="nav-number">1.6.5.</span> <span class="nav-text">删除污点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#污点容忍"><span class="nav-number">1.6.6.</span> <span class="nav-text">污点容忍</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -808,7 +970,7 @@
 -->
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共60k字</span>
+  <span class="post-count">博客全站共62.3k字</span>
 </div>
 
 
